@@ -50,7 +50,7 @@ const aiSkills: Skill[] = [
   { name: "Fastapi", level: 80 },
   {name: "Langgraph", level: 70},
   { name: "Whisper API", level: 65 },
-  { name: "TTS", level: 70 },
+
 ];
 
 const otherSkills: Skill[] = [
