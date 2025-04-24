@@ -32,10 +32,9 @@ const projects: Project[] = [
       "Gemini API",
       "TypeScript",
     ],
-    image:
-      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
+    image: "./chatbot.png",
+    demoUrl: "https://prince-personalized-chatbot.vercel.app",
+    codeUrl: "https://github.com/princepal9120/PersonalizedChatbot",
   },
   {
     title: "EcoQuest",
@@ -49,10 +48,44 @@ const projects: Project[] = [
       "Gemini Vision API",
       "Google Maps API",
     ],
-    image:
-      "https://images.pexels.com/photos/7147462/pexels-photo-7147462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
+    image: "./ecoquest.png",
+    demoUrl: "https://ecoquest-topaz.vercel.app/",
+    codeUrl: "https://github.com/prncepal9120/ecoquest",
+  },
+
+  {
+    title: "Learnify",
+    description:
+      "Scalable LMS platform enabling seamless course creation and enrollment for 500+ users.",
+    type: "fullstack",
+    technologies: [
+      "React.js",
+      "React Query",
+      "MongoDB",
+      "Express.js",
+      "Node.js",
+    ],
+    image: "./learnify.png",
+    demoUrl: "https://learnifywithai.onrender.com",
+    codeUrl: "https://github.com/princepal9120/Learnify",
+  },
+
+  {
+    title: "JobConnect Portal",
+    description:
+      "A full-stack job portal enabling recruiters and candidates to post, search, and apply for jobs with a real-time dashboard for analytics and notifications.",
+    type: "fullstack",
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "Redux",
+      "JWT Authentication",
+    ],
+    image: "./jobportal.png",
+    demoUrl: "https://talentbridge-1yxp.onrender.com/",
+    codeUrl: "https://github.com/princepal9120/TalentBridge",
   },
   {
     title: "LinkedIn Post Generator",
@@ -68,8 +101,36 @@ const projects: Project[] = [
     ],
     image:
       "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "https://github.com/prncepal9120",
+    demoUrl: "https://github.com/princepal9120/linkedin_post_generator",
+    codeUrl: "https://github.com/princepal9120/linkedin_post_generator",
+  },
+
+  {
+    title: "EmailGenie",
+    description:
+      "An AI-powered email template generator that creates personalized outreach messages based on user queries using LangChain and Gmail API.",
+    type: "ai",
+    technologies: ["Typescript", "LangChain", "Gmail API", "NextJs"],
+    image: "./email.png",
+    demoUrl: "https://email-generator-eta.vercel.app",
+    codeUrl: "https://github.com/princepal9120/email-generator",
+  },
+  {
+    title: "CricketChat Live",
+    description:
+      "A real-time chat application for cricket enthusiasts, featuring topic rooms, live scoring updates, and user profiles—built with MERN and Socket.io.",
+    type: "fullstack",
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "Socket.io",
+      "WebSockets",
+    ],
+    image: "./cricket_chat.png",
+    demoUrl: "https://cricket-chat-room-client.vercel.app",
+    codeUrl: "https://github.com/princepal9120/cricket_chat_room_client",
   },
   {
     title: "Splitmate",
@@ -85,7 +146,7 @@ const projects: Project[] = [
     ],
     image:
       "https://images.pexels.com/photos/4386326/pexels-photo-4386326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
+    demoUrl: "https://www.youtube.com/watch?v=sVtEbq94MfM",
     codeUrl: "https://github.com/princepal9120/Splitmate",
   },
   {
@@ -100,11 +161,46 @@ const projects: Project[] = [
       "Async Storage",
       "Expo Notifications",
     ],
-    image:
-      "https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "./medialarm.jpg",
     demoUrl: "#",
     codeUrl: "https://github.com/princepal9120/Medialarm",
   },
+  {
+    title: "AI Agent Chatbot",
+    description:
+      "An intelligent real-time chatbot application leveraging LangGraph and LangChain agents for executing multi-step tasks autonomously. Integrates Groq for ultra-fast inference and Streamlit for an interactive UI, enabling dynamic conversations and agent-based task completion.",
+    type: "ai",
+    technologies: [
+      "LangGraph",
+      "Groq",
+      "LangChain",
+      "Streamlit",
+      "Python"
+    ],
+    image:
+      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "https://github.com/princepal9120/agent_chatbot"
+  },
+  
+  {
+    title: "Service Checkout Platform",
+    description:
+      "A dynamic web application allowing users to browse premium services (fitness, wellness, health, etc.), add them to a cart, and proceed to real-time checkout. Built with React and Zustand for state management and seamless user experience.",
+    type: "fullstack",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Zustand",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Axios",
+    ],
+    image: "./service.png",
+    demoUrl: "https://service-basket-express.vercel.app/",
+    codeUrl: "https://github.com/prncepal9120/service-basket",
+  },
+
   {
     title: "CabRide",
     description:
@@ -119,25 +215,26 @@ const projects: Project[] = [
     ],
     image:
       "https://images.pexels.com/photos/1797542/pexels-photo-1797542.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
+    demoUrl: "",
     codeUrl: "https://github.com/CabRide",
   },
   {
-    title: "Learnify",
+    title: "PDFInfo Extractor",
     description:
-      "Scalable LMS platform enabling seamless course creation and enrollment for 500+ users.",
-    type: "fullstack",
+      "A web-based utility allowing users to upload PDFs, extract key personal and contact details (name, address, phone, email, role) via pdf-lib and regex/NLP, and present them in a clean, responsive interface.",
+    type: "ai",
     technologies: [
-      "React.js",
-      "React Query",
-      "MongoDB",
-      "Express.js",
+      "React",
       "Node.js",
+      "Express.js",
+      "pdf-lib",
+      "JavaScript RegExp",
+      "Axios",
     ],
     image:
-      "https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "https://github.com/princepal9120/Learnify",
+      "https://images.pexels.com/photos/30268252/pexels-photo-30268252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "https://github.com/prncepal9120/pdf-data-extractor",
+    codeUrl: "https://github.com/prncepal9120/pdf-data-extractor",
   },
 ];
 export default function ProjectsSection() {
