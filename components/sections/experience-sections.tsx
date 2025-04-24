@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Briefcase, Code, Smartphone, BrainCircuit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Experience {
   title: string;
@@ -21,55 +22,77 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    title: "Freelance Developer",
-    role: "Full Stack Developer",
-    period: "2023 - Present",
+    title: "Blackbytt",
+    role: "Software Development Intern",
+    period: "Oct 2024 - Dec 2024",
     description: [
-      "Built SaaS platforms with React, Next.js, and various backend technologies",
-      "Developed a job portal with user authentication and posting features",
-      "Created an anonymous messaging application with focus on privacy",
-      "Implemented responsive designs using Tailwind CSS and component libraries"
+      "Contributed to improving UI of web applications, enhancing overall user experience",
+      "Implemented frontend form validation, reducing backend data validation load",
+      "Utilized local storage to optimize API performance for faster data retrieval",
+      "Worked on schema design using MongoDB and Mongoose for efficient data storage",
+      "Gained experience in Agile teams to deploy production-ready features",
     ],
-    skills: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind", "Shadcn UI"],
+    skills: ["React.js", "Node.js", "Express", "MongoDB", "Ant Design"],
     type: "fullstack",
-    icon: <Code className="h-5 w-5" />
+    icon: <Code className="h-5 w-5" />,
   },
   {
-    title: "Mobile App Projects",
-    role: "Mobile Developer",
-    period: "2023 - 2024",
+    title: "Imocha",
+    role: "Problem Setter (Freelancer)",
+    period: "Aug 2022 - Apr 2023",
     description: [
-      "Developed React Native applications for event tracking and reminders",
-      "Implemented cross-platform UI components with Tailwind for React Native",
-      "Created offline-first applications with local storage synchronization",
-      "Integrated push notifications and deep linking functionality"
+      "Created 50+ algorithmic questions focused on data structures and algorithms",
+      "Developed challenging problems for technical assessments and interviews",
+      "Improved technical test quality and reduced candidate screening time by 25%",
+      "Utilized debugging techniques to ensure high-quality assessment content",
     ],
-    skills: ["React Native", "Expo", "Redux Toolkit", "Tailwind RN"],
-    type: "mobile",
-    icon: <Smartphone className="h-5 w-5" />
+    skills: ["DSA", "Problem Solving", "Debugging", "Technical Assessments"],
+    type: "fullstack",
+    icon: <Code className="h-5 w-5" />,
   },
   {
-    title: "Gen AI Projects",
+    title: "AI Engineering Projects",
     role: "AI Developer",
-    period: "2024 - Present",
+    period: "2024 - 2025",
     description: [
-      "Built InterviewAI, a form builder powered by Gemini API with speech-to-text capabilities",
-      "Developed AI agents for handling client queries and support",
-      "Integrated AI capabilities into user interfaces for enhanced experiences",
-      "Created natural language processing solutions for content generation"
+      "Built RAG-Chatbot using LangChain, vector stores, and LLM function-calling",
+      "Developed LinkedIn Post Generator with few-shot learning using Meta Llama",
+      "Integrated vector store (AstraDB) for knowledge retrieval, enhancing accuracy by 30%",
+      "Applied prompt engineering and tool use strategies for better personalization",
     ],
-    skills: ["Gemini API", "OpenAI", "Langchain", "STT/TTS", "Python"],
+    skills: [
+      "LangChain",
+      "RAG",
+      "Vector Stores",
+      "Prompt Engineering",
+      "Llama",
+    ],
     type: "ai",
-    icon: <BrainCircuit className="h-5 w-5" />
+    icon: <BrainCircuit className="h-5 w-5" />,
+  },
+  {
+    title: "Mobile Development Projects",
+    role: "Mobile Developer",
+    period: "2024 - 2025",
+    description: [
+      "Engineered Splitmate: expense tracking app with group management for 300+ users",
+      "Developed Medialarm: medicine tracker with personalized reminders and biometric auth",
+      "Created CabRide: ride-hailing app with real-time location tracking",
+      "Implemented offline persistence and cross-device synchronization features",
+    ],
+    skills: ["React Native", "Expo", "Firebase", "Zustand", "Google Maps API"],
+    type: "mobile",
+    icon: <Smartphone className="h-5 w-5" />,
   },
 ];
 
 export default function ExperienceSection() {
   const [activeTab, setActiveTab] = useState("all");
 
-  const filteredExperiences = activeTab === "all" 
-    ? experiences 
-    : experiences.filter(exp => exp.type === activeTab);
+  const filteredExperiences =
+    activeTab === "all"
+      ? experiences
+      : experiences.filter((exp) => exp.type === activeTab);
 
   return (
     <section id="experience" className="py-20 bg-muted/20">
@@ -79,7 +102,9 @@ export default function ExperienceSection() {
             <Briefcase className="h-6 w-6 text-primary" />
             <h2 className="text-3xl font-bold">Experience</h2>
           </div>
-          <p className="text-muted-foreground mb-8">My professional journey and projects</p>
+          <p className="text-muted-foreground mb-8">
+            My professional journey and projects
+          </p>
         </FadeIn>
 
         <Tabs
@@ -89,10 +114,18 @@ export default function ExperienceSection() {
           className="w-full"
         >
           <TabsList className="mb-8 flex flex-wrap h-auto p-1">
-            <TabsTrigger value="all" className="flex-1">All</TabsTrigger>
-            <TabsTrigger value="fullstack" className="flex-1">Full Stack</TabsTrigger>
-            <TabsTrigger value="mobile" className="flex-1">Mobile</TabsTrigger>
-            <TabsTrigger value="ai" className="flex-1">Gen AI</TabsTrigger>
+            <TabsTrigger value="all" className="flex-1">
+              All
+            </TabsTrigger>
+            <TabsTrigger value="fullstack" className="flex-1">
+              Full Stack
+            </TabsTrigger>
+            <TabsTrigger value="mobile" className="flex-1">
+              Mobile
+            </TabsTrigger>
+            <TabsTrigger value="ai" className="flex-1">
+              Gen AI
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value={activeTab} className="mt-6 space-y-6">
@@ -106,14 +139,19 @@ export default function ExperienceSection() {
                           {exp.icon}
                           <h3 className="text-xl font-semibold">{exp.title}</h3>
                         </div>
-                        <p className="text-muted-foreground">{exp.role} | {exp.period}</p>
+                        <p className="text-muted-foreground">
+                          {exp.role} | {exp.period}
+                        </p>
                       </div>
                       <Badge variant="outline" className="mt-2 md:mt-0 w-fit">
-                        {exp.type === "fullstack" ? "Full Stack" : 
-                         exp.type === "mobile" ? "Mobile" : "Gen AI"}
+                        {exp.type === "fullstack"
+                          ? "Full Stack"
+                          : exp.type === "mobile"
+                          ? "Mobile"
+                          : "Gen AI"}
                       </Badge>
                     </div>
-                    
+
                     <ul className="mb-4 space-y-2">
                       {exp.description.map((item, i) => (
                         <li key={i} className="flex items-start gap-2">
@@ -122,10 +160,12 @@ export default function ExperienceSection() {
                         </li>
                       ))}
                     </ul>
-                    
+
                     <div className="flex flex-wrap gap-2 mt-4">
                       {exp.skills.map((skill, i) => (
-                        <Badge key={i} variant="secondary">{skill}</Badge>
+                        <Badge key={i} variant="secondary">
+                          {skill}
+                        </Badge>
                       ))}
                     </div>
                   </CardContent>
@@ -136,18 +176,22 @@ export default function ExperienceSection() {
         </Tabs>
 
         <div className="flex justify-center mt-12">
-          <Link href="#resume">
-            <Button variant="outline" size="lg" className="gap-2">
+          <a
+            href="https://drive.google.com/file/d/1QmV5lqYrRxuhlP28wp4uZrf56HXrV_uN/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="ghost" size="lg" className="gap-2">
               Download Resume
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
                 className="feather feather-download"
               >
@@ -156,7 +200,7 @@ export default function ExperienceSection() {
                 <line x1="12" y1="15" x2="12" y2="3"></line>
               </svg>
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

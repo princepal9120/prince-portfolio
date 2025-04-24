@@ -178,7 +178,7 @@ export default function ContactSection() {
                   <h4 className="font-medium mb-4">Connect with me</h4>
                   <div className="grid grid-cols-3 gap-4">
                     <a
-                      href="https://github.com"
+                      href="https://github.com/princepal9120"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex flex-col items-center p-4 border rounded-md hover:border-primary/50 transition-colors"
@@ -189,7 +189,7 @@ export default function ContactSection() {
                       </span>
                     </a>
                     <a
-                      href="https://linkedin.com"
+                      href="https://linkedin.com/in/prince9120"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex flex-col items-center p-4 border rounded-md hover:border-primary/50 transition-colors"
@@ -200,7 +200,7 @@ export default function ContactSection() {
                       </span>
                     </a>
                     <a
-                      href="https://twitter.com"
+                      href="https://twitter.com/prince_twets"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex flex-col items-center p-4 border rounded-md hover:border-primary/50 transition-colors"

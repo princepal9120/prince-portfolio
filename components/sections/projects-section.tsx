@@ -21,73 +21,125 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "BlogHub",
+    title: "RAG-Chatbot",
     description:
-      "Feature-rich blog platform with authentication and rich-text editing capabilities.",
-    type: "fullstack",
-    technologies: ["React", "Appwrite", "Tailwind CSS", "Redux"],
-    image:
-      "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "Anonymous Messenger",
-    description:
-      "Secure, minimal UI for sending and receiving anonymous messages with encryption.",
-    type: "fullstack",
-    technologies: ["Next.js", "MongoDB", "Tailwind CSS", "NextAuth"],
-    image:
-      "https://images.pexels.com/photos/5483071/pexels-photo-5483071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "InterviewAI",
-    description:
-      "Smart form builder for interview preparation with AI-powered Q&A evaluation.",
+      "A resume-aware chatbot using RAG, LLM function-calling, and LangChain that provides contextual responses.",
     type: "ai",
-    technologies: ["Next.js", "Gemini API", "Tailwind CSS", "Framer Motion"],
-    image:
-      "https://images.pexels.com/photos/7147462/pexels-photo-7147462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "EventTracker",
-    description:
-      "Mobile app for tracking events and setting reminders with offline support.",
-    type: "mobile",
-    technologies: ["React Native", "Expo", "Redux Toolkit", "Async Storage"],
-    image:
-      "https://images.pexels.com/photos/2882552/pexels-photo-2882552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "AI Content Generator",
-    description:
-      "Tool that generates marketing content using AI with customizable templates.",
-    type: "ai",
-    technologies: ["React", "OpenAI API", "Express", "MongoDB"],
+    technologies: [
+      "Next.js",
+      "LangChain",
+      "AstraDB",
+      "Gemini API",
+      "TypeScript",
+    ],
     image:
       "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     demoUrl: "#",
     codeUrl: "#",
   },
   {
-    title: "Portfolio Builder",
+    title: "EcoQuest",
     description:
-      "Web app that helps users create professional portfolios with customizable themes.",
+      "AI-driven waste reporting system that reduced response time by 30% through image-based reporting.",
     type: "fullstack",
-    technologies: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    technologies: [
+      "Next.js",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Gemini Vision API",
+      "Google Maps API",
+    ],
     image:
-      "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/7147462/pexels-photo-7147462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     demoUrl: "#",
     codeUrl: "#",
   },
+  {
+    title: "LinkedIn Post Generator",
+    description:
+      "AI-based tool that generates LinkedIn posts in a user's writing style using few-shot learning.",
+    type: "ai",
+    technologies: [
+      "Python",
+      "Streamlit",
+      "Meta Llama",
+      "Pandas",
+      "Few-Shot Learning",
+    ],
+    image:
+      "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "https://github.com/prncepal9120",
+  },
+  {
+    title: "Splitmate",
+    description:
+      "Mobile expense tracking application with group expense management for 300+ users.",
+    type: "mobile",
+    technologies: [
+      "React Native",
+      "Expo Router",
+      "Firebase",
+      "Zustand",
+      "AsyncStorage",
+    ],
+    image:
+      "https://images.pexels.com/photos/4386326/pexels-photo-4386326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "https://github.com/princepal9120/Splitmate",
+  },
+  {
+    title: "Medialarm",
+    description:
+      "React Native medicine tracker with personalized medication reminders and biometric authentication.",
+    type: "mobile",
+    technologies: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Async Storage",
+      "Expo Notifications",
+    ],
+    image:
+      "https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "https://github.com/princepal9120/Medialarm",
+  },
+  {
+    title: "CabRide",
+    description:
+      "Ride-hailing app with real-time location tracking via Google Maps API and secure authentication.",
+    type: "mobile",
+    technologies: [
+      "React Native",
+      "TypeScript",
+      "Clerk",
+      "Zustand",
+      "Google Maps API",
+    ],
+    image:
+      "https://images.pexels.com/photos/1797542/pexels-photo-1797542.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "https://github.com/CabRide",
+  },
+  {
+    title: "Learnify",
+    description:
+      "Scalable LMS platform enabling seamless course creation and enrollment for 500+ users.",
+    type: "fullstack",
+    technologies: [
+      "React.js",
+      "React Query",
+      "MongoDB",
+      "Express.js",
+      "Node.js",
+    ],
+    image:
+      "https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "https://github.com/princepal9120/Learnify",
+  },
 ];
-
 export default function ProjectsSection() {
   const [activeTab, setActiveTab] = useState("all");
 

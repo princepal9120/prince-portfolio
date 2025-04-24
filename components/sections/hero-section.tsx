@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { ArrowRight, FileText } from "lucide-react";
 import Link from "next/link";
+import TechLogos from "../tech-logos";
 
 const techStack = [
   { name: "React", icon: "⚛️" },
@@ -19,7 +20,12 @@ const techStack = [
 
 export default function HeroSection() {
   const [text] = useTypewriter({
-    words: ["Full Stack Developer", "Mobile Developer", "Gen AI Developer"],
+    words: [
+      "Problem Solver",
+      "Full Stack Developer",
+      "Mobile Developer",
+      "Gen AI Developer",
+    ],
     loop: true,
     delaySpeed: 2000,
   });
@@ -81,7 +87,10 @@ export default function HeroSection() {
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="#resume" className="w-full sm:w-auto">
+            <Link
+              href={`https://drive.google.com/file/d/1QmV5lqYrRxuhlP28wp4uZrf56HXrV_uN/view?usp=drive_link`}
+              className="w-full sm:w-auto"
+            >
               <Button
                 size="lg"
                 variant="outline"
@@ -92,34 +101,7 @@ export default function HeroSection() {
               </Button>
             </Link>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 items-center justify-center px-2"
-          >
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.6 + index * 0.1,
-                  type: "spring",
-                  stiffness: 100,
-                }}
-                className="flex flex-col items-center gap-2 p-3 sm:p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all"
-              >
-                <span className="text-xl sm:text-2xl">{tech.icon}</span>
-                <span className="text-xs sm:text-sm font-medium">
-                  {tech.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
+          <TechLogos />
         </div>
       </div>
     </section>

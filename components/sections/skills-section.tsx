@@ -47,7 +47,8 @@ const aiSkills: Skill[] = [
   { name: "OpenAI", level: 85 },
   { name: "Langchain", level: 75 },
   { name: "Python", level: 70 },
-  { name: "Clerk", level: 80 },
+  { name: "Fastapi", level: 80 },
+  {name: "Langgraph", level: 70},
   { name: "Whisper API", level: 65 },
   { name: "TTS", level: 70 },
 ];
@@ -57,6 +58,7 @@ const otherSkills: Skill[] = [
   { name: "Docker", level: 65 },
   { name: "VSCode", level: 95 },
   { name: "Postman", level: 85 },
+  {name: "AWS", level: 55}
 ];
 
 function SkillCategory({ title, icon, skills, delay }: SkillCategoryProps) {

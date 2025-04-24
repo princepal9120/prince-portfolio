@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import FadeIn from "@/components/animations/fade-in";
 import { Separator } from "@/components/ui/separator";
-import { GraduationCap as Graduation, Code, Lightbulb, Coffee } from "lucide-react";
+import { GraduationCap as Graduation, Code, Lightbulb, Coffee, Code2Icon } from "lucide-react";
 
 interface MilestoneProps {
   year: string;
@@ -49,7 +49,7 @@ export default function AboutSection() {
                     <h3 className="font-semibold">Education & Background</h3>
                   </div>
                   <p className="text-muted-foreground mb-4">
-                    I'm currently pursuing my B.Tech in Electrical Engineering at MMMUT, 
+                    I'm currently pursuing my B.Tech in  Engineering at MMMUT, 
                     graduating in 2025. Alongside my studies, I've developed a passion for 
                     software development and AI.
                   </p>
@@ -60,7 +60,11 @@ export default function AboutSection() {
                     </li>
                     <li className="flex items-start gap-2">
                       <Lightbulb className="h-5 w-5 mt-0.5 text-primary" />
-                      <span>Created 20+ DSA problems, solved 100+ bugs, built 15+ projects</span>
+                      <span>Created 20+ DSA problems as a Problem setter, solved 100+ bugs, built 15+ projects</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Code2Icon className="h-5 w-5 mt-0.5 text-primary" />
+                      <span> Knight (1850+ rating) at Leetcode, 3 star at Codechef, Pupil at Codecforces</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Coffee className="h-5 w-5 mt-0.5 text-primary" />
@@ -78,12 +82,12 @@ export default function AboutSection() {
                 <CardContent className="p-6">
                   <h3 className="font-semibold mb-4">My Journey</h3>
                   <div className="space-y-2">
-                    <Milestone
+                    {/* <Milestone
                       year="2023"
                       title="Started Freelancing"
                       description="Began building React projects and took on freelance development work."
                       delay={0.3}
-                    />
+                    /> */}
                     <Milestone
                       year="2024"
                       title="Gen AI Projects & SaaS Tools"
