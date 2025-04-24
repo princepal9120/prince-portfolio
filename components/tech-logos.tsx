@@ -25,7 +25,8 @@ const techStack = [
 ];
 
 export default function TechLogos() {
-  const [logos, setLogos] = useState([]);
+  const [logos, setLogos] = useState<{ name: string; icon: string }[]>([]);
+
 
   // Duplicate the logos to create a seamless infinite effect
   useEffect(() => {
