@@ -21,6 +21,43 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Gemini Live Clone - Dora AI",
+    description:
+      "A real-time AI assistant that sees, hears, thinks, and responds using webcam, audio, and advanced LLM tools like LangGraph and Groq. Dora is an agentic experience built for immersive interaction.",
+    type: "ai",
+    technologies: [
+      "LangGraph",
+      "Groq",
+      "Gemini API",
+      "Whisper",
+      "ElevenLabs",
+      "Gradio",
+      "Python",
+    ],
+    image:
+      "https://images.pexels.com/photos/8294602/pexels-photo-8294602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "https://github.com/princepal9120/gemini-live-clone",
+    codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/projects/livecam-ai-assitant",
+  },
+  {
+    title: "Multi-step Agentic Chatbot",
+    description:
+      "A dynamic AI chatbot that handles multi-step tasks and contextual conversations using LangGraph agents and Groq inference. It combines LangChain orchestration with Streamlit UI for a clean and powerful workflow.",
+    type: "ai",
+    technologies: [
+      "LangGraph",
+      "LangChain",
+      "Groq",
+      "Python",
+      "Streamlit",
+      "FastAPI",
+      "React",
+    ],
+    image: "./agent.png",
+    demoUrl: "https://perplexity-20.vercel.app",
+    codeUrl: "https://github.com/princepal9120/perception",
+  },
+  {
     title: "RAG-Chatbot",
     description:
       "A resume-aware chatbot using RAG, LLM function-calling, and LangChain that provides contextual responses.",
@@ -170,19 +207,13 @@ const projects: Project[] = [
     description:
       "An intelligent real-time chatbot application leveraging LangGraph and LangChain agents for executing multi-step tasks autonomously. Integrates Groq for ultra-fast inference and Streamlit for an interactive UI, enabling dynamic conversations and agent-based task completion.",
     type: "ai",
-    technologies: [
-      "LangGraph",
-      "Groq",
-      "LangChain",
-      "Streamlit",
-      "Python"
-    ],
+    technologies: ["LangGraph", "Groq", "LangChain", "Streamlit", "Python"],
     image:
       "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     demoUrl: "#",
-    codeUrl: "https://github.com/princepal9120/agent_chatbot"
+    codeUrl: "https://github.com/princepal9120/agent_chatbot",
   },
-  
+
   {
     title: "Service Checkout Platform",
     description:
@@ -275,7 +306,7 @@ export default function ProjectsSection() {
               Mobile
             </TabsTrigger>
             <TabsTrigger value="ai" className="flex-1">
-              Gen AI
+              AI
             </TabsTrigger>
           </TabsList>
 
