@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <AboutSection />
+      {/* <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <ExperienceSection />
-      <ContactSection />
+      <ContactSection /> */}
     </div>
   );
 }

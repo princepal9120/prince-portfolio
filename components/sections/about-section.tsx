@@ -1,31 +1,130 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import FadeIn from "@/components/animations/fade-in";
-import { Separator } from "@/components/ui/separator";
-import { GraduationCap as Graduation, Code, Lightbulb, Coffee, Code2Icon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import {
+  GraduationCap,
+  Code,
+  Lightbulb,
+  Coffee,
+  CodeSquare,
+  Briefcase,
+  BrainCircuit,
+  Smartphone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-interface MilestoneProps {
-  year: string;
-  title: string;
-  description: string;
-  delay: number;
+// Component 1: Personal Info & Background
+function PersonalBackground() {
+  return (
+    <FadeIn delay={0.1}>
+      <Card>
+        <CardContent className="p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <GraduationCap className="h-5 w-5 text-primary" />
+            <h3 className="font-semibold">About Me</h3>
+          </div>
+          <p className="text-muted-foreground mb-4 leading-relaxed">
+            I'm a Software Engineer pursuing B.Tech at MMMUT (SGPA: 8.58),
+            graduating in 2025. Currently working at BIK.ai building AI
+            solutions, with experience across full-stack, mobile, and AI
+            development.
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-2">
+              <Code className="h-4 w-4 mt-0.5 text-primary" />
+              <span className="text-sm">
+                3x Developer: Full Stack | Mobile | Gen AI
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Lightbulb className="h-4 w-4 mt-0.5 text-primary" />
+              <span className="text-sm">
+                Created 50+ DSA problems, solved 900+ coding challenges
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CodeSquare className="h-4 w-4 mt-0.5 text-primary" />
+              <span className="text-sm">
+                Knight (1850+) at LeetCode, 3⭐ at CodeChef
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Coffee className="h-4 w-4 mt-0.5 text-primary" />
+              <span className="text-sm">
+                Passionate about AI, startups, and building impactful solutions
+              </span>
+            </li>
+          </ul>
+        </CardContent>
+      </Card>
+    </FadeIn>
+  );
 }
 
-function Milestone({ year, title, description, delay }: MilestoneProps) {
+// Component 2: Experience & Skills
+function ExperienceSkills() {
   return (
-    <FadeIn delay={delay} className="flex gap-4">
-      <div className="flex flex-col items-center">
-        <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-          {year}
-        </div>
-        <div className="w-0.5 h-full bg-border mt-2"></div>
-      </div>
-      <div className="pb-8">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-muted-foreground">{description}</p>
-      </div>
+    <FadeIn delay={0.2}>
+      <Card>
+        <CardContent className="p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Briefcase className="h-5 w-5 text-primary" />
+            <h3 className="font-semibold">Experience & Skills</h3>
+          </div>
+
+          {/* Recent Experience */}
+          <div className="mb-6">
+            <h4 className="font-medium mb-3 text-sm">Recent Experience</h4>
+            <div className="space-y-3">
+              <div className="p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-medium text-sm">
+                    BIK.ai - Software Engineer Intern
+                  </span>
+                  <Badge variant="outline" className="text-xs">
+                    Gen AI
+                  </Badge>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Jul 2025 - Present | AI shopping assistant with LangChain &
+                  GCP
+                </p>
+              </div>
+
+              <div className="p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-medium text-sm">
+                    Dodoozy - Mobile Developer Intern
+                  </span>
+                  <Badge variant="outline" className="text-xs">
+                    Mobile
+                  </Badge>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Apr 2025 - Jun 2025 | 15+ React Native components, 40% faster
+                  renders
+                </p>
+              </div>
+
+              <div className="p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-medium text-sm">
+                    Blackbytt - Software Development Intern
+                  </span>
+                  <Badge variant="outline" className="text-xs">
+                    Full Stack
+                  </Badge>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Oct 2024 - Dec 2024 | UI/UX revamp, 25% faster database reads
+                </p>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </FadeIn>
   );
 }
@@ -36,88 +135,78 @@ export default function AboutSection() {
       <div className="container mx-auto px-4">
         <FadeIn>
           <h2 className="text-3xl font-bold mb-2">About Me</h2>
-          <p className="text-muted-foreground mb-8">My background and journey in tech</p>
+          <p className="text-muted-foreground mb-8">
+            My background and professional journey
+          </p>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <FadeIn delay={0.1}>
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Graduation className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold">Education & Background</h3>
-                  </div>
-                  <p className="text-muted-foreground mb-4">
-                    I'm currently pursuing my B.Tech in  Engineering at MMMUT, 
-                    graduating in 2025. Alongside my studies, I've developed a passion for 
-                    software development and AI.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <Code className="h-5 w-5 mt-0.5 text-primary" />
-                      <span>3x Developer: Full Stack | Mobile | Gen AI</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Lightbulb className="h-5 w-5 mt-0.5 text-primary" />
-                      <span>Created 20+ DSA problems as a Problem setter, solved 100+ bugs, built 15+ projects</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Code2Icon className="h-5 w-5 mt-0.5 text-primary" />
-                      <span> Knight (1850+ rating) at Leetcode, 3 star at Codechef, Pupil at Codecforces</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Coffee className="h-5 w-5 mt-0.5 text-primary" />
-                      <span>Passionate about AI, startups, and building cool things</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          </div>
-
-          <div>
-            <FadeIn delay={0.2}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">My Journey</h3>
-                  <div className="space-y-2">
-                    {/* <Milestone
-                      year="2023"
-                      title="Started Freelancing"
-                      description="Began building React projects and took on freelance development work."
-                      delay={0.3}
-                    /> */}
-                    <Milestone
-                      year="2024"
-                      title="Gen AI Projects & SaaS Tools"
-                      description="Focused on generative AI applications and building SaaS platforms."
-                      delay={0.4}
-                    />
-                    <Milestone
-                      year="2025"
-                      title="Ready for Impact"
-                      description="Preparing to make a significant impact in the tech world after graduation."
-                      delay={0.5}
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          </div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <PersonalBackground />
+          <ExperienceSkills />
         </div>
 
-        <Separator className="my-12" />
-
         <FadeIn delay={0.3}>
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-xl font-semibold mb-4">Values & Vision</h3>
-            <p className="text-muted-foreground">
-              I believe in continuous learning, problem-solving, and building tools that make a 
-              difference. My goal is to create scalable, user-friendly applications that leverage 
-              cutting-edge technologies to address real-world challenges. I'm especially interested 
-              in the intersection of traditional software development and AI.
+          <div className="max-w-3xl mx-auto text-center mt-12">
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              I believe in continuous learning and building tools that make a
+              difference. My goal is to create scalable applications that
+              leverage cutting-edge technologies to address real-world
+              challenges, especially at the intersection of traditional software
+              development and AI.
             </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="https://drive.google.com/file/d/1QmV5lqYrRxuhlP28wp4uZrf56HXrV_uN/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="gap-2 w-full sm:w-auto"
+                >
+                  Download Resume
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-download"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                </Button>
+              </a>
+
+              <div className="flex gap-2">
+                <a
+                  href="https://linkedin.com/in/prince-pal-59a217229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="ghost" size="lg">
+                    LinkedIn
+                  </Button>
+                </a>
+                <a
+                  href="https://github.com/prince7021"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="ghost" size="lg">
+                    GitHub
+                  </Button>
+                </a>
+              </div>
+            </div>
           </div>
         </FadeIn>
       </div>
