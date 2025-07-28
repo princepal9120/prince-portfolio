@@ -37,7 +37,8 @@ const projects: Project[] = [
     image:
       "https://images.pexels.com/photos/8294602/pexels-photo-8294602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     demoUrl: "https://github.com/princepal9120/gemini-live-clone",
-    codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/projects/livecam-ai-assitant",
+    codeUrl:
+      "https://github.com/princepal9120/ai-learning/tree/main/projects/livecam-ai-assitant",
   },
   {
     title: "Multi-step Agentic Chatbot",
@@ -54,7 +55,7 @@ const projects: Project[] = [
       "React",
     ],
     image: "./agent.png",
-    demoUrl: "https://perplexity-20.vercel.app",
+    demoUrl: "https://perplexity.princepal.dev",
     codeUrl: "https://github.com/princepal9120/perception",
   },
   {
@@ -70,7 +71,7 @@ const projects: Project[] = [
       "TypeScript",
     ],
     image: "./chatbot.png",
-    demoUrl: "https://prince-personalized-chatbot.vercel.app",
+    demoUrl: "https://chatbot.princepal.dev",
     codeUrl: "https://github.com/princepal9120/PersonalizedChatbot",
   },
   {
@@ -86,7 +87,7 @@ const projects: Project[] = [
       "Google Maps API",
     ],
     image: "./ecoquest.png",
-    demoUrl: "https://ecoquest-topaz.vercel.app/",
+    demoUrl: "https://ecoquest.princepal.dev/",
     codeUrl: "https://github.com/prncepal9120/ecoquest",
   },
 
