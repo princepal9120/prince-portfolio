@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Prince Pal | Full Stack | Mobile | Gen AI Developer",
+  title: "Portfolio | Prince Pal",
   description:
     "Portfolio of Prince Pal, a passionate developer building scalable apps with cutting-edge technologies.",
 };

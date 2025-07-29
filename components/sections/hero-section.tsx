@@ -36,8 +36,15 @@ import {
   SiGit,
   SiPostman,
   SiN8N,
+  SiLinux,
+  SiNumpy,
+  SiPandas,
+  SiStreamlit,
+  SiSocketdotio,
+  SiGraphql,
 } from "react-icons/si";
-import { FaMobileAlt, FaReact, FaRobot } from "react-icons/fa";
+import { BsFillDiamondFill } from "react-icons/bs";
+import { FaMobileAlt, FaReact, FaRobot, FaCode, FaHeart } from "react-icons/fa";
 
 // Enhanced tech stack with React Icons
 const techStack = [
@@ -83,6 +90,13 @@ const techStack = [
   { name: "Python", icon: SiPython, category: "backend", color: "#3776AB" },
   { name: "FastAPI", icon: SiFastapi, category: "backend", color: "#009688" },
   { name: "JWT", icon: SiJsonwebtokens, category: "backend", color: "#000000" },
+  { name: "GraphQL", icon: SiGraphql, category: "backend", color: "#E10098" },
+  {
+    name: "Socket.io",
+    icon: SiSocketdotio,
+    category: "backend",
+    color: "#010101",
+  },
 
   // Databases
   { name: "MongoDB", icon: SiMongodb, category: "database", color: "#47A248" },
@@ -129,6 +143,10 @@ const techStack = [
     category: "ai",
     color: "#4285F4",
   },
+  { name: "NumPy", icon: SiNumpy, category: "ai", color: "#013243" },
+  { name: "Pandas", icon: SiPandas, category: "ai", color: "#150458" },
+  { name: "Streamlit", icon: SiStreamlit, category: "ai", color: "#FF4B4B" },
+  { name: "Gradio", icon: FaCode, category: "ai", color: "#FF7C00" },
 
   // DevOps & Tools
   { name: "Docker", icon: SiDocker, category: "devops", color: "#2496ED" },
@@ -137,6 +155,14 @@ const techStack = [
   { name: "Git", icon: SiGit, category: "devops", color: "#F05032" },
   { name: "Postman", icon: SiPostman, category: "devops", color: "#FF6C37" },
   { name: "n8n", icon: SiN8N, category: "devops", color: "#EA4B71" },
+  { name: "Linux", icon: SiLinux, category: "devops", color: "#FCC624" },
+  {
+    name: "Cursor",
+    icon: BsFillDiamondFill,
+    category: "devops",
+    color: "#007ACC",
+  },
+  { name: "Lovable", icon: FaHeart, category: "devops", color: "#E91E63" },
 ];
 
 // Enhanced TechLogos component with more skills
@@ -250,7 +276,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-primary font-medium mb-2 text-base sm:text-lg">
-              👋 Hi, I'm
+              👋 Hi, I&apos;m
             </p>
           </motion.div>
 
@@ -301,14 +327,20 @@ export default function HeroSection() {
               Hire me
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto gap-2"
+            <Link
+              href={
+                "https://drive.google.com/file/d/1tsz1a2Di42xceCP9Sno2QaHIWpa15ZSL/view?usp=drive_link"
+              }
             >
-              Resume
-              <FileText className="h-5 w-5" />
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto gap-2"
+              >
+                Resume
+                <FileText className="h-5 w-5" />
+              </Button>
+            </Link>
           </motion.div>
           <TechLogos />
         </div>

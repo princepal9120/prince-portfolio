@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { TabsContent, Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import FadeIn from "@/components/animations/fade-in";
 import {
-  Code,
   Smartphone,
   BrainCircuit,
   Monitor,
@@ -13,7 +12,8 @@ import {
   Settings,
   Wrench,
 } from "lucide-react";
-
+import { BsFillDiamondFill } from "react-icons/bs";
+import { VscTerminalPowershell } from "react-icons/vsc";
 import {
   SiReact,
   SiHuggingface,
@@ -46,6 +46,12 @@ import {
   SiFastapi,
   SiVercel,
   SiNetlify,
+  SiLinux,
+  SiNumpy,
+  SiPandas,
+  SiStreamlit,
+  SiSocketdotio,
+  SiGraphql,
 } from "react-icons/si";
 import {
   FaServer,
@@ -53,7 +59,8 @@ import {
   FaRobot,
   FaLaptopCode,
   FaDatabase,
-  FaCloud,
+  FaCode,
+  FaHeart,
 } from "react-icons/fa";
 import { BiLogoVisualStudio } from "react-icons/bi";
 
@@ -95,6 +102,8 @@ const skillIconMap: Record<string, JSX.Element> = {
   Firebase: <SiFirebase size={24} />,
   "REST APIs": <FaServer size={24} />,
   JWT: <SiJsonwebtokens size={24} />,
+  GraphQL: <SiGraphql size={24} />,
+  "Socket.io": <SiSocketdotio size={24} />,
 
   // Mobile
   "React Native": <SiReact size={24} />,
@@ -110,18 +119,26 @@ const skillIconMap: Record<string, JSX.Element> = {
   Langgraph: <SiLangchain size={24} />,
   "Whisper API": <FaRobot size={24} />,
   HuggingFace: <SiHuggingface size={24} />,
-  n8n: <SiN8N size={24} />,
+  NumPy: <SiNumpy size={24} />,
+  Pandas: <SiPandas size={24} />,
+  Streamlit: <SiStreamlit size={24} />,
+  Gradio: <FaCode size={24} />,
 
   // DevOps
   Docker: <SiDocker size={24} />,
   AWS: <SiAmazon size={24} />,
   Vercel: <SiVercel size={24} />,
   Netlify: <SiNetlify size={24} />,
+  Linux: <SiLinux size={24} />,
+  "Shell Scripting": <VscTerminalPowershell size={24} />,
 
   // Tools
   Git: <SiGit size={24} />,
   VSCode: <BiLogoVisualStudio size={24} />,
   Postman: <SiPostman size={24} />,
+  n8n: <SiN8N size={24} />,
+  Cursor: <BsFillDiamondFill size={24} />,
+  Lovable: <FaHeart size={24} />,
 };
 
 const frontendSkills: Skill[] = [
@@ -150,6 +167,8 @@ const backendSkills: Skill[] = [
   { name: "Firebase" },
   { name: "REST APIs" },
   { name: "JWT" },
+  { name: "GraphQL" },
+  { name: "Socket.io" },
 ];
 
 const mobileSkills: Skill[] = [
@@ -162,12 +181,15 @@ const mobileSkills: Skill[] = [
 
 const aiSkills: Skill[] = [
   { name: "OpenAI" },
-
+  { name: "Gemini API" },
   { name: "Langchain" },
   { name: "Langgraph" },
   { name: "Whisper API" },
   { name: "HuggingFace" },
-  { name: "n8n" },
+  { name: "NumPy" },
+  { name: "Pandas" },
+  { name: "Streamlit" },
+  { name: "Gradio" },
 ];
 
 const devopsSkills: Skill[] = [
@@ -175,12 +197,17 @@ const devopsSkills: Skill[] = [
   { name: "AWS" },
   { name: "Vercel" },
   { name: "Netlify" },
+  { name: "Linux" },
+  { name: "Shell Scripting" },
 ];
 
 const toolsSkills: Skill[] = [
   { name: "Git" },
   { name: "VSCode" },
   { name: "Postman" },
+  { name: "n8n" },
+  { name: "Cursor" },
+  { name: "Lovable" },
 ];
 
 function SkillCategory({ title, icon, skills, delay }: SkillCategoryProps) {
