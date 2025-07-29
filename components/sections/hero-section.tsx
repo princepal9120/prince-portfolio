@@ -146,7 +146,7 @@ const techStack = [
   { name: "NumPy", icon: SiNumpy, category: "ai", color: "#013243" },
   { name: "Pandas", icon: SiPandas, category: "ai", color: "#150458" },
   { name: "Streamlit", icon: SiStreamlit, category: "ai", color: "#FF4B4B" },
-  { name: "Gradio", icon: FaCode, category: "ai", color: "#FF7C00" },
+
 
   // DevOps & Tools
   { name: "Docker", icon: SiDocker, category: "devops", color: "#2496ED" },

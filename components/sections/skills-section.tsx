@@ -52,6 +52,7 @@ import {
   SiStreamlit,
   SiSocketdotio,
   SiGraphql,
+  SiShadcnui,
 } from "react-icons/si";
 import {
   FaServer,
@@ -62,7 +63,9 @@ import {
   FaCode,
   FaHeart,
 } from "react-icons/fa";
+
 import { BiLogoVisualStudio } from "react-icons/bi";
+import { FiFramer } from "react-icons/fi";
 
 interface Skill {
   name: string;
@@ -88,8 +91,8 @@ const skillIconMap: Record<string, JSX.Element> = {
   Redux: <SiRedux size={24} />,
   Zustand: <FaDatabase size={24} />,
   "React Query": <SiReactquery size={24} />,
-  "Shadcn UI": <FaLaptopCode size={24} />,
-  Vite: <SiVite size={24} />,
+  "Shadcn UI": <SiShadcnui size={24} />,
+  'Framer Motion': <FiFramer size={24} />,
 
   // Backend
   "Node.js": <SiNodedotjs size={24} />,
@@ -122,7 +125,8 @@ const skillIconMap: Record<string, JSX.Element> = {
   NumPy: <SiNumpy size={24} />,
   Pandas: <SiPandas size={24} />,
   Streamlit: <SiStreamlit size={24} />,
-  Gradio: <FaCode size={24} />,
+  "Vector Database": <FaDatabase size={24} />,
+  Rag: <FaCode size={24} />,
 
   // DevOps
   Docker: <SiDocker size={24} />,
@@ -153,7 +157,7 @@ const frontendSkills: Skill[] = [
   { name: "Zustand" },
   { name: "React Query" },
   { name: "Shadcn UI" },
-  { name: "Vite" },
+  {name: 'Framer Motion'}
 ];
 
 const backendSkills: Skill[] = [
@@ -189,7 +193,8 @@ const aiSkills: Skill[] = [
   { name: "NumPy" },
   { name: "Pandas" },
   { name: "Streamlit" },
-  { name: "Gradio" },
+  { name: "Vector Database" },
+  { name: "Rag" },
 ];
 
 const devopsSkills: Skill[] = [
@@ -326,7 +331,7 @@ export default function SkillsSection() {
               delay={0.3}
             />
             <SkillCategory
-              title="AI/ML Development"
+              title="AI/ML"
               icon={<BrainCircuit className="h-5 w-5 text-primary" />}
               skills={aiSkills}
               delay={0.4}
