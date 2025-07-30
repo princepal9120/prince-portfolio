@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import ChatbotWidget from "@/components/chatbot-widget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           <main className="min-h-screen">{children}</main>
-          <Footer />
+          <ChatbotWidget />
+          {/* <Footer /> */}
         </ThemeProvider>
       </body>
     </html>
