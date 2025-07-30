@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Portfolio | Prince Pal",
   description:
     "Portfolio of Prince Pal, a passionate developer building scalable apps with cutting-edge technologies.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
