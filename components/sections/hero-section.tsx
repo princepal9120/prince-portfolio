@@ -42,9 +42,12 @@ import {
   SiStreamlit,
   SiSocketdotio,
   SiGraphql,
+  SiPytorch,
+  SiScikitlearn,
 } from "react-icons/si";
 import { BsFillDiamondFill } from "react-icons/bs";
 import { FaMobileAlt, FaReact, FaRobot, FaCode, FaHeart } from "react-icons/fa";
+import { TbBrain } from "react-icons/tb";
 
 // Enhanced tech stack with React Icons
 const techStack = [
@@ -146,6 +149,11 @@ const techStack = [
   { name: "NumPy", icon: SiNumpy, category: "ai", color: "#013243" },
   { name: "Pandas", icon: SiPandas, category: "ai", color: "#150458" },
   { name: "Streamlit", icon: SiStreamlit, category: "ai", color: "#FF4B4B" },
+  { name: "PyTorch", icon: SiPytorch, category: "ai", color: "#EE4C2C" },
+  { name: "Transformers", icon: FaRobot, category: "ai", color: "#FFD21E" },
+  { name: "NLP", icon: TbBrain, category: "ai", color: "#4A90E2" },
+  { name: "NLTK", icon: FaCode, category: "ai", color: "#2E8B57" },
+  { name: "Scikit-learn", icon: SiScikitlearn, category: "ai", color: "#F7931E" },
 
 
   // DevOps & Tools

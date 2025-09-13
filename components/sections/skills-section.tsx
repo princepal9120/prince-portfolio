@@ -53,7 +53,10 @@ import {
   SiSocketdotio,
   SiGraphql,
   SiShadcnui,
+  SiPytorch,
+  SiScikitlearn,
 } from "react-icons/si";
+import { TbBrain } from "react-icons/tb";
 import {
   FaServer,
   FaMobileAlt,
@@ -127,6 +130,11 @@ const skillIconMap: Record<string, JSX.Element> = {
   Streamlit: <SiStreamlit size={24} />,
   "Vector Database": <FaDatabase size={24} />,
   Rag: <FaCode size={24} />,
+  PyTorch: <SiPytorch size={24} />,
+  Transformers: <FaRobot size={24} />,
+  NLP: <TbBrain size={24} />,
+  NLTK: <FaCode size={24} />,
+  "Scikit-learn": <SiScikitlearn size={24} />,
 
   // DevOps
   Docker: <SiDocker size={24} />,
@@ -157,7 +165,7 @@ const frontendSkills: Skill[] = [
   { name: "Zustand" },
   { name: "React Query" },
   { name: "Shadcn UI" },
-  {name: 'Framer Motion'}
+  { name: 'Framer Motion' }
 ];
 
 const backendSkills: Skill[] = [
@@ -195,6 +203,11 @@ const aiSkills: Skill[] = [
   { name: "Streamlit" },
   { name: "Vector Database" },
   { name: "Rag" },
+  { name: "PyTorch" },
+  { name: "Transformers" },
+  { name: "NLP" },
+  { name: "NLTK" },
+  { name: "Scikit-learn" },
 ];
 
 const devopsSkills: Skill[] = [
