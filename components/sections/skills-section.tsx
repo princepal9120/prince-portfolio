@@ -62,7 +62,7 @@ import {
 import { TbBrain } from "react-icons/tb";
 import {
   FaServer,
-  FaMobileAlt,
+
   FaRobot,
   FaLaptopCode,
   FaDatabase,
@@ -71,7 +71,7 @@ import {
 } from "react-icons/fa";
 
 import { BiLogoVisualStudio } from "react-icons/bi";
-import { FiFramer } from "react-icons/fi";
+import { FiFigma, FiFramer } from "react-icons/fi";
 
 interface Skill {
   name: string;
@@ -89,16 +89,22 @@ const skillIconMap: Record<string, JSX.Element> = {
   // Frontend
   React: <SiReact size={24} />,
   "Next.js": <SiNextdotjs size={24} />,
+  "React Native": <SiReact size={24} />,
+  Expo: <SiExpo size={24} />,
+
+
   TypeScript: <SiTypescript size={24} />,
   JavaScript: <SiJavascript size={24} />,
   HTML5: <SiHtml5 size={24} />,
   CSS3: <SiCss3 size={24} />,
   "Tailwind CSS": <SiTailwindcss size={24} />,
   Redux: <SiRedux size={24} />,
+  "Redux Toolkit": <SiRedux size={24} />,
   Zustand: <FaDatabase size={24} />,
   "React Query": <SiReactquery size={24} />,
   "Shadcn UI": <SiShadcnui size={24} />,
   'Framer Motion': <FiFramer size={24} />,
+  'Figma': <FiFigma size={24} />,
 
   // Backend
   "Node.js": <SiNodedotjs size={24} />,
@@ -120,12 +126,7 @@ const skillIconMap: Record<string, JSX.Element> = {
   "Elasticsearch": <FaDatabase size={24} />,
   "Microservices": <Layers size={24} />,
 
-  // Mobile
-  "React Native": <SiReact size={24} />,
-  Expo: <SiExpo size={24} />,
-  "Redux Toolkit": <SiRedux size={24} />,
-  "Mobile UI/UX": <FaMobileAlt size={24} />,
-  "Native APIs": <FaMobileAlt size={24} />,
+
 
   // AI/ML
   OpenAI: <SiOpenai size={24} />,
@@ -165,16 +166,21 @@ const skillIconMap: Record<string, JSX.Element> = {
 const frontendSkills: Skill[] = [
   { name: "React" },
   { name: "Next.js" },
+  { name: "React Native" },
+  { name: "Expo" },
+
   { name: "TypeScript" },
   { name: "JavaScript" },
   { name: "HTML5" },
   { name: "CSS3" },
   { name: "Tailwind CSS" },
   { name: "Redux" },
+  { name: "Redux Toolkit" },
   { name: "Zustand" },
   { name: "React Query" },
   { name: "Shadcn UI" },
-  { name: 'Framer Motion' }
+  { name: 'Framer Motion' },
+  { name: 'Figma' },
 ];
 
 const backendSkills: Skill[] = [
@@ -198,13 +204,6 @@ const backendSkills: Skill[] = [
   { name: "Microservices" },
 ];
 
-const mobileSkills: Skill[] = [
-  { name: "React Native" },
-  { name: "Expo" },
-  { name: "Redux Toolkit" },
-  { name: "Mobile UI/UX" },
-  { name: "Native APIs" },
-];
 
 const aiSkills: Skill[] = [
   { name: "OpenAI" },
@@ -313,12 +312,7 @@ export default function SkillsSection() {
             >
               Backend
             </TabsTrigger>
-            <TabsTrigger
-              value="mobile"
-              className="flex-1 min-w-[80px] text-xs sm:text-sm"
-            >
-              Mobile
-            </TabsTrigger>
+
             <TabsTrigger
               value="ai"
               className="flex-1 min-w-[80px] text-xs sm:text-sm"
@@ -352,12 +346,7 @@ export default function SkillsSection() {
               skills={backendSkills}
               delay={0.2}
             />
-            <SkillCategory
-              title="Mobile Development"
-              icon={<Smartphone className="h-5 w-5 text-primary" />}
-              skills={mobileSkills}
-              delay={0.3}
-            />
+
             <SkillCategory
               title="AI/ML"
               icon={<BrainCircuit className="h-5 w-5 text-primary" />}
@@ -396,14 +385,7 @@ export default function SkillsSection() {
             />
           </TabsContent>
 
-          <TabsContent value="mobile">
-            <SkillCategory
-              title="Mobile Development"
-              icon={<Smartphone className="h-5 w-5 text-primary" />}
-              skills={mobileSkills}
-              delay={0.1}
-            />
-          </TabsContent>
+
 
           <TabsContent value="ai">
             <SkillCategory
