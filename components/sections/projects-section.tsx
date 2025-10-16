@@ -21,6 +21,79 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Microservices Ecommerce Platform",
+    description:
+      "Built a scalable ecommerce platform using microservices architecture with gRPC for inter-service communication and GraphQL as the API gateway. Includes services for account management, product catalog, and order processing. Each service has its own database with Account and Order services using PostgreSQL and Catalog service using Elasticsearch for optimal performance.",
+    type: "fullstack",
+    technologies: [
+      "Go",
+      "Gin",
+      "gRPC",
+      "GraphQL",
+      "PostgreSQL",
+      "Elasticsearch",
+      "Docker",
+      "Microservices",
+    ],
+    image:
+      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    title: "AI Anime Recommendation System",
+    description:
+      "Led the development of an AI-powered Anime recommendation system, integrating machine learning algorithms and OpenAI GPT APIs for personalized suggestions, resulting in a 40% increase in user engagement and a 25% uplift in content consumption.",
+    type: "fullstack",
+    technologies: [
+      "Go",
+      "Gin",
+      "TypeScript",
+      "REST APIs",
+      "CSS",
+      "OpenAI GPT",
+      "JWT",
+    ],
+    image:
+      "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    title: "Perception- Multi-step Agentic Chatbot",
+    description:
+      "A dynamic AI chatbot that handles multi-step tasks and contextual conversations using LangGraph agents and Groq inference. It combines LangChain orchestration with Streamlit UI for a clean and powerful workflow.",
+    type: "ai",
+    technologies: [
+      "LangGraph",
+      "LangChain",
+      "Groq",
+      "Python",
+      "Streamlit",
+      "FastAPI",
+      "React",
+    ],
+    image: "./agent.png",
+    demoUrl: "https://perplexity.princepal.dev",
+    codeUrl: "https://github.com/princepal9120/perception",
+  },
+  {
+    title: "EcoQuest",
+    description:
+      "AI-driven waste reporting system that reduced response time by 30% through image-based reporting.",
+    type: "fullstack",
+    technologies: [
+      "Next.js",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Gemini Vision API",
+      "Google Maps API",
+    ],
+    image: "./ecoquest.png",
+    demoUrl: "https://ecoquest.princepal.dev/",
+    codeUrl: "https://github.com/prncepal9120/ecoquest",
+  },
+  {
     title: "Gemini Live Clone - Dora AI",
     description:
       "A real-time AI assistant that sees, hears, thinks, and responds using webcam, audio, and advanced LLM tools like LangGraph and Groq. Dora is an agentic experience built for immersive interaction.",
@@ -41,22 +114,38 @@ const projects: Project[] = [
       "https://github.com/princepal9120/ai-learning/tree/main/projects/livecam-ai-assitant",
   },
   {
-    title: "Multi-step Agentic Chatbot",
+    title: "Notes API Project",
     description:
-      "A dynamic AI chatbot that handles multi-step tasks and contextual conversations using LangGraph agents and Groq inference. It combines LangChain orchestration with Streamlit UI for a clean and powerful workflow.",
-    type: "ai",
+      "Developed a RESTful Notes API with CRUD operations and JWT authentication, achieving a 99.9% uptime and supporting over 10,000 daily active users for efficient note management. Integrated a React frontend for user-friendly note creation and organization.",
+    type: "fullstack",
     technologies: [
-      "LangGraph",
-      "LangChain",
-      "Groq",
-      "Python",
-      "Streamlit",
-      "FastAPI",
+      "NestJS",
+      "TypeScript",
       "React",
+      "JWT",
+      "PostgreSQL",
+      "REST APIs",
     ],
-    image: "./agent.png",
-    demoUrl: "https://perplexity.princepal.dev",
-    codeUrl: "https://github.com/princepal9120/perception",
+    image:
+      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    title: "Learnify",
+    description:
+      "Scalable LMS platform enabling seamless course creation and enrollment for 500+ users.",
+    type: "fullstack",
+    technologies: [
+      "React.js",
+      "React Query",
+      "MongoDB",
+      "Express.js",
+      "Node.js",
+    ],
+    image: "./learnify.png",
+    demoUrl: "https://learnifywithai.onrender.com",
+    codeUrl: "https://github.com/princepal9120/Learnify",
   },
   {
     title: "RAG-Chatbot",
@@ -74,40 +163,6 @@ const projects: Project[] = [
     demoUrl: "https://chatbot.princepal.dev",
     codeUrl: "https://github.com/princepal9120/PersonalizedChatbot",
   },
-  {
-    title: "EcoQuest",
-    description:
-      "AI-driven waste reporting system that reduced response time by 30% through image-based reporting.",
-    type: "fullstack",
-    technologies: [
-      "Next.js",
-      "Drizzle ORM",
-      "PostgreSQL",
-      "Gemini Vision API",
-      "Google Maps API",
-    ],
-    image: "./ecoquest.png",
-    demoUrl: "https://ecoquest.princepal.dev/",
-    codeUrl: "https://github.com/prncepal9120/ecoquest",
-  },
-
-  {
-    title: "Learnify",
-    description:
-      "Scalable LMS platform enabling seamless course creation and enrollment for 500+ users.",
-    type: "fullstack",
-    technologies: [
-      "React.js",
-      "React Query",
-      "MongoDB",
-      "Express.js",
-      "Node.js",
-    ],
-    image: "./learnify.png",
-    demoUrl: "https://learnifywithai.onrender.com",
-    codeUrl: "https://github.com/princepal9120/Learnify",
-  },
-
   {
     title: "JobConnect Portal",
     description:
@@ -268,6 +323,63 @@ const projects: Project[] = [
     demoUrl: "https://github.com/prncepal9120/pdf-data-extractor",
     codeUrl: "https://github.com/prncepal9120/pdf-data-extractor",
   },
+  {
+    title: "Notes API Project",
+    description:
+      "Developed a RESTful Notes API with CRUD operations and JWT authentication, achieving a 99.9% uptime and supporting over 10,000 daily active users for efficient note management. Integrated a React frontend for user-friendly note creation and organization.",
+    type: "fullstack",
+    technologies: [
+      "NestJS",
+      "TypeScript",
+      "React",
+      "JWT",
+      "PostgreSQL",
+      "REST APIs",
+    ],
+    image:
+      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    title: "Microservices Ecommerce Platform",
+    description:
+      "Built a scalable ecommerce platform using microservices architecture with gRPC for inter-service communication and GraphQL as the API gateway. Includes services for account management, product catalog, and order processing. Each service has its own database with Account and Order services using PostgreSQL and Catalog service using Elasticsearch for optimal performance.",
+    type: "fullstack",
+    technologies: [
+      "Go",
+      "Gin",
+      "gRPC",
+      "GraphQL",
+      "PostgreSQL",
+      "Elasticsearch",
+      "Docker",
+      "Microservices",
+    ],
+    image:
+      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    title: "AI Anime Recommendation System",
+    description:
+      "Led the development of an AI-powered Anime recommendation system, integrating machine learning algorithms and OpenAI GPT APIs for personalized suggestions, resulting in a 40% increase in user engagement and a 25% uplift in content consumption.",
+    type: "fullstack",
+    technologies: [
+      "Go",
+      "Gin",
+      "TypeScript",
+      "REST APIs",
+      "CSS",
+      "OpenAI GPT",
+      "JWT",
+    ],
+    image:
+      "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    demoUrl: "#",
+    codeUrl: "#",
+  },
 ];
 export default function ProjectsSection() {
   const [activeTab, setActiveTab] = useState("all");
@@ -332,8 +444,8 @@ export default function ProjectsSection() {
                           {project.type === "fullstack"
                             ? "Full Stack"
                             : project.type === "mobile"
-                            ? "Mobile"
-                            : "Gen AI"}
+                              ? "Mobile"
+                              : "Gen AI"}
                         </Badge>
                       </div>
                       <p className="text-muted-foreground mb-4">

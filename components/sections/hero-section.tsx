@@ -44,9 +44,11 @@ import {
   SiGraphql,
   SiPytorch,
   SiScikitlearn,
+  SiGo,
+  SiNestjs,
 } from "react-icons/si";
 import { BsFillDiamondFill } from "react-icons/bs";
-import { FaMobileAlt, FaReact, FaRobot, FaCode, FaHeart } from "react-icons/fa";
+import { FaMobileAlt, FaReact, FaRobot, FaCode, FaHeart, FaServer } from "react-icons/fa";
 import { TbBrain } from "react-icons/tb";
 
 // Enhanced tech stack with React Icons
@@ -77,10 +79,10 @@ const techStack = [
     category: "frontend",
     color: "#06B6D4",
   },
-  { name: "HTML5", icon: SiHtml5, category: "frontend", color: "#E34F26" },
-  { name: "CSS3", icon: SiCss3, category: "frontend", color: "#1572B6" },
-  { name: "Redux", icon: SiRedux, category: "frontend", color: "#764ABC" },
-  { name: "Vite", icon: SiVite, category: "frontend", color: "#646CFF" },
+  // { name: "HTML5", icon: SiHtml5, category: "frontend", color: "#E34F26" },
+  // { name: "CSS3", icon: SiCss3, category: "frontend", color: "#1572B6" },
+  // { name: "Redux", icon: SiRedux, category: "frontend", color: "#764ABC" },
+  // { name: "Vite", icon: SiVite, category: "frontend", color: "#646CFF" },
 
   // Backend
   { name: "Node.js", icon: SiNodedotjs, category: "backend", color: "#339933" },
@@ -88,12 +90,15 @@ const techStack = [
     name: "Express.js",
     icon: SiExpress,
     category: "backend",
-    color: "#000000",
+    color: "#141111ff",
   },
-  { name: "Python", icon: SiPython, category: "backend", color: "#3776AB" },
+  { name: "Python", icon: SiPython, category: "backend", color: "#e9e338ff" },
   { name: "FastAPI", icon: SiFastapi, category: "backend", color: "#009688" },
-  { name: "JWT", icon: SiJsonwebtokens, category: "backend", color: "#000000" },
+   { name: "Go", icon: SiGo, category: "backend", color: "#2d82c7ff" },
+  { name: "NestJS", icon: SiNestjs, category: "backend", color: "#dc1308ff" },
+  { name: "JWT", icon: SiJsonwebtokens, category: "backend", color: "#f7f0f0ff" },
   { name: "GraphQL", icon: SiGraphql, category: "backend", color: "#E10098" },
+  { name: "gRPC", icon: FaServer, category: "backend", color: "#2786ebff" },
   {
     name: "Socket.io",
     icon: SiSocketdotio,
@@ -151,26 +156,26 @@ const techStack = [
   { name: "Streamlit", icon: SiStreamlit, category: "ai", color: "#FF4B4B" },
   { name: "PyTorch", icon: SiPytorch, category: "ai", color: "#EE4C2C" },
   { name: "Transformers", icon: FaRobot, category: "ai", color: "#FFD21E" },
-  { name: "NLP", icon: TbBrain, category: "ai", color: "#4A90E2" },
-  { name: "NLTK", icon: FaCode, category: "ai", color: "#2E8B57" },
+  // { name: "NLP", icon: TbBrain, category: "ai", color: "#4A90E2" },
+  // { name: "NLTK", icon: FaCode, category: "ai", color: "#2E8B57" },
   { name: "Scikit-learn", icon: SiScikitlearn, category: "ai", color: "#F7931E" },
 
 
   // DevOps & Tools
   { name: "Docker", icon: SiDocker, category: "devops", color: "#2496ED" },
   { name: "AWS", icon: SiAmazon, category: "devops", color: "#FF9900" },
-  { name: "Vercel", icon: SiVercel, category: "devops", color: "#000000" },
+  // { name: "Vercel", icon: SiVercel, category: "devops", color: "#000000" },
   { name: "Git", icon: SiGit, category: "devops", color: "#F05032" },
   { name: "Postman", icon: SiPostman, category: "devops", color: "#FF6C37" },
-  { name: "n8n", icon: SiN8N, category: "devops", color: "#EA4B71" },
+  // { name: "n8n", icon: SiN8N, category: "devops", color: "#EA4B71" },
   { name: "Linux", icon: SiLinux, category: "devops", color: "#FCC624" },
-  {
-    name: "Cursor",
-    icon: BsFillDiamondFill,
-    category: "devops",
-    color: "#007ACC",
-  },
-  { name: "Lovable", icon: FaHeart, category: "devops", color: "#E91E63" },
+  // {
+  //   name: "Cursor",
+  //   icon: BsFillDiamondFill,
+  //   category: "devops",
+  //   color: "#007ACC",
+  // },
+  // { name: "Lovable", icon: FaHeart, category: "devops", color: "#E91E63" },
 ];
 
 // Enhanced TechLogos component with more skills

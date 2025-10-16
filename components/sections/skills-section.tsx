@@ -11,6 +11,7 @@ import {
   Server,
   Settings,
   Wrench,
+  Layers,
 } from "lucide-react";
 import { BsFillDiamondFill } from "react-icons/bs";
 import { VscTerminalPowershell } from "react-icons/vsc";
@@ -55,6 +56,8 @@ import {
   SiShadcnui,
   SiPytorch,
   SiScikitlearn,
+  SiGo,
+  SiNestjs,
 } from "react-icons/si";
 import { TbBrain } from "react-icons/tb";
 import {
@@ -100,8 +103,11 @@ const skillIconMap: Record<string, JSX.Element> = {
   // Backend
   "Node.js": <SiNodedotjs size={24} />,
   Express: <SiExpress size={24} />,
+  "NestJS": <SiNestjs size={24} />,
   Python: <SiPython size={24} />,
   FastAPI: <SiFastapi size={24} />,
+  "Go": <SiGo size={24} />,
+  "Gin": <SiGo size={24} />,
   MongoDB: <SiMongodb size={24} />,
   PostgreSQL: <SiPostgresql size={24} />,
   Supabase: <SiSupabase size={24} />,
@@ -110,6 +116,9 @@ const skillIconMap: Record<string, JSX.Element> = {
   JWT: <SiJsonwebtokens size={24} />,
   GraphQL: <SiGraphql size={24} />,
   "Socket.io": <SiSocketdotio size={24} />,
+  "gRPC": <FaServer size={24} />,
+  "Elasticsearch": <FaDatabase size={24} />,
+  "Microservices": <Layers size={24} />,
 
   // Mobile
   "React Native": <SiReact size={24} />,
@@ -171,8 +180,11 @@ const frontendSkills: Skill[] = [
 const backendSkills: Skill[] = [
   { name: "Node.js" },
   { name: "Express" },
+  { name: "NestJS" },
   { name: "Python" },
   { name: "FastAPI" },
+  { name: "Go" },
+  { name: "Gin" },
   { name: "MongoDB" },
   { name: "PostgreSQL" },
   { name: "Supabase" },
@@ -181,6 +193,9 @@ const backendSkills: Skill[] = [
   { name: "JWT" },
   { name: "GraphQL" },
   { name: "Socket.io" },
+  { name: "gRPC" },
+  { name: "Elasticsearch" },
+  { name: "Microservices" },
 ];
 
 const mobileSkills: Skill[] = [
