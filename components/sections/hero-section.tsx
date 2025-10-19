@@ -41,6 +41,7 @@ import {
   SiNestjs,
 } from "react-icons/si";
 import { FaReact, FaRobot, FaServer } from "react-icons/fa";
+import { useState } from "react";
 
 // Enhanced tech stack
 const techStack = [
@@ -139,6 +140,8 @@ function TechLogos() {
 }
 
 export default function HeroSection() {
+  const [animateImage, setAnimateImage] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
@@ -150,98 +153,97 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-20 pb-8">
-      {/* Background */}
+    <section className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-10 pb-8">
+      {/* Animated Grid Background */}
       <motion.div
         className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"
         animate={{ backgroundPosition: ["0px 0px", "60px 60px"] }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Gradient orbs */}
-      <motion.div className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl" animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" animate={{ scale: [1.2, 1, 1.2], opacity: [0.5, 0.3, 0.5] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
+      {/* Floating Gradient Orbs */}
+      <motion.div
+        className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.5, 0.3, 0.5],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {/* Main Content */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left Section */}
-          <div className="space-y-4">
-            <motion.div variants={itemVariants}>
-              <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3" whileHover={{ scale: 1.02 }}>
-                <span className="text-white">Prince Pal</span>
-                <br />
-                <motion.span className="text-cyan-400 text-xl md:text-2xl" animate={{ textShadow: ["0 0 20px rgba(34,211,238,0.3)", "0 0 40px rgba(34,211,238,0.5)", "0 0 20px rgba(34,211,238,0.3)"] }} transition={{ duration: 2, repeat: Infinity }}>
-                  Problem Solver & Backend Engineer
-                </motion.span>
-              </motion.h1>
-            </motion.div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid lg:grid-cols-2 gap-10 items-center"
+        >
+          {/* Left Section - Concise About */}
+          <motion.div variants={itemVariants} className="space-y-5">
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
+              Hi, I’m <span className="text-cyan-400">Prince Pal</span>
+            </h1>
+            <motion.h2
+              className="text-cyan-400 text-lg md:text-xl font-medium"
+              animate={{
+                textShadow: [
+                  "0 0 20px rgba(34,211,238,0.3)",
+                  "0 0 40px rgba(34,211,238,0.5)",
+                  "0 0 20px rgba(34,211,238,0.3)",
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Backend Engineer & Problem Solver
+            </motion.h2>
 
-            {/* About Section */}
-            <motion.div variants={itemVariants} className="space-y-3 text-gray-300 text-sm leading-relaxed">
-              <div>
-                <h2 className="text-xl font-semibold text-white mb-2">About Me</h2>
-                <p className="leading-relaxed">
-                  I’m a <span className="text-cyan-400 font-medium">problem solver</span> who learns quickly and loves exploring the core side of technology — <span className="text-cyan-400 font-medium">backend systems</span> and <span className="text-cyan-400 font-medium">AI/ML</span>. I’ve built several backend projects including <span className="text-cyan-400 font-medium">microservices using Go and Node.js</span>.
-                </p>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Passionate about <span className="text-cyan-400 font-medium">scalable backend systems</span> and <span className="text-cyan-400 font-medium">AI-driven technologies</span>.
+              I enjoy turning complex ideas into elegant solutions using Go, Node.js, and modern tools.
+            </p>
 
-                <p className="leading-relaxed mt-3">
-                  I come from a small village and I’m the <span className="text-cyan-400 font-medium">first engineer in my family</span>. From studying in a government school under the state board to coding professionally, I’ve evolved by <span className="text-cyan-400 font-medium">learning something new every day</span>. Growth never stops.
-                </p>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              I’m a <span className="text-cyan-400 font-medium">self-taught engineer</span> from a small village — building projects that combine <span className="text-cyan-400 font-medium">creativity</span>, <span className="text-cyan-400 font-medium">logic</span>, and <span className="text-cyan-400 font-medium">impact</span>.
+            </p>
 
-                <p className="leading-relaxed mt-3">
-                  My primary strength lies in <span className="text-cyan-400 font-medium">backend development</span>, but I also handle <span className="text-cyan-400 font-medium">frontend design</span> when needed — often using <span className="text-cyan-400 font-medium">Cursor</span> or <span className="text-cyan-400 font-medium">Claude AI</span> to bring my ideas to life.
-                </p>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Currently open to <span className="text-cyan-400 font-medium">freelance, collaborations,</span> and <span className="text-cyan-400 font-medium">full-time opportunities</span>.{" "}
+              <Link href="/contact" className="text-cyan-400 hover:underline font-medium">
+                Let’s connect →
+              </Link>
+            </p>
+          </motion.div>
 
-                <p className="leading-relaxed mt-3">
-                  I love <span className="text-cyan-400 font-medium">reading</span>, building meaningful projects, and pushing myself to achieve more. I’ve also completed <span className="text-cyan-400 font-medium">freelance projects</span> for clients — turning their ideas into working products.
-                </p>
-
-                <p className="leading-relaxed mt-3 italic text-foreground/70">
-                  Every line of code I write is a small step forward from where I started.
-                </p>
-              </div>
-
-              <div>
-                <p className="leading-relaxed">
-                  I'm <span className="text-cyan-400 font-medium">open to work</span>, freelance, or collaborate.{" "}
-                  <Link href="/contact" className="text-cyan-400 hover:underline font-medium">
-                    Contact Me
-                  </Link>
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Social Icons */}
-            <motion.div variants={itemVariants} className="flex gap-4">
-              {[
-                { icon: Github, href: "https://github.com/princepal9120" },
-                { icon: Linkedin, href: "https://linkedin.com/in/prince9120" },
-                { icon: Twitter, href: "https://twitter.com/prince_twets" },
-                { icon: Mail, href: "mailto:princepal9120@gmail.com" },
-              ].map((social, index) => (
-                <motion.div key={index} whileHover={{ scale: 1.2, rotate: 360 }} whileTap={{ scale: 0.9 }} transition={{ duration: 0.3 }}>
-                  <Link href={social.href} target="_blank">
-                    <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
-                      <social.icon className="h-5 w-5" />
-                    </Button>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right Image */}
-          <motion.div variants={itemVariants} whileHover={{ scale: 1.05, rotate: 2 }} transition={{ duration: 0.3 }} className="relative">
-            <div className="relative w-full aspect-square max-w-md mx-auto rounded-2xl overflow-hidden border-4 border-cyan-400/20 shadow-2xl shadow-cyan-400/10">
+          {/* Right Section - Profile Image */}
+          <motion.div className="relative flex justify-center lg:justify-end">
+            <motion.div
+              onClick={() => setAnimateImage(!animateImage)}
+              animate={animateImage ? { scale: [1, 1.2, 1], rotate: [0, 15, -15, 0] } : { scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border-2 border-cyan-400/20 shadow-lg shadow-cyan-400/10 cursor-pointer"
+            >
               <motion.div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20" animate={{ opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 3, repeat: Infinity }} />
               <Image src="/profile.png" alt="Prince Pal" fill className="object-cover" priority />
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* Tools Section */}
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} className="mt-12">
+        {/* Skill / Tools Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="mt-12"
+        >
           <TechLogos />
         </motion.div>
       </div>

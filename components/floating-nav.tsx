@@ -11,7 +11,7 @@ export default function FloatingNav() {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.scrollY > 300) {
+            if (window.scrollY > 250) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);

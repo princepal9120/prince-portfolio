@@ -18,7 +18,7 @@ export default function Home() {
   <div className="px-6 md:px-0 md:max-w-[1100px] md:mx-auto">
     <HeroSection />
     <ExperienceSection />
-    <ContributionGraph />
+    {/* <ContributionGraph /> */}
     <SkillsSection />
     <ProjectsSection />
     <BlogPage />

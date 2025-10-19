@@ -13,32 +13,27 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "2",
     title: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "Shadcn", "Framer Motion"]
+    skills: ["React", "Next.js", "Tailwind CSS", "Shadcn", "React Native", "Expo","Redux", "Zustand","React Query", "Framer Motion"]
   },
   {
     id: "3",
     title: "Backend",
-    skills: ["Node.js", "Express.js", "FastAPI", "NestJS", "PostgreSQL", "MongoDB"]
+    skills: ["Node.js", "Express.js", "FastAPI", "NestJS","PostgreSQL", "Gin", "MongoDB", "Prisma", "Socket.io"]
   },
   {
     id: "4",
-    title: "Mobile",
-    skills: ["React Native", "Expo"]
+    title: "AI/ML",
+    skills: ["LangChain","Langgraph", "OpenAI", "Streamlit", "PyTorch", "HuggingFace Transformers"]
   },
   {
     id: "5",
-    title: "AI/ML",
-    skills: ["LangChain", "OpenAI", "Gemini API", "Streamlit", "PyTorch", "Transformers"]
-  },
-  {
-    id: "6",
     title: "DevOps & Cloud",
     skills: ["Docker", "AWS", "Vercel", "Kubernetes", "Terraform", "CloudFlare"]
   },
 
   {
-    id: "7",
+    id: "6",
     title: "Tools",
-    skills: ["Git", "gRPC", "GraphQL", "REST APIs", "Socket.io", "NATS"]
+    skills: ["Git", "gRPC", "GraphQL", "REST APIs", "Cursor"]
   }
 ];

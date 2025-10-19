@@ -20,7 +20,7 @@ export default function SkillsSection() {
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {skillCategories.map((category, index) => (
             <FadeIn key={category.id} delay={0.05 * index}>
               <motion.div
@@ -29,10 +29,10 @@ export default function SkillsSection() {
                 className="bg-card/30 border border-border/50 rounded-lg p-3 hover:border-cyan-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10"
               >
                 <h3 className="text-xs font-semibold mb-2 text-cyan-400">
-                  {index + 1}. {category.title}
+                {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-1">
-                  {category.skills.slice(0, 4).map((skill, skillIndex) => (
+                  {category.skills.map((skill, skillIndex) => (
                     <Badge
                       key={skill}
                       variant="secondary"
@@ -41,11 +41,11 @@ export default function SkillsSection() {
                       {skill}
                     </Badge>
                   ))}
-                  {category.skills.length > 4 && (
+                  {/* {category.skills.length > 6 && (
                     <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5 bg-muted/50">
-                      +{category.skills.length - 4}
+                      +{category.skills.length - 6}
                     </Badge>
-                  )}
+                  )} */}
                 </div>
               </motion.div>
             </FadeIn>
