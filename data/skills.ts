@@ -35,14 +35,10 @@ export const skillCategories: SkillCategory[] = [
     title: "DevOps & Cloud",
     skills: ["Docker", "AWS", "Vercel", "Kubernetes", "Terraform", "CloudFlare"]
   },
+
   {
     id: "7",
-    title: "Data Engineering",
-    skills: ["Apache Spark", "Apache Kafka", "Apache Airflow", "DBaaS"]
-  },
-  {
-    id: "8",
-    title: "Others",
+    title: "Tools",
     skills: ["Git", "gRPC", "GraphQL", "REST APIs", "Socket.io", "NATS"]
   }
 ];

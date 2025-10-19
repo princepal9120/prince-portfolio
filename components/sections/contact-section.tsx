@@ -169,7 +169,7 @@ export default function ContactSection() {
                   </div>
                   <div className="flex items-center justify-between p-3 bg-muted/30 border border-muted-foreground/20 rounded-lg hover:border-cyan-400/30 transition-colors">
                     <span className="text-sm text-muted-foreground">
-                      ayush.3327@knightmail.com
+                      princepal9120@gmail.com
                     </span>
                     <Button
                       variant="ghost"

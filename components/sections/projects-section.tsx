@@ -6,384 +6,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/animations/fade-in";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ExternalLink, Github, Layers } from "lucide-react";
+import { ExternalLink, Github, Layers, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { projects } from "@/data";
+import { motion } from "framer-motion";
 
-interface Project {
-  title: string;
-  description: string;
-  type: "fullstack" | "mobile" | "ai";
-  technologies: string[];
-  image: string;
-  demoUrl?: string;
-  codeUrl?: string;
-}
 
-const projects: Project[] = [
-  {
-    title: "Microservices Ecommerce Platform",
-    description:
-      "Built a scalable ecommerce platform using microservices architecture with gRPC for inter-service communication and GraphQL as the API gateway. Includes services for account management, product catalog, and order processing. Each service has its own database with Account and Order services using PostgreSQL and Catalog service using Elasticsearch for optimal performance.",
-    type: "fullstack",
-    technologies: [
-      "Go",
-      "Gin",
-      "gRPC",
-      "GraphQL",
-      "PostgreSQL",
-      "Elasticsearch",
-      "Docker",
-      "Microservices",
-    ],
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "AI Anime Recommendation System",
-    description:
-      "Led the development of an AI-powered Anime recommendation system, integrating machine learning algorithms and OpenAI GPT APIs for personalized suggestions, resulting in a 40% increase in user engagement and a 25% uplift in content consumption.",
-    type: "fullstack",
-    technologies: [
-      "Go",
-      "Gin",
-      "TypeScript",
-      "REST APIs",
-      "CSS",
-      "OpenAI GPT",
-      "JWT",
-    ],
-    image:
-      "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "Perception- Multi-step Agentic Chatbot",
-    description:
-      "A dynamic AI chatbot that handles multi-step tasks and contextual conversations using LangGraph agents and Groq inference. It combines LangChain orchestration with Streamlit UI for a clean and powerful workflow.",
-    type: "ai",
-    technologies: [
-      "LangGraph",
-      "LangChain",
-      "Groq",
-      "Python",
-      "Streamlit",
-      "FastAPI",
-      "React",
-    ],
-    image: "./agent.png",
-    demoUrl: "https://perplexity.princepal.dev",
-    codeUrl: "https://github.com/princepal9120/perception",
-  },
-  {
-    title: "EcoQuest",
-    description:
-      "AI-driven waste reporting system that reduced response time by 30% through image-based reporting.",
-    type: "fullstack",
-    technologies: [
-      "Next.js",
-      "Drizzle ORM",
-      "PostgreSQL",
-      "Gemini Vision API",
-      "Google Maps API",
-    ],
-    image: "./ecoquest.png",
-    demoUrl: "https://ecoquest.princepal.dev/",
-    codeUrl: "https://github.com/prncepal9120/ecoquest",
-  },
-  {
-    title: "Gemini Live Clone - Dora AI",
-    description:
-      "A real-time AI assistant that sees, hears, thinks, and responds using webcam, audio, and advanced LLM tools like LangGraph and Groq. Dora is an agentic experience built for immersive interaction.",
-    type: "ai",
-    technologies: [
-      "LangGraph",
-      "Groq",
-      "Gemini API",
-      "Whisper",
-      "ElevenLabs",
-      "Gradio",
-      "Python",
-    ],
-    image:
-      "https://images.pexels.com/photos/8294602/pexels-photo-8294602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "https://github.com/princepal9120/gemini-live-clone",
-    codeUrl:
-      "https://github.com/princepal9120/ai-learning/tree/main/projects/livecam-ai-assitant",
-  },
-  {
-    title: "Notes API Project",
-    description:
-      "Developed a RESTful Notes API with CRUD operations and JWT authentication, achieving a 99.9% uptime and supporting over 10,000 daily active users for efficient note management. Integrated a React frontend for user-friendly note creation and organization.",
-    type: "fullstack",
-    technologies: [
-      "NestJS",
-      "TypeScript",
-      "React",
-      "JWT",
-      "PostgreSQL",
-      "REST APIs",
-    ],
-    image:
-      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "Learnify",
-    description:
-      "Scalable LMS platform enabling seamless course creation and enrollment for 500+ users.",
-    type: "fullstack",
-    technologies: [
-      "React.js",
-      "React Query",
-      "MongoDB",
-      "Express.js",
-      "Node.js",
-    ],
-    image: "./learnify.png",
-    demoUrl: "https://learnifywithai.onrender.com",
-    codeUrl: "https://github.com/princepal9120/Learnify",
-  },
-  {
-    title: "RAG-Chatbot",
-    description:
-      "A resume-aware chatbot using RAG, LLM function-calling, and LangChain that provides contextual responses.",
-    type: "ai",
-    technologies: [
-      "Next.js",
-      "LangChain",
-      "AstraDB",
-      "Gemini API",
-      "TypeScript",
-    ],
-    image: "./chatbot.png",
-    demoUrl: "https://chatbot.princepal.dev",
-    codeUrl: "https://github.com/princepal9120/PersonalizedChatbot",
-  },
-  {
-    title: "JobConnect Portal",
-    description:
-      "A full-stack job portal enabling recruiters and candidates to post, search, and apply for jobs with a real-time dashboard for analytics and notifications.",
-    type: "fullstack",
-    technologies: [
-      "MongoDB",
-      "Express.js",
-      "React",
-      "Node.js",
-      "Redux",
-      "JWT Authentication",
-    ],
-    image: "./jobportal.png",
-    demoUrl: "https://talentbridge-1yxp.onrender.com/",
-    codeUrl: "https://github.com/princepal9120/TalentBridge",
-  },
-  {
-    title: "LinkedIn Post Generator",
-    description:
-      "AI-based tool that generates LinkedIn posts in a user's writing style using few-shot learning.",
-    type: "ai",
-    technologies: [
-      "Python",
-      "Streamlit",
-      "Meta Llama",
-      "Pandas",
-      "Few-Shot Learning",
-    ],
-    image:
-      "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "https://github.com/princepal9120/linkedin_post_generator",
-    codeUrl: "https://github.com/princepal9120/linkedin_post_generator",
-  },
-
-  {
-    title: "EmailGenie",
-    description:
-      "An AI-powered email template generator that creates personalized outreach messages based on user queries using LangChain and Gmail API.",
-    type: "ai",
-    technologies: ["Typescript", "LangChain", "Gmail API", "NextJs"],
-    image: "./email.png",
-    demoUrl: "https://email-generator-eta.vercel.app",
-    codeUrl: "https://github.com/princepal9120/email-generator",
-  },
-  {
-    title: "CricketChat Live",
-    description:
-      "A real-time chat application for cricket enthusiasts, featuring topic rooms, live scoring updates, and user profiles—built with MERN and Socket.io.",
-    type: "fullstack",
-    technologies: [
-      "MongoDB",
-      "Express.js",
-      "React",
-      "Node.js",
-      "Socket.io",
-      "WebSockets",
-    ],
-    image: "./cricket_chat.png",
-    demoUrl: "https://cricket-chat-room-client.vercel.app",
-    codeUrl: "https://github.com/princepal9120/cricket_chat_room_client",
-  },
-  {
-    title: "Splitmate",
-    description:
-      "Mobile expense tracking application with group expense management for 300+ users.",
-    type: "mobile",
-    technologies: [
-      "React Native",
-      "Expo Router",
-      "Firebase",
-      "Zustand",
-      "AsyncStorage",
-    ],
-    image:
-      "https://images.pexels.com/photos/4386326/pexels-photo-4386326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "https://www.youtube.com/watch?v=sVtEbq94MfM",
-    codeUrl: "https://github.com/princepal9120/Splitmate",
-  },
-  {
-    title: "Medialarm",
-    description:
-      "React Native medicine tracker with personalized medication reminders and biometric authentication.",
-    type: "mobile",
-    technologies: [
-      "React Native",
-      "Expo",
-      "TypeScript",
-      "Async Storage",
-      "Expo Notifications",
-    ],
-    image: "./medialarm.jpg",
-    demoUrl: "#",
-    codeUrl: "https://github.com/princepal9120/Medialarm",
-  },
-  {
-    title: "AI Agent Chatbot",
-    description:
-      "An intelligent real-time chatbot application leveraging LangGraph and LangChain agents for executing multi-step tasks autonomously. Integrates Groq for ultra-fast inference and Streamlit for an interactive UI, enabling dynamic conversations and agent-based task completion.",
-    type: "ai",
-    technologies: ["LangGraph", "Groq", "LangChain", "Streamlit", "Python"],
-    image:
-      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "https://github.com/princepal9120/agent_chatbot",
-  },
-
-  {
-    title: "Service Checkout Platform",
-    description:
-      "A dynamic web application allowing users to browse premium services (fitness, wellness, health, etc.), add them to a cart, and proceed to real-time checkout. Built with React and Zustand for state management and seamless user experience.",
-    type: "fullstack",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Zustand",
-      "Tailwind CSS",
-      "Shadcn UI",
-      "Axios",
-    ],
-    image: "./service.png",
-    demoUrl: "https://service-basket-express.vercel.app/",
-    codeUrl: "https://github.com/prncepal9120/service-basket",
-  },
-
-  {
-    title: "CabRide",
-    description:
-      "Ride-hailing app with real-time location tracking via Google Maps API and secure authentication.",
-    type: "mobile",
-    technologies: [
-      "React Native",
-      "TypeScript",
-      "Clerk",
-      "Zustand",
-      "Google Maps API",
-    ],
-    image:
-      "https://images.pexels.com/photos/1797542/pexels-photo-1797542.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "",
-    codeUrl: "https://github.com/CabRide",
-  },
-  {
-    title: "PDFInfo Extractor",
-    description:
-      "A web-based utility allowing users to upload PDFs, extract key personal and contact details (name, address, phone, email, role) via pdf-lib and regex/NLP, and present them in a clean, responsive interface.",
-    type: "ai",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "pdf-lib",
-      "JavaScript RegExp",
-      "Axios",
-    ],
-    image:
-      "https://images.pexels.com/photos/30268252/pexels-photo-30268252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "https://github.com/prncepal9120/pdf-data-extractor",
-    codeUrl: "https://github.com/prncepal9120/pdf-data-extractor",
-  },
-  {
-    title: "Notes API Project",
-    description:
-      "Developed a RESTful Notes API with CRUD operations and JWT authentication, achieving a 99.9% uptime and supporting over 10,000 daily active users for efficient note management. Integrated a React frontend for user-friendly note creation and organization.",
-    type: "fullstack",
-    technologies: [
-      "NestJS",
-      "TypeScript",
-      "React",
-      "JWT",
-      "PostgreSQL",
-      "REST APIs",
-    ],
-    image:
-      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "Microservices Ecommerce Platform",
-    description:
-      "Built a scalable ecommerce platform using microservices architecture with gRPC for inter-service communication and GraphQL as the API gateway. Includes services for account management, product catalog, and order processing. Each service has its own database with Account and Order services using PostgreSQL and Catalog service using Elasticsearch for optimal performance.",
-    type: "fullstack",
-    technologies: [
-      "Go",
-      "Gin",
-      "gRPC",
-      "GraphQL",
-      "PostgreSQL",
-      "Elasticsearch",
-      "Docker",
-      "Microservices",
-    ],
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "AI Anime Recommendation System",
-    description:
-      "Led the development of an AI-powered Anime recommendation system, integrating machine learning algorithms and OpenAI GPT APIs for personalized suggestions, resulting in a 40% increase in user engagement and a 25% uplift in content consumption.",
-    type: "fullstack",
-    technologies: [
-      "Go",
-      "Gin",
-      "TypeScript",
-      "REST APIs",
-      "CSS",
-      "OpenAI GPT",
-      "JWT",
-    ],
-    image:
-      "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-];
 export default function ProjectsSection() {
-  const [showAllProjects, setShowAllProjects] = useState(false);
   const [activeTab, setActiveTab] = useState("all");
+  const router = useRouter();
 
   const filteredProjects =
     activeTab === "all"
@@ -391,19 +23,29 @@ export default function ProjectsSection() {
       : projects.filter((project) => project.type === activeTab);
 
   // Featured projects (first 6)
-  const featuredProjects = projects.slice(0, 6);
+  const featuredProjects = filteredProjects.slice(0, 6);
 
   return (
-    <section id="projects" className="py-16 bg-muted/20">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 bg-muted/20 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      <div className="absolute top-20 right-20 w-72 h-72 bg-cyan-400/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
+      
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Projects Header */}
         <FadeIn>
-          <div className="flex items-center gap-2 mb-2">
-            <Layers className="h-6 w-6 text-cyan-400" />
-            <h2 className="text-3xl font-bold">Projects</h2>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="p-2 bg-cyan-400/10 rounded-lg border border-cyan-400/20">
+              <Layers className="h-6 w-6 text-cyan-400" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+            <Sparkles className="h-5 w-5 text-cyan-400 animate-pulse" />
           </div>
-          <p className="text-muted-foreground mb-12">
-            I've been actively engaged in a few side projects lately, exploring diverse technologies & ideas. Here's a quick glimpse of my ongoing and completed projects:
+          <p className="text-muted-foreground mb-12 text-lg">
+            Exploring diverse technologies and building innovative solutions
           </p>
         </FadeIn>
 
@@ -414,28 +56,28 @@ export default function ProjectsSection() {
           onValueChange={setActiveTab}
           className="w-full mb-8"
         >
-          <TabsList className="mb-8 flex flex-wrap h-auto p-1 bg-muted/50">
+          <TabsList className="mb-8 flex flex-wrap h-auto p-1.5 bg-muted/50 backdrop-blur-sm border border-border/50 rounded-xl">
             <TabsTrigger
               value="all"
-              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+              className="flex-1 rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-400 data-[state=active]:to-cyan-500 data-[state=active]:text-black data-[state=active]:shadow-lg font-medium transition-all"
+            >
+              All Projects
+            </TabsTrigger>
+            <TabsTrigger
+              value="fullstack"
+              className="flex-1 rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-400 data-[state=active]:to-cyan-500 data-[state=active]:text-black data-[state=active]:shadow-lg font-medium transition-all"
             >
               Full Stack
             </TabsTrigger>
             <TabsTrigger
-              value="fullstack"
-              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
-            >
-              Core
-            </TabsTrigger>
-            <TabsTrigger
               value="mobile"
-              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+              className="flex-1 rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-400 data-[state=active]:to-cyan-500 data-[state=active]:text-black data-[state=active]:shadow-lg font-medium transition-all"
             >
               Mobile
             </TabsTrigger>
             <TabsTrigger
               value="ai"
-              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+              className="flex-1 rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-400 data-[state=active]:to-cyan-500 data-[state=active]:text-black data-[state=active]:shadow-lg font-medium transition-all"
             >
               Gen AI
             </TabsTrigger>
@@ -443,116 +85,123 @@ export default function ProjectsSection() {
 
           <TabsContent value={activeTab} className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(showAllProjects ? filteredProjects : featuredProjects).map(
+              {featuredProjects.map(
                 (project, index) => (
                   <FadeIn key={index} delay={0.05 * index} direction="up">
-                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-cyan-400/30 group">
-                      <div className="h-48 overflow-hidden relative">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                      <CardContent className="p-6 flex-1">
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="text-lg font-semibold group-hover:text-cyan-400 transition-colors line-clamp-1">
+                    <motion.div
+                      whileHover={{ y: -8 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Card className="overflow-hidden h-full flex flex-col bg-gradient-to-br from-card to-card/50 backdrop-blur-sm border-border/50 hover:border-cyan-400/50 hover:shadow-2xl hover:shadow-cyan-400/10 transition-all duration-500 group relative">
+                        {/* Glow effect on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/0 via-cyan-400/0 to-purple-600/0 group-hover:from-cyan-400/5 group-hover:via-purple-600/5 group-hover:to-cyan-400/5 transition-all duration-500 rounded-lg" />
+                        
+                        <div className="h-48 overflow-hidden relative">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-all duration-500" />
+                          
+                          {/* Floating badge */}
+                          <div className="absolute top-3 right-3">
+                            <Badge
+                              variant="outline"
+                              className="bg-black/60 backdrop-blur-md text-cyan-400 border-cyan-400/50 text-xs font-semibold px-3 py-1"
+                            >
+                              {project.type === "fullstack"
+                                ? "Full Stack"
+                                : project.type === "mobile"
+                                  ? "Mobile"
+                                  : "Gen AI"}
+                            </Badge>
+                          </div>
+                        </div>
+                        
+                        <CardContent className="p-6 flex-1 relative z-10">
+                          <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors line-clamp-1 bg-gradient-to-r from-white to-cyan-400 bg-clip-text group-hover:text-transparent">
                             {project.title}
                           </h3>
-                          <Badge
-                            variant="outline"
-                            className="text-xs whitespace-nowrap ml-2 bg-cyan-400/10 text-cyan-400 border-cyan-400/30"
-                          >
-                            {project.type === "fullstack"
-                              ? "Full Stack"
-                              : project.type === "mobile"
-                                ? "Mobile"
-                                : "Gen AI"}
-                          </Badge>
-                        </div>
-                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                          {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-1.5 mt-auto">
-                          {project.technologies.slice(0, 4).map((tech, i) => (
-                            <Badge key={i} variant="secondary" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                          {project.technologies.length > 4 && (
-                            <Badge variant="secondary" className="text-xs">
-                              +{project.technologies.length - 4}
-                            </Badge>
+                          
+                          <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">
+                            {project.description}
+                          </p>
+                          
+                          <div className="flex flex-wrap gap-2 mt-auto">
+                            {project.technologies.slice(0, 3).map((tech, i) => (
+                              <Badge 
+                                key={i} 
+                                variant="secondary" 
+                                className="text-xs bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 hover:bg-cyan-400/20 transition-colors"
+                              >
+                                {tech}
+                              </Badge>
+                            ))}
+                            {project.technologies.length > 3 && (
+                              <Badge 
+                                variant="secondary" 
+                                className="text-xs bg-purple-600/10 text-purple-400 border border-purple-400/20"
+                              >
+                                +{project.technologies.length - 3} more
+                              </Badge>
+                            )}
+                          </div>
+                        </CardContent>
+                        
+                        <CardFooter className="p-6 pt-0 flex gap-3 relative z-10">
+                          {project.demoUrl && (
+                            <Link
+                              href={project.demoUrl}
+                              className="flex-1"
+                              target="_blank"
+                            >
+                              <Button
+                                variant="default"
+                                size="sm"
+                                className="w-full gap-2 text-xs bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-500 hover:to-cyan-600 text-black font-semibold shadow-lg shadow-cyan-400/20"
+                              >
+                                <ExternalLink className="h-3.5 w-3.5" />
+                                Live Demo
+                              </Button>
+                            </Link>
                           )}
-                        </div>
-                      </CardContent>
-                      <CardFooter className="p-6 pt-0 flex gap-2">
-                        {project.demoUrl && (
-                          <Link
-                            href={project.demoUrl}
-                            className="flex-1"
-                            target="_blank"
-                          >
-                            <Button
-                              variant="default"
-                              size="sm"
-                              className="w-full gap-2 text-xs"
+                          {project.codeUrl && (
+                            <Link
+                              href={project.codeUrl}
+                              className="flex-1"
+                              target="_blank"
                             >
-                              <ExternalLink className="h-3 w-3" />
-                              View Project Details
-                            </Button>
-                          </Link>
-                        )}
-                        {project.codeUrl && (
-                          <Link
-                            href={project.codeUrl}
-                            className="flex-1"
-                            target="_blank"
-                          >
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="w-full gap-2 text-xs border-cyan-400/30 hover:bg-cyan-400/10"
-                            >
-                              <Github className="h-3 w-3" />
-                              Repo Link
-                            </Button>
-                          </Link>
-                        )}
-                      </CardFooter>
-                    </Card>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="w-full gap-2 text-xs border-cyan-400/30 hover:bg-cyan-400/10 hover:border-cyan-400/50 transition-all"
+                              >
+                                <Github className="h-3.5 w-3.5" />
+                                Code
+                              </Button>
+                            </Link>
+                          )}
+                        </CardFooter>
+                      </Card>
+                    </motion.div>
                   </FadeIn>
                 )
               )}
             </div>
 
             {/* View More Button */}
-            {!showAllProjects && filteredProjects.length > 6 && (
+            {filteredProjects.length > 6 && (
               <FadeIn delay={0.3}>
                 <div className="flex justify-center mt-12">
-                  <Button
-                    onClick={() => setShowAllProjects(true)}
-                    className="gap-2 bg-cyan-400 hover:bg-cyan-500 text-black font-semibold px-8"
-                  >
-                    View More Projects
-                    <Layers className="h-4 w-4" />
-                  </Button>
-                </div>
-              </FadeIn>
-            )}
-
-            {/* Show Less Button */}
-            {showAllProjects && (
-              <FadeIn delay={0.3}>
-                <div className="flex justify-center mt-12">
-                  <Button
-                    onClick={() => setShowAllProjects(false)}
-                    variant="outline"
-                    className="gap-2 border-cyan-400/30 hover:bg-cyan-400/10 px-8"
-                  >
-                    Show Less
-                  </Button>
+                  <Link href="/projects">
+                    <Button
+                      className="gap-2 bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-500 hover:to-cyan-600 text-black font-bold px-10 py-6 text-base rounded-xl shadow-2xl shadow-cyan-400/30 hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-105"
+                    >
+                      Explore All Projects
+                      <Layers className="h-5 w-5" />
+                    </Button>
+                  </Link>
                 </div>
               </FadeIn>
             )}

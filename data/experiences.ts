@@ -28,7 +28,7 @@ export const experiences: Experience[] = [
       "Optimized cloud infrastructure on GCP"
     ],
     technologies: ["LangChain", "GCP", "Python", "AI/ML"],
-    logo: "/logos/bik.png"
+    logo:  "/logos/aniverse.png"
   },
   {
     id: "2",
@@ -45,7 +45,7 @@ export const experiences: Experience[] = [
       "Implemented responsive mobile UI/UX"
     ],
     technologies: ["React Native", "Expo", "TypeScript", "Mobile"],
-    logo: "/logos/dodoozy.png"
+    logo:  "/logos/aniverse.png"
   },
   {
     id: "3",
@@ -62,6 +62,6 @@ export const experiences: Experience[] = [
       "Implemented modern frontend architecture"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "Full Stack"],
-    logo: "/logos/blackbytt.png"
+    logo: "/logos/aniverse.png"
   }
 ];

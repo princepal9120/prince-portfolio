@@ -35,12 +35,12 @@ export default function ContributionGraph() {
     };
 
     return (
-        <section className="py-16 bg-muted/20">
+        <section className="py-16">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
                     <h3 className="text-xl font-semibold mb-6">1844 contributions in the last year</h3>
 
-                    <div className="bg-card/50 rounded-lg p-6 border border-border/50 overflow-x-auto">
+                    <div className="bg-card/30 rounded-lg p-6 border border-border/30 overflow-x-auto">
                         {/* Month labels */}
                         <div className="flex gap-1 mb-2 text-xs text-muted-foreground">
                             {['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'].map((month) => (

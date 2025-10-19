@@ -44,7 +44,7 @@ export default function Navbar() {
         >
           <Code className="h-5 w-5 text-cyan-400" />
           <span className="font-mono">
-            <span className="text-cyan-400">A</span>
+            <span className="text-cyan-400">Prince</span>
           </span>
         </Link>
 
