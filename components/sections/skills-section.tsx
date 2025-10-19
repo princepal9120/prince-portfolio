@@ -1,419 +1,80 @@
 "use client";
 
-import { JSX, useState } from "react";
-import { motion } from "framer-motion";
-import { TabsContent, Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 import FadeIn from "@/components/animations/fade-in";
-import {
-  Smartphone,
-  BrainCircuit,
-  Monitor,
-  Server,
-  Settings,
-  Wrench,
-  Layers,
-} from "lucide-react";
-import { BsFillDiamondFill } from "react-icons/bs";
-import { VscTerminalPowershell } from "react-icons/vsc";
-import {
-  SiReact,
-  SiHuggingface,
-  SiGooglegemini,
-  SiNextdotjs,
-  SiLangchain,
-  SiTailwindcss,
-  SiRedux,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiPostgresql,
-  SiTypescript,
-  SiJsonwebtokens,
-  SiExpo,
-  SiDocker,
-  SiAmazon,
-  SiGit,
-  SiN8N,
-  SiPostman,
-  SiOpenai,
-  SiPython,
-  SiSupabase,
-  SiFirebase,
-  SiReactquery,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiVite,
-  SiFastapi,
-  SiVercel,
-  SiNetlify,
-  SiLinux,
-  SiNumpy,
-  SiPandas,
-  SiStreamlit,
-  SiSocketdotio,
-  SiGraphql,
-  SiShadcnui,
-  SiPytorch,
-  SiScikitlearn,
-  SiGo,
-  SiNestjs,
-} from "react-icons/si";
-import { TbBrain } from "react-icons/tb";
-import {
-  FaServer,
+import { Code } from "lucide-react";
 
-  FaRobot,
-  FaLaptopCode,
-  FaDatabase,
-  FaCode,
-  FaHeart,
-} from "react-icons/fa";
-
-import { BiLogoVisualStudio } from "react-icons/bi";
-import { FiFigma, FiFramer } from "react-icons/fi";
-
-interface Skill {
-  name: string;
-}
-
-interface SkillCategoryProps {
-  title: string;
-  icon: React.ReactNode;
-  skills: Skill[];
-  delay: number;
-}
-
-// 🧠 Map skill names to icons
-const skillIconMap: Record<string, JSX.Element> = {
-  // Frontend
-  React: <SiReact size={24} />,
-  "Next.js": <SiNextdotjs size={24} />,
-  "React Native": <SiReact size={24} />,
-  Expo: <SiExpo size={24} />,
-
-
-  TypeScript: <SiTypescript size={24} />,
-  JavaScript: <SiJavascript size={24} />,
-  HTML5: <SiHtml5 size={24} />,
-  CSS3: <SiCss3 size={24} />,
-  "Tailwind CSS": <SiTailwindcss size={24} />,
-  Redux: <SiRedux size={24} />,
-  "Redux Toolkit": <SiRedux size={24} />,
-  Zustand: <FaDatabase size={24} />,
-  "React Query": <SiReactquery size={24} />,
-  "Shadcn UI": <SiShadcnui size={24} />,
-  'Framer Motion': <FiFramer size={24} />,
-  'Figma': <FiFigma size={24} />,
-
-  // Backend
-  "Node.js": <SiNodedotjs size={24} />,
-  Express: <SiExpress size={24} />,
-  "NestJS": <SiNestjs size={24} />,
-  Python: <SiPython size={24} />,
-  FastAPI: <SiFastapi size={24} />,
-  "Go": <SiGo size={24} />,
-  "Gin": <SiGo size={24} />,
-  MongoDB: <SiMongodb size={24} />,
-  PostgreSQL: <SiPostgresql size={24} />,
-  Supabase: <SiSupabase size={24} />,
-  Firebase: <SiFirebase size={24} />,
-  "REST APIs": <FaServer size={24} />,
-  JWT: <SiJsonwebtokens size={24} />,
-  GraphQL: <SiGraphql size={24} />,
-  "Socket.io": <SiSocketdotio size={24} />,
-  "gRPC": <FaServer size={24} />,
-  "Elasticsearch": <FaDatabase size={24} />,
-  "Microservices": <Layers size={24} />,
-
-
-
-  // AI/ML
-  OpenAI: <SiOpenai size={24} />,
-  "Gemini API": <SiGooglegemini size={24} />,
-  Langchain: <SiLangchain size={24} />,
-  Langgraph: <SiLangchain size={24} />,
-  "Whisper API": <FaRobot size={24} />,
-  HuggingFace: <SiHuggingface size={24} />,
-  NumPy: <SiNumpy size={24} />,
-  Pandas: <SiPandas size={24} />,
-  Streamlit: <SiStreamlit size={24} />,
-  "Vector Database": <FaDatabase size={24} />,
-  Rag: <FaCode size={24} />,
-  PyTorch: <SiPytorch size={24} />,
-  Transformers: <FaRobot size={24} />,
-  NLP: <TbBrain size={24} />,
-  NLTK: <FaCode size={24} />,
-  "Scikit-learn": <SiScikitlearn size={24} />,
-
-  // DevOps
-  Docker: <SiDocker size={24} />,
-  AWS: <SiAmazon size={24} />,
-  Vercel: <SiVercel size={24} />,
-  Netlify: <SiNetlify size={24} />,
-  Linux: <SiLinux size={24} />,
-  "Shell Scripting": <VscTerminalPowershell size={24} />,
-
-  // Tools
-  Git: <SiGit size={24} />,
-  VSCode: <BiLogoVisualStudio size={24} />,
-  Postman: <SiPostman size={24} />,
-  n8n: <SiN8N size={24} />,
-  Cursor: <BsFillDiamondFill size={24} />,
-  Lovable: <FaHeart size={24} />,
-};
-
-const frontendSkills: Skill[] = [
-  { name: "React" },
-  { name: "Next.js" },
-  { name: "React Native" },
-  { name: "Expo" },
-
-  { name: "TypeScript" },
-  { name: "JavaScript" },
-  { name: "HTML5" },
-  { name: "CSS3" },
-  { name: "Tailwind CSS" },
-  { name: "Redux" },
-  { name: "Redux Toolkit" },
-  { name: "Zustand" },
-  { name: "React Query" },
-  { name: "Shadcn UI" },
-  { name: 'Framer Motion' },
-  { name: 'Figma' },
+const skillCategories = [
+  {
+    title: "Languages",
+    skills: ["JavaScript", "TypeScript", "Python", "Go", "SQL"],
+  },
+  {
+    title: "Frontend",
+    skills: ["React", "Next.js", "Tailwind CSS", "Shadcn", "Framer Motion"],
+  },
+  {
+    title: "Backend",
+    skills: ["Node.js", "Express.js", "FastAPI", "NestJS", "PostgreSQL", "MongoDB"],
+  },
+  {
+    title: "Mobile",
+    skills: ["React Native", "Expo"],
+  },
+  {
+    title: "AI/ML",
+    skills: ["LangChain", "OpenAI", "Gemini API", "Streamlit", "PyTorch", "Transformers"],
+  },
+  {
+    title: "DevOps & Cloud",
+    skills: ["Docker", "AWS", "Vercel", "Kubernetes", "Terraform", "CloudFlare"],
+  },
+  {
+    title: "Data Engineering",
+    skills: ["Apache Spark", "Apache Kafka", "Apache Airflow", "DBaaS"],
+  },
+  {
+    title: "Others",
+    skills: ["Git", "gRPC", "GraphQL", "REST APIs", "Socket.io", "NATS"],
+  },
 ];
-
-const backendSkills: Skill[] = [
-  { name: "Node.js" },
-  { name: "Express" },
-  { name: "NestJS" },
-  { name: "Python" },
-  { name: "FastAPI" },
-  { name: "Go" },
-  { name: "Gin" },
-  { name: "MongoDB" },
-  { name: "PostgreSQL" },
-  { name: "Supabase" },
-  { name: "Firebase" },
-  { name: "REST APIs" },
-  { name: "JWT" },
-  { name: "GraphQL" },
-  { name: "Socket.io" },
-  { name: "gRPC" },
-  { name: "Elasticsearch" },
-  { name: "Microservices" },
-];
-
-
-const aiSkills: Skill[] = [
-  { name: "OpenAI" },
-  { name: "Gemini API" },
-  { name: "Langchain" },
-  { name: "Langgraph" },
-  { name: "Whisper API" },
-  { name: "HuggingFace" },
-  { name: "NumPy" },
-  { name: "Pandas" },
-  { name: "Streamlit" },
-  { name: "Vector Database" },
-  { name: "Rag" },
-  { name: "PyTorch" },
-  { name: "Transformers" },
-  { name: "NLP" },
-  { name: "NLTK" },
-  { name: "Scikit-learn" },
-];
-
-const devopsSkills: Skill[] = [
-  { name: "Docker" },
-  { name: "AWS" },
-  { name: "Vercel" },
-  { name: "Netlify" },
-  { name: "Linux" },
-  { name: "Shell Scripting" },
-];
-
-const toolsSkills: Skill[] = [
-  { name: "Git" },
-  { name: "VSCode" },
-  { name: "Postman" },
-  { name: "n8n" },
-  { name: "Cursor" },
-  { name: "Lovable" },
-];
-
-function SkillCategory({ title, icon, skills, delay }: SkillCategoryProps) {
-  return (
-    <FadeIn delay={delay} className="mb-8">
-      <div className="flex items-center gap-2 mb-6">
-        {icon}
-        <h3 className="text-lg sm:text-xl font-semibold">{title}</h3>
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 * index }}
-            whileHover={{
-              scale: 1.05,
-              y: -5,
-              transition: { duration: 0.2 },
-            }}
-            className="flex flex-col items-center justify-center p-4 bg-card rounded-xl shadow-sm border hover:border-primary/50 hover:shadow-lg transition-all duration-300 group cursor-pointer"
-          >
-            <div className="mb-3 text-muted-foreground group-hover:text-primary transition-colors duration-300">
-              {skillIconMap[skill.name] || <FaLaptopCode size={24} />}
-            </div>
-            <span className="text-sm font-medium text-center leading-tight">
-              {skill.name}
-            </span>
-          </motion.div>
-        ))}
-      </div>
-    </FadeIn>
-  );
-}
 
 export default function SkillsSection() {
-  const [activeTab, setActiveTab] = useState("all");
-
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="container mx-auto">
+    <section className="py-20">
+      <div className="container mx-auto px-4">
         <FadeIn>
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Skills</h2>
-          <p className="text-muted-foreground mb-8">Technologies I work with</p>
+          <div className="flex items-center gap-2 mb-2">
+            <Code className="h-6 w-6 text-cyan-400" />
+            <h2 className="text-3xl font-bold">Skills</h2>
+          </div>
+          <p className="text-muted-foreground mb-12">
+            Here are some of the skills I have acquired over the years of my journey in the tech industry. I am always looking to learn more and improve my skillset.
+          </p>
         </FadeIn>
 
-        <Tabs
-          defaultValue="all"
-          value={activeTab}
-          onValueChange={setActiveTab}
-          className="w-full"
-        >
-          <TabsList className="mb-8 flex flex-wrap h-auto p-1 gap-1">
-            <TabsTrigger
-              value="all"
-              className="flex-1 min-w-[80px] text-xs sm:text-sm"
-            >
-              All
-            </TabsTrigger>
-            <TabsTrigger
-              value="frontend"
-              className="flex-1 min-w-[80px] text-xs sm:text-sm"
-            >
-              Frontend
-            </TabsTrigger>
-            <TabsTrigger
-              value="backend"
-              className="flex-1 min-w-[80px] text-xs sm:text-sm"
-            >
-              Backend
-            </TabsTrigger>
-
-            <TabsTrigger
-              value="ai"
-              className="flex-1 min-w-[80px] text-xs sm:text-sm"
-            >
-              AI/ML
-            </TabsTrigger>
-            <TabsTrigger
-              value="devops"
-              className="flex-1 min-w-[80px] text-xs sm:text-sm"
-            >
-              DevOps
-            </TabsTrigger>
-            <TabsTrigger
-              value="tools"
-              className="flex-1 min-w-[80px] text-xs sm:text-sm"
-            >
-              Tools
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="all" className="mt-6 space-y-8">
-            <SkillCategory
-              title="Frontend Development"
-              icon={<Monitor className="h-5 w-5 text-primary" />}
-              skills={frontendSkills}
-              delay={0.1}
-            />
-            <SkillCategory
-              title="Backend Development"
-              icon={<Server className="h-5 w-5 text-primary" />}
-              skills={backendSkills}
-              delay={0.2}
-            />
-
-            <SkillCategory
-              title="AI/ML"
-              icon={<BrainCircuit className="h-5 w-5 text-primary" />}
-              skills={aiSkills}
-              delay={0.4}
-            />
-            <SkillCategory
-              title="DevOps & Cloud"
-              icon={<Settings className="h-5 w-5 text-primary" />}
-              skills={devopsSkills}
-              delay={0.5}
-            />
-            <SkillCategory
-              title="Development Tools"
-              icon={<Wrench className="h-5 w-5 text-primary" />}
-              skills={toolsSkills}
-              delay={0.6}
-            />
-          </TabsContent>
-
-          <TabsContent value="frontend">
-            <SkillCategory
-              title="Frontend Development"
-              icon={<Monitor className="h-5 w-5 text-primary" />}
-              skills={frontendSkills}
-              delay={0.1}
-            />
-          </TabsContent>
-
-          <TabsContent value="backend">
-            <SkillCategory
-              title="Backend Development"
-              icon={<Server className="h-5 w-5 text-primary" />}
-              skills={backendSkills}
-              delay={0.1}
-            />
-          </TabsContent>
-
-
-
-          <TabsContent value="ai">
-            <SkillCategory
-              title="AI/ML Development"
-              icon={<BrainCircuit className="h-5 w-5 text-primary" />}
-              skills={aiSkills}
-              delay={0.1}
-            />
-          </TabsContent>
-
-          <TabsContent value="devops">
-            <SkillCategory
-              title="DevOps & Cloud"
-              icon={<Settings className="h-5 w-5 text-primary" />}
-              skills={devopsSkills}
-              delay={0.1}
-            />
-          </TabsContent>
-
-          <TabsContent value="tools">
-            <SkillCategory
-              title="Development Tools"
-              icon={<Wrench className="h-5 w-5 text-primary" />}
-              skills={toolsSkills}
-              delay={0.1}
-            />
-          </TabsContent>
-        </Tabs>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl">
+          {skillCategories.map((category, index) => (
+            <FadeIn key={category.title} delay={0.1 * index}>
+              <div className="bg-card/30 border border-border/50 rounded-lg p-5 hover:border-cyan-400/30 transition-colors">
+                <h3 className="text-sm font-semibold mb-4 text-cyan-400">
+                  {index + 1}. {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <Badge
+                      key={skill}
+                      variant="secondary"
+                      className="text-xs bg-muted/50 hover:bg-cyan-400/10 hover:text-cyan-400 transition-colors"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useTypewriter, Cursor } from "react-simple-typewriter";
-import { ArrowRight, FileText, Route } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   SiReact,
   SiNextdotjs,
@@ -94,7 +94,7 @@ const techStack = [
   },
   { name: "Python", icon: SiPython, category: "backend", color: "#e9e338ff" },
   { name: "FastAPI", icon: SiFastapi, category: "backend", color: "#009688" },
-   { name: "Go", icon: SiGo, category: "backend", color: "#2d82c7ff" },
+  { name: "Go", icon: SiGo, category: "backend", color: "#2d82c7ff" },
   { name: "NestJS", icon: SiNestjs, category: "backend", color: "#dc1308ff" },
   { name: "JWT", icon: SiJsonwebtokens, category: "backend", color: "#f7f0f0ff" },
   { name: "GraphQL", icon: SiGraphql, category: "backend", color: "#E10098" },
@@ -187,9 +187,7 @@ function TechLogos() {
       transition={{ duration: 0.5, delay: 0.5 }}
       className="relative"
     >
-      <p className="text-sm text-muted-foreground mb-8">
-        Technologies I work with
-      </p>
+      <h3 className="text-xl font-semibold text-white mb-6">Tools that I have used</h3>
 
       {/* First row - scrolling right */}
       <div className="flex overflow-hidden mb-4">
@@ -265,98 +263,132 @@ function TechLogos() {
 }
 
 export default function HeroSection() {
-  const [text] = useTypewriter({
-    words: [
-      "Problem Solver",
-      "Software Engineer",
-      "AI Engineer",
-      "Full Stack Developer",
-      "Mobile Developer",
-    ],
-    loop: true,
-    delaySpeed: 2000,
-  });
-
   return (
-    <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-background to-background/80 relative overflow-hidden py-20 px-4">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-10 px-4">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
       <div className="container mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
           >
-            <p className="text-primary font-medium mb-2 text-base sm:text-lg">
-              👋 Hi, I&apos;m
-            </p>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80"
-          >
-            Prince Pal
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-6 min-h-[3rem]"
-          >
-            <span>{text}</span>
-            <Cursor cursorStyle="_" />
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto px-4"
-          >
-            Passionate about building scalable apps with cutting-edge
-            technologies that solve real-world problems.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16 px-4"
-          >
-            <Button
-              size="lg"
-              className="w-full sm:w-auto gap-2"
-              onClick={() => {
-                document.getElementById("projects")?.scrollIntoView({
-                  behavior: "smooth",
-                });
-              }}
-            >
-              Hire me
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Link
-              href={
-                "https://drive.google.com/file/d/1tsz1a2Di42xceCP9Sno2QaHIWpa15ZSL/view?usp=drive_link"
-              }
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto gap-2"
+            <div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-sm text-cyan-400 font-medium mb-2"
               >
-                Resume
-                <FileText className="h-5 w-5" />
-              </Button>
-            </Link>
+                Hello! I'm developer from Delhi, India. I enjoy programming and exploring technology.
+              </motion.p>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
+              >
+                <span className="text-white">Ayush Singh</span>
+                <br />
+                <span className="text-cyan-400">aka shydev</span>
+              </motion.h1>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="space-y-4 text-gray-300"
+            >
+              <div>
+                <h2 className="text-xl font-semibold text-white mb-2">About Me</h2>
+                <p className="leading-relaxed">
+                  I've participated in <span className="text-cyan-400 font-medium">10+ hackathons & Startups</span> and won 6 of them.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">What I do?</h3>
+                <p className="leading-relaxed">
+                  I've delivered <span className="text-cyan-400 font-medium">10+ freelance projects</span>, indexed at two startups and failed to build my own startup twice. <span className="text-cyan-400 font-medium">#LifeGoodsOn</span>, I'm also active on X where I share fannies and <span className="text-cyan-400 font-medium">#buildinPublic</span>.
+                </p>
+              </div>
+
+              <div>
+                <p className="leading-relaxed">
+                  I'm an <span className="text-cyan-400 font-medium">AWS Cloud Club Captain</span>, a maintainer and contributor of open-source projects. When not coding, I read books, speak at a tier knrge YouTube.
+                </p>
+              </div>
+
+              <div>
+                <p className="leading-relaxed">
+                  I'm <span className="text-cyan-400 font-medium">open to work</span>, freelance, or collaborate. <Link href="/contact" className="text-cyan-400 hover:underline font-medium">Contact Me</Link>
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="flex gap-4"
+            >
+              <Link href="https://github.com/princepal9120" target="_blank">
+                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
+                  <Github className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="https://linkedin.com/in/prince-pal" target="_blank">
+                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
+                  <Linkedin className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="https://twitter.com/princepal9120" target="_blank">
+                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
+                  <Twitter className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="mailto:ayush.3327@knightmail.com">
+                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
+                  <Mail className="h-5 w-5" />
+                </Button>
+              </Link>
+            </motion.div>
           </motion.div>
-          <TechLogos />
+
+          {/* Right Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative w-full aspect-square max-w-md mx-auto rounded-2xl overflow-hidden border-4 border-cyan-400/20 shadow-2xl shadow-cyan-400/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-transparent" />
+              <Image
+                src="/profile.jpg"
+                alt="Ayush Singh"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
         </div>
+
+        {/* Tools Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="mt-20"
+        >
+          <TechLogos />
+        </motion.div>
       </div>
     </section>
   );

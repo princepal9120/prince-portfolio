@@ -382,6 +382,7 @@ const projects: Project[] = [
   },
 ];
 export default function ProjectsSection() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [activeTab, setActiveTab] = useState("all");
 
   const filteredProjects =
@@ -389,98 +390,172 @@ export default function ProjectsSection() {
       ? projects
       : projects.filter((project) => project.type === activeTab);
 
+  // Featured projects (first 6)
+  const featuredProjects = projects.slice(0, 6);
+
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-muted/20">
       <div className="container mx-auto px-4">
+        {/* Projects Header */}
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
-            <Layers className="h-6 w-6 text-primary" />
+            <Layers className="h-6 w-6 text-cyan-400" />
             <h2 className="text-3xl font-bold">Projects</h2>
           </div>
-          <p className="text-muted-foreground mb-8">
-            A selection of my recent work
+          <p className="text-muted-foreground mb-12">
+            I've been actively engaged in a few side projects lately, exploring diverse technologies & ideas. Here's a quick glimpse of my ongoing and completed projects:
           </p>
         </FadeIn>
 
+        {/* Category Tabs */}
         <Tabs
           defaultValue="all"
           value={activeTab}
           onValueChange={setActiveTab}
-          className="w-full"
+          className="w-full mb-8"
         >
-          <TabsList className="mb-8 flex flex-wrap h-auto p-1">
-            <TabsTrigger value="all" className="flex-1">
-              All Projects
-            </TabsTrigger>
-            <TabsTrigger value="fullstack" className="flex-1">
+          <TabsList className="mb-8 flex flex-wrap h-auto p-1 bg-muted/50">
+            <TabsTrigger
+              value="all"
+              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+            >
               Full Stack
             </TabsTrigger>
-            <TabsTrigger value="mobile" className="flex-1">
+            <TabsTrigger
+              value="fullstack"
+              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+            >
+              Core
+            </TabsTrigger>
+            <TabsTrigger
+              value="mobile"
+              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+            >
               Mobile
             </TabsTrigger>
-            <TabsTrigger value="ai" className="flex-1">
-              AI
+            <TabsTrigger
+              value="ai"
+              className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+            >
+              Gen AI
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value={activeTab} className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project, index) => (
-                <FadeIn key={index} delay={0.1 * index} direction="up">
-                  <Card className="overflow-hidden h-full flex flex-col">
-                    <div className="h-48 overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="p-6 flex-1">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-xl font-semibold">
-                          {project.title}
-                        </h3>
-                        <Badge variant="outline">
-                          {project.type === "fullstack"
-                            ? "Full Stack"
-                            : project.type === "mobile"
-                              ? "Mobile"
-                              : "Gen AI"}
-                        </Badge>
+              {(showAllProjects ? filteredProjects : featuredProjects).map(
+                (project, index) => (
+                  <FadeIn key={index} delay={0.05 * index} direction="up">
+                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-cyan-400/30 group">
+                      <div className="h-48 overflow-hidden relative">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
-                      <p className="text-muted-foreground mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.technologies.map((tech, i) => (
-                          <Badge key={i} variant="secondary">
-                            {tech}
+                      <CardContent className="p-6 flex-1">
+                        <div className="flex justify-between items-start mb-2">
+                          <h3 className="text-lg font-semibold group-hover:text-cyan-400 transition-colors line-clamp-1">
+                            {project.title}
+                          </h3>
+                          <Badge
+                            variant="outline"
+                            className="text-xs whitespace-nowrap ml-2 bg-cyan-400/10 text-cyan-400 border-cyan-400/30"
+                          >
+                            {project.type === "fullstack"
+                              ? "Full Stack"
+                              : project.type === "mobile"
+                                ? "Mobile"
+                                : "Gen AI"}
                           </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                    <CardFooter className="p-6 pt-0 flex gap-2">
-                      {project.demoUrl && (
-                        <Link href={project.demoUrl} className="flex-1">
-                          <Button variant="default" className="w-full gap-2">
-                            <ExternalLink className="h-4 w-4" />
-                            Demo
-                          </Button>
-                        </Link>
-                      )}
-                      {project.codeUrl && (
-                        <Link href={project.codeUrl} className="flex-1">
-                          <Button variant="outline" className="w-full gap-2">
-                            <Github className="h-4 w-4" />
-                            Code
-                          </Button>
-                        </Link>
-                      )}
-                    </CardFooter>
-                  </Card>
-                </FadeIn>
-              ))}
+                        </div>
+                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mt-auto">
+                          {project.technologies.slice(0, 4).map((tech, i) => (
+                            <Badge key={i} variant="secondary" className="text-xs">
+                              {tech}
+                            </Badge>
+                          ))}
+                          {project.technologies.length > 4 && (
+                            <Badge variant="secondary" className="text-xs">
+                              +{project.technologies.length - 4}
+                            </Badge>
+                          )}
+                        </div>
+                      </CardContent>
+                      <CardFooter className="p-6 pt-0 flex gap-2">
+                        {project.demoUrl && (
+                          <Link
+                            href={project.demoUrl}
+                            className="flex-1"
+                            target="_blank"
+                          >
+                            <Button
+                              variant="default"
+                              size="sm"
+                              className="w-full gap-2 text-xs"
+                            >
+                              <ExternalLink className="h-3 w-3" />
+                              View Project Details
+                            </Button>
+                          </Link>
+                        )}
+                        {project.codeUrl && (
+                          <Link
+                            href={project.codeUrl}
+                            className="flex-1"
+                            target="_blank"
+                          >
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="w-full gap-2 text-xs border-cyan-400/30 hover:bg-cyan-400/10"
+                            >
+                              <Github className="h-3 w-3" />
+                              Repo Link
+                            </Button>
+                          </Link>
+                        )}
+                      </CardFooter>
+                    </Card>
+                  </FadeIn>
+                )
+              )}
             </div>
+
+            {/* View More Button */}
+            {!showAllProjects && filteredProjects.length > 6 && (
+              <FadeIn delay={0.3}>
+                <div className="flex justify-center mt-12">
+                  <Button
+                    onClick={() => setShowAllProjects(true)}
+                    className="gap-2 bg-cyan-400 hover:bg-cyan-500 text-black font-semibold px-8"
+                  >
+                    View More Projects
+                    <Layers className="h-4 w-4" />
+                  </Button>
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Show Less Button */}
+            {showAllProjects && (
+              <FadeIn delay={0.3}>
+                <div className="flex justify-center mt-12">
+                  <Button
+                    onClick={() => setShowAllProjects(false)}
+                    variant="outline"
+                    className="gap-2 border-cyan-400/30 hover:bg-cyan-400/10 px-8"
+                  >
+                    Show Less
+                  </Button>
+                </div>
+              </FadeIn>
+            )}
           </TabsContent>
         </Tabs>
       </div>

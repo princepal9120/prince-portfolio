@@ -10,12 +10,8 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/skills", label: "Skills" },
   { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Experience" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -37,17 +33,19 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b shadow-sm"
+          ? "bg-background/80 backdrop-blur-md border-b border-cyan-400/20 shadow-lg shadow-cyan-400/5"
           : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-lg transition-colors"
+          className="flex items-center gap-2 font-bold text-lg transition-colors hover:text-cyan-400"
         >
-          <Code className="h-5 w-5" />
-          <span>Prince Pal</span>
+          <Code className="h-5 w-5 text-cyan-400" />
+          <span className="font-mono">
+            <span className="text-cyan-400">A</span>
+          </span>
         </Link>
 
         {/* Desktop Menu */}
@@ -57,9 +55,9 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "transition-colors hover:text-primary text-sm font-medium",
+                "transition-colors hover:text-cyan-400 text-sm font-medium",
                 pathname === link.href
-                  ? "text-primary"
+                  ? "text-cyan-400"
                   : "text-muted-foreground"
               )}
             >
@@ -77,6 +75,7 @@ export default function Navbar() {
             size="icon"
             aria-label="Toggle Menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="hover:bg-cyan-400/10 hover:text-cyan-400"
           >
             {mobileMenuOpen ? (
               <X className="h-5 w-5" />
@@ -94,15 +93,15 @@ export default function Navbar() {
           mobileMenuOpen ? "max-h-96" : "max-h-0"
         )}
       >
-        <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4 bg-background/80 backdrop-blur-md">
+        <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4 bg-background/80 backdrop-blur-md border-b border-cyan-400/20">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "py-2 transition-colors hover:text-primary",
+                "transition-colors hover:text-cyan-400 text-sm font-medium",
                 pathname === link.href
-                  ? "text-primary"
+                  ? "text-cyan-400"
                   : "text-muted-foreground"
               )}
               onClick={() => setMobileMenuOpen(false)}

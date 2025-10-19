@@ -63,35 +63,41 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted/20">
+    <section id="contact" className="py-20">
       <div className="container mx-auto px-4">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
-            <Mail className="h-6 w-6 text-primary" />
-            <h2 className="text-3xl font-bold">Contact</h2>
+            <Mail className="h-6 w-6 text-cyan-400" />
+            <h2 className="text-3xl font-bold">Get in Touch</h2>
           </div>
-          <p className="text-muted-foreground mb-8">Get in touch with me</p>
+          <p className="text-muted-foreground mb-12">
+            If you have any inquiries, please feel free to reach out.
+          </p>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <FadeIn delay={0.1}>
-            <Card>
+            <Card className="border-cyan-400/20 hover:border-cyan-400/40 transition-colors">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
+                <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
 
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-4"
+                    className="space-y-5"
                   >
                     <FormField
                       control={form.control}
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Name</FormLabel>
+                          <FormLabel className="text-sm font-medium">Full Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} />
+                            <Input
+                              placeholder="Enter your full name"
+                              className="bg-background/50 border-muted-foreground/20 focus:border-cyan-400"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -103,9 +109,13 @@ export default function ContactSection() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email</FormLabel>
+                          <FormLabel className="text-sm font-medium">Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your email" {...field} />
+                            <Input
+                              placeholder="Enter your email"
+                              className="bg-background/50 border-muted-foreground/20 focus:border-cyan-400"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -117,12 +127,12 @@ export default function ContactSection() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Message</FormLabel>
+                          <FormLabel className="text-sm font-medium">Message</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="Your message"
+                              placeholder="Write your message here..."
                               rows={5}
-                              className="resize-none"
+                              className="resize-none bg-background/50 border-muted-foreground/20 focus:border-cyan-400"
                               {...field}
                             />
                           </FormControl>
@@ -131,8 +141,11 @@ export default function ContactSection() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full gap-2">
-                      Send Message
+                    <Button
+                      type="submit"
+                      className="w-full gap-2 bg-cyan-400 hover:bg-cyan-500 text-black font-semibold"
+                    >
+                      Submit
                       <SendHorizontal className="h-4 w-4" />
                     </Button>
                   </form>
@@ -142,29 +155,30 @@ export default function ContactSection() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <Card>
+            <Card className="border-cyan-400/20 hover:border-cyan-400/40 transition-colors">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="text-xl font-semibold mb-6">
                   Contact Information
                 </h3>
 
                 <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Mail className="h-5 w-5 text-primary" />
+                  <div className="flex items-center gap-2 mb-3">
+                    <Mail className="h-5 w-5 text-cyan-400" />
                     <span className="font-medium">Email</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 border rounded-md">
-                    <span className="text-muted-foreground">
-                      princepal9120@gmail.com
+                  <div className="flex items-center justify-between p-3 bg-muted/30 border border-muted-foreground/20 rounded-lg hover:border-cyan-400/30 transition-colors">
+                    <span className="text-sm text-muted-foreground">
+                      ayush.3327@knightmail.com
                     </span>
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={copyEmail}
                       aria-label="Copy email"
+                      className="hover:bg-cyan-400/10 hover:text-cyan-400"
                     >
                       {copied ? (
-                        <Check className="h-4 w-4 text-green-500" />
+                        <Check className="h-4 w-4 text-cyan-400" />
                       ) : (
                         <Copy className="h-4 w-4" />
                       )}
@@ -172,43 +186,46 @@ export default function ContactSection() {
                   </div>
                 </div>
 
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Mail className="h-5 w-5 text-cyan-400" />
+                    <span className="font-medium">Phone No</span>
+                  </div>
+                  <div className="p-3 bg-muted/30 border border-muted-foreground/20 rounded-lg">
+                    <span className="text-sm text-muted-foreground">
+                      +1 234 567 8900
+                    </span>
+                  </div>
+                </div>
+
                 <Separator className="my-6" />
 
                 <div>
-                  <h4 className="font-medium mb-4">Connect with me</h4>
-                  <div className="grid grid-cols-3 gap-4">
+                  <h4 className="font-medium mb-4">Follow me</h4>
+                  <div className="flex gap-4">
                     <a
                       href="https://github.com/princepal9120"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center p-4 border rounded-md hover:border-primary/50 transition-colors"
+                      className="p-3 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
                     >
-                      <Github className="h-6 w-6 mb-2" />
-                      <span className="text-sm text-muted-foreground">
-                        GitHub
-                      </span>
+                      <Github className="h-6 w-6" />
                     </a>
                     <a
                       href="https://linkedin.com/in/prince9120"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center p-4 border rounded-md hover:border-primary/50 transition-colors"
+                      className="p-3 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
                     >
-                      <Linkedin className="h-6 w-6 mb-2" />
-                      <span className="text-sm text-muted-foreground">
-                        LinkedIn
-                      </span>
+                      <Linkedin className="h-6 w-6" />
                     </a>
                     <a
                       href="https://twitter.com/prince_twets"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center p-4 border rounded-md hover:border-primary/50 transition-colors"
+                      className="p-3 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
                     >
-                      <Twitter className="h-6 w-6 mb-2" />
-                      <span className="text-sm text-muted-foreground">
-                        Twitter
-                      </span>
+                      <Twitter className="h-6 w-6" />
                     </a>
                   </div>
                 </div>
