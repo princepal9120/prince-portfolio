@@ -287,7 +287,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-10 px-4">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16">
       {/* Animated background grid */}
       <motion.div
         className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"
@@ -327,12 +327,12 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="container mx-auto relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto"
+          className="grid lg:grid-cols-2 gap-12 items-center"
         >
           {/* Left Content */}
           <div className="space-y-6">
@@ -437,7 +437,7 @@ export default function HeroSection() {
                 transition={{ duration: 3, repeat: Infinity }}
               />
               <Image
-                src="/profile.jpg"
+                src="/profile.png"
                 alt="Prince Pal"
                 fill
                 className="object-cover"

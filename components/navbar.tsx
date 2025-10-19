@@ -37,7 +37,7 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 flex h-16 items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-2 font-bold text-lg transition-colors hover:text-cyan-400"

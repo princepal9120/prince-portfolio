@@ -114,8 +114,8 @@ const experiences: Experience[] = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 bg-muted/20">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-16 bg-muted/20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
             <Briefcase className="h-6 w-6 text-primary" />
@@ -156,8 +156,8 @@ export default function ExperienceSection() {
                         {exp.type === "fullstack"
                           ? "Full Stack"
                           : exp.type === "mobile"
-                          ? "Mobile"
-                          : "Gen AI"}
+                            ? "Mobile"
+                            : "Gen AI"}
                       </Badge>
                     </div>
                   </div>

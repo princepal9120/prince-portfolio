@@ -394,8 +394,8 @@ export default function ProjectsSection() {
   const featuredProjects = projects.slice(0, 6);
 
   return (
-    <section id="projects" className="py-20 bg-muted/20">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-16 bg-muted/20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Projects Header */}
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">

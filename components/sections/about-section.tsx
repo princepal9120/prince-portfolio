@@ -131,8 +131,8 @@ function ExperienceSkills() {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-muted/20">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-16 bg-muted/20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="text-3xl font-bold mb-2">About Me</h2>
           <p className="text-muted-foreground mb-8">
@@ -155,7 +155,7 @@ export default function AboutSection() {
               development and AI.
             </p>
 
-          
+
           </div>
         </FadeIn>
       </div>

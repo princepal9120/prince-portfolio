@@ -3,8 +3,8 @@ import FadeIn from "@/components/animations/fade-in";
 
 export default function Experience() {
   return (
-    <div className="min-h-screen pt-24">
- 
+    <div className="min-h-screen pt-24 pb-16">
+
       <ExperienceSection />
     </div>
   );

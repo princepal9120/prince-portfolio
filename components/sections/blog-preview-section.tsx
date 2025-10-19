@@ -30,8 +30,8 @@ export default function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
     }
 
     return (
-        <section className="py-20 bg-muted/20">
-            <div className="container mx-auto px-4">
+        <section className="py-16 bg-muted/20">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
                     <div className="flex items-center gap-2 mb-2">
                         <BookOpen className="h-6 w-6 text-cyan-400" />

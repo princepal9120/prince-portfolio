@@ -9,8 +9,8 @@ import { experiences } from "@/data/experiences";
 
 export default function ExperienceSection() {
     return (
-        <section className="py-20 bg-muted/20">
-            <div className="container mx-auto px-4">
+        <section className="py-16 bg-muted/20">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
                     <div className="flex items-center gap-2 mb-2">
                         <Briefcase className="h-6 w-6 text-cyan-400" />
@@ -21,7 +21,7 @@ export default function ExperienceSection() {
                     </p>
                 </FadeIn>
 
-                <div className="max-w-4xl mx-auto space-y-6">
+                <div className="max-w-5xl mx-auto space-y-6">
                     {experiences.map((exp, index) => (
                         <FadeIn key={exp.id} delay={0.1 * index}>
                             <motion.div

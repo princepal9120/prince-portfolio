@@ -64,8 +64,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
             <Mail className="h-6 w-6 text-cyan-400" />
