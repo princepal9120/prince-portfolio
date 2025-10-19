@@ -96,7 +96,7 @@ const techStack = [
 function TechLogos() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }} className="relative">
-      <h3 className="text-xl font-semibold text-white mb-4">Tools that I have used</h3>
+      <h3 className="text-xl font-semibold text-white mb-4">Technologies that I have used</h3>
 
       {/* Row 1 */}
       <div className="flex overflow-hidden mb-3">

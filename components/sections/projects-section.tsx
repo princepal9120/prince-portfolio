@@ -106,16 +106,12 @@ export default function ProjectsSection() {
                           {project.description}
                         </p>
                         <div className="flex flex-wrap gap-1 mt-auto">
-                          {project.technologies.slice(0, 3).map((tech, i) => (
+                          {project.technologies.map((tech, i) => (
                             <Badge key={i} variant="secondary" className="text-[10px] px-1.5 py-0.5">
                               {tech}
                             </Badge>
                           ))}
-                          {project.technologies.length > 3 && (
-                            <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5">
-                              +{project.technologies.length - 3}
-                            </Badge>
-                          )}
+
                         </div>
                       </CardContent>
                       <CardFooter className="p-4 pt-0 flex gap-1.5">
