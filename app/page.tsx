@@ -11,10 +11,11 @@ import BlogPage from "./blog/page";
 
 export default function Home() {
   const posts = getAllPosts();
+  
 
   return (
    <>
-  <div className="px-6 md:px-0 md:max-w-[1100px] md:mx-auto py-10 md:py-20">
+  <div className="px-6 md:px-0 md:max-w-[1100px] md:mx-auto">
     <HeroSection />
     <ExperienceSection />
     <ContributionGraph />

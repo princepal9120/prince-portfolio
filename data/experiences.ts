@@ -21,14 +21,14 @@ export const experiences: Experience[] = [
     duration: "july 2024 - present",
     startDate: "2024-07",
     endDate: "present",
-    description: "Building AI shopping assistant with LangChain & GCP",
+    description: "Building AI shopping assistant with fullstack with GenAI Experience",
     achievements: [
       "Developed AI-powered shopping recommendation system",
       "Integrated LangChain for natural language processing",
       "Optimized cloud infrastructure on GCP"
     ],
     technologies: ["LangChain", "GCP", "Python", "AI/ML"],
-    logo:  "/logos/aniverse.png"
+    logo:  "/company/bik.png"
   },
   {
     id: "2",
@@ -45,11 +45,11 @@ export const experiences: Experience[] = [
       "Implemented responsive mobile UI/UX"
     ],
     technologies: ["React Native", "Expo", "TypeScript", "Mobile"],
-    logo:  "/logos/aniverse.png"
+    logo:  "/company/dodoozy.png"
   },
   {
     id: "3",
-    company: "Blackbytt",
+    company: "Stealth Startup",
     role: "Software Development Intern",
     type: "intern",
     duration: "october 2024 - december 2024",
@@ -62,6 +62,6 @@ export const experiences: Experience[] = [
       "Implemented modern frontend architecture"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "Full Stack"],
-    logo: "/logos/aniverse.png"
+    logo: "/company/stealth.png"
   }
 ];

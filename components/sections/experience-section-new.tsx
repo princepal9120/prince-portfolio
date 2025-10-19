@@ -16,13 +16,11 @@ const ExperienceSection = () => {
                 <div className="space-y-4">
                     {experiences.map((exp, index) => (
                         <FadeIn key={exp.id} delay={0.05 * index}>
-                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 py-4 border-b border-border/20 last:border-b-0 hover:bg-card/20 transition-colors rounded-lg px-2">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 py-4 border-b border-border/20 last:border-b-0 hover:bg-card/20 transition-colors rounded-lg px-2">
                                 {/* Left side: Company info */}
-                                <div className="flex items-center gap-3 flex-1">
+                                <div className="flex items-center gap-2 flex-1">
                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400/20 to-purple-600/20 flex items-center justify-center flex-shrink-0 border border-cyan-400/30">
-                                        <span className="text-sm font-bold text-cyan-400">
-                                            {exp.company.substring(0, 2).toUpperCase()}
-                                        </span>
+                                        <img src={exp.logo} alt={exp.company} className="w-8 h-8 rounded-full" />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-lg font-semibold text-white">
