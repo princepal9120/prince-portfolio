@@ -64,15 +64,15 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="py-8">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
-            <Mail className="h-6 w-6 text-cyan-400" />
-            <h2 className="text-3xl font-bold">Get in Touch</h2>
+            <Mail className="h-5 w-5 text-cyan-400" />
+            <h2 className="text-2xl md:text-3xl font-bold">Get in Touch</h2>
           </div>
-          <p className="text-muted-foreground mb-12">
-            If you have any inquiries, please feel free to reach out.
+          <p className="text-muted-foreground text-sm mb-6">
+            Open to opportunities and collaborations
           </p>
         </FadeIn>
 

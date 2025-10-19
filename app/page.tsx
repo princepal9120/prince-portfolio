@@ -13,17 +13,17 @@ export default function Home() {
   const posts = getAllPosts();
 
   return (
-    <>
-      <div className="min-h-screen space-y-0">
-        <HeroSection />
-        <ContributionGraph />
-        <ExperienceSection />
-        <SkillsSection />
-        <ProjectsSection />
-       <BlogPage />
-      
-      </div>
-      <FloatingNav />
-    </>
+   <>
+  <div className="px-6 md:px-0 md:max-w-[1100px] md:mx-auto py-10 md:py-20">
+    <HeroSection />
+    <ExperienceSection />
+    <ContributionGraph />
+    <SkillsSection />
+    <ProjectsSection />
+    <BlogPage />
+  </div>
+  <FloatingNav />
+</>
+
   );
 }

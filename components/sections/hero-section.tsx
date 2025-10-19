@@ -150,7 +150,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16">
+    <section className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-20 pb-8">
       {/* Background */}
       <motion.div
         className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"
@@ -164,25 +164,21 @@ export default function HeroSection() {
 
       {/* Main Content */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid lg:grid-cols-2 gap-12 items-center">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Section */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <motion.div variants={itemVariants}>
-              <motion.p className="text-sm text-cyan-400 font-medium mb-2" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }}>
-                Hello! I'm developer from Bengaluru, India. I enjoy programming and exploring technology.
-              </motion.p>
-
-              <motion.h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4" whileHover={{ scale: 1.02 }}>
+              <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3" whileHover={{ scale: 1.02 }}>
                 <span className="text-white">Prince Pal</span>
                 <br />
-                <motion.span className="text-cyan-400" animate={{ textShadow: ["0 0 20px rgba(34,211,238,0.3)", "0 0 40px rgba(34,211,238,0.5)", "0 0 20px rgba(34,211,238,0.3)"] }} transition={{ duration: 2, repeat: Infinity }}>
-                  aka Problem Solver
+                <motion.span className="text-cyan-400 text-xl md:text-2xl" animate={{ textShadow: ["0 0 20px rgba(34,211,238,0.3)", "0 0 40px rgba(34,211,238,0.5)", "0 0 20px rgba(34,211,238,0.3)"] }} transition={{ duration: 2, repeat: Infinity }}>
+                  Problem Solver & Backend Engineer
                 </motion.span>
               </motion.h1>
             </motion.div>
 
             {/* About Section */}
-            <motion.div variants={itemVariants} className="space-y-4 text-gray-300">
+            <motion.div variants={itemVariants} className="space-y-3 text-gray-300 text-sm leading-relaxed">
               <div>
                 <h2 className="text-xl font-semibold text-white mb-2">About Me</h2>
                 <p className="leading-relaxed">
@@ -245,7 +241,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Tools Section */}
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} className="mt-20">
+        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} className="mt-12">
           <TechLogos />
         </motion.div>
       </div>

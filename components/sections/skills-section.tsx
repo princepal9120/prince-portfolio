@@ -8,45 +8,44 @@ import { skillCategories } from "@/data/skills";
 
 export default function SkillsSection() {
   return (
-    <section className="py-16">
+    <section className="py-8">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
-            <Code className="h-6 w-6 text-cyan-400" />
-            <h2 className="text-3xl font-bold">Skills</h2>
+            <Code className="h-5 w-5 text-cyan-400" />
+            <h2 className="text-2xl md:text-3xl font-bold">Skills</h2>
           </div>
-          <p className="text-muted-foreground mb-12">
-            Here are some of the skills I have acquired over the years of my journey in the tech industry. I am always looking to learn more and improve my skillset.
+          <p className="text-muted-foreground text-sm mb-6">
+            Technical expertise across multiple domains
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {skillCategories.map((category, index) => (
-            <FadeIn key={category.id} delay={0.1 * index}>
+            <FadeIn key={category.id} delay={0.05 * index}>
               <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="bg-card/30 border border-border/50 rounded-lg p-5 hover:border-cyan-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10"
+                className="bg-card/30 border border-border/50 rounded-lg p-3 hover:border-cyan-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10"
               >
-                <h3 className="text-sm font-semibold mb-4 text-cyan-400">
+                <h3 className="text-xs font-semibold mb-2 text-cyan-400">
                   {index + 1}. {category.title}
                 </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.div
+                <div className="flex flex-wrap gap-1">
+                  {category.skills.slice(0, 4).map((skill, skillIndex) => (
+                    <Badge
                       key={skill}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
+                      variant="secondary"
+                      className="text-[10px] px-1.5 py-0.5 bg-muted/50 hover:bg-cyan-400/10 hover:text-cyan-400 transition-colors cursor-pointer"
                     >
-                      <Badge
-                        variant="secondary"
-                        className="text-xs bg-muted/50 hover:bg-cyan-400/10 hover:text-cyan-400 transition-colors cursor-pointer"
-                      >
-                        {skill}
-                      </Badge>
-                    </motion.div>
+                      {skill}
+                    </Badge>
                   ))}
+                  {category.skills.length > 4 && (
+                    <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5 bg-muted/50">
+                      +{category.skills.length - 4}
+                    </Badge>
+                  )}
                 </div>
               </motion.div>
             </FadeIn>

@@ -102,14 +102,7 @@ export default function BlogPage() {
                     </FadeIn>
                 )}
 
-                {/* Footer */}
-                <FadeIn delay={0.4}>
-                    <div className="mt-35 pt-8 border-t border-border text-center">
-                        <p className="text-sm text-muted-foreground">
-                            More technical articles coming soon. Follow my journey in software development and AI.
-                        </p>
-                    </div>
-                </FadeIn>
+              
             </div>
         </div>
     )
