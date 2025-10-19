@@ -3,41 +3,8 @@
 import { Badge } from "@/components/ui/badge";
 import FadeIn from "@/components/animations/fade-in";
 import { Code } from "lucide-react";
-
-const skillCategories = [
-  {
-    title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Go", "SQL"],
-  },
-  {
-    title: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "Shadcn", "Framer Motion"],
-  },
-  {
-    title: "Backend",
-    skills: ["Node.js", "Express.js", "FastAPI", "NestJS", "PostgreSQL", "MongoDB"],
-  },
-  {
-    title: "Mobile",
-    skills: ["React Native", "Expo"],
-  },
-  {
-    title: "AI/ML",
-    skills: ["LangChain", "OpenAI", "Gemini API", "Streamlit", "PyTorch", "Transformers"],
-  },
-  {
-    title: "DevOps & Cloud",
-    skills: ["Docker", "AWS", "Vercel", "Kubernetes", "Terraform", "CloudFlare"],
-  },
-  {
-    title: "Data Engineering",
-    skills: ["Apache Spark", "Apache Kafka", "Apache Airflow", "DBaaS"],
-  },
-  {
-    title: "Others",
-    skills: ["Git", "gRPC", "GraphQL", "REST APIs", "Socket.io", "NATS"],
-  },
-];
+import { motion } from "framer-motion";
+import { skillCategories } from "@/data/skills";
 
 export default function SkillsSection() {
   return (
@@ -55,23 +22,33 @@ export default function SkillsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl">
           {skillCategories.map((category, index) => (
-            <FadeIn key={category.title} delay={0.1 * index}>
-              <div className="bg-card/30 border border-border/50 rounded-lg p-5 hover:border-cyan-400/30 transition-colors">
+            <FadeIn key={category.id} delay={0.1 * index}>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.2 }}
+                className="bg-card/30 border border-border/50 rounded-lg p-5 hover:border-cyan-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10"
+              >
                 <h3 className="text-sm font-semibold mb-4 text-cyan-400">
                   {index + 1}. {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <Badge
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
                       key={skill}
-                      variant="secondary"
-                      className="text-xs bg-muted/50 hover:bg-cyan-400/10 hover:text-cyan-400 transition-colors"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
                     >
-                      {skill}
-                    </Badge>
+                      <Badge
+                        variant="secondary"
+                        className="text-xs bg-muted/50 hover:bg-cyan-400/10 hover:text-cyan-400 transition-colors cursor-pointer"
+                      >
+                        {skill}
+                      </Badge>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </FadeIn>
           ))}
         </div>

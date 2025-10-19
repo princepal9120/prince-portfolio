@@ -26,10 +26,10 @@ export default function ContributionGraph() {
     const getColor = (level: number) => {
         const colors = [
             "bg-muted/30",           // No contributions
-            "bg-cyan-400/20",        // Low
-            "bg-cyan-400/40",        // Medium-low
-            "bg-cyan-400/60",        // Medium
-            "bg-cyan-400",           // High
+            "bg-green-400/20",        // Low
+            "bg-green-400/40",        // Medium-low
+            "bg-green-400/60",        // Medium
+            "bg-green-400",           // High
         ];
         return colors[level];
     };
@@ -66,7 +66,7 @@ export default function ContributionGraph() {
                                                     duration: 0.2
                                                 }}
                                                 className={`w-3 h-3 rounded-sm ${contribution ? getColor(contribution.level) : "bg-muted/30"
-                                                    } hover:ring-2 hover:ring-cyan-400 transition-all cursor-pointer`}
+                                                    } hover:ring-2 hover:ring-green-400 transition-all cursor-pointer`}
                                                 title={`${contribution?.level || 0} contributions`}
                                             />
                                         );

@@ -263,47 +263,111 @@ function TechLogos() {
 }
 
 export default function HeroSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-10 px-4">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+      {/* Animated background grid */}
+      <motion.div
+        className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"
+        animate={{
+          backgroundPosition: ["0px 0px", "60px 60px"],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+
+      {/* Gradient orbs */}
+      <motion.div
+        className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.5, 0.3, 0.5],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto"
+        >
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div>
+          <div className="space-y-6">
+            <motion.div variants={itemVariants}>
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
                 className="text-sm text-cyan-400 font-medium mb-2"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
               >
                 Hello! I'm developer from Delhi, India. I enjoy programming and exploring technology.
               </motion.p>
 
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
                 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
+                whileHover={{ scale: 1.02 }}
               >
-                <span className="text-white">Ayush Singh</span>
+                <span className="text-white">Prince Pal</span>
                 <br />
-                <span className="text-cyan-400">aka shydev</span>
+                <motion.span
+                  className="text-cyan-400"
+                  animate={{
+                    textShadow: [
+                      "0 0 20px rgba(34, 211, 238, 0.3)",
+                      "0 0 40px rgba(34, 211, 238, 0.5)",
+                      "0 0 20px rgba(34, 211, 238, 0.3)",
+                    ],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  aka devpro
+                </motion.span>
               </motion.h1>
-            </div>
+            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="space-y-4 text-gray-300"
-            >
+            <motion.div variants={itemVariants} className="space-y-4 text-gray-300">
               <div>
                 <h2 className="text-xl font-semibold text-white mb-2">About Me</h2>
                 <p className="leading-relaxed">
@@ -314,13 +378,13 @@ export default function HeroSection() {
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">What I do?</h3>
                 <p className="leading-relaxed">
-                  I've delivered <span className="text-cyan-400 font-medium">10+ freelance projects</span>, indexed at two startups and failed to build my own startup twice. <span className="text-cyan-400 font-medium">#LifeGoodsOn</span>, I'm also active on X where I share fannies and <span className="text-cyan-400 font-medium">#buildinPublic</span>.
+                  I've delivered <span className="text-cyan-400 font-medium">10+ freelance projects</span>, indexed at two startups and failed to build my own startup twice. <span className="text-cyan-400 font-medium">#LifeGoesOn</span>, I'm also active on X where I share fannies and <span className="text-cyan-400 font-medium">#buildInPublic</span>.
                 </p>
               </div>
 
               <div>
                 <p className="leading-relaxed">
-                  I'm an <span className="text-cyan-400 font-medium">AWS Cloud Club Captain</span>, a maintainer and contributor of open-source projects. When not coding, I read books, speak at a tier knrge YouTube.
+                  I'm an <span className="text-cyan-400 font-medium">AWS Cloud Club Captain</span>, a maintainer and contributor of open-source projects. When not coding, I read books, speak at a tier large YouTube.
                 </p>
               </div>
 
@@ -332,59 +396,62 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              variants={itemVariants}
               className="flex gap-4"
             >
-              <Link href="https://github.com/princepal9120" target="_blank">
-                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
-                  <Github className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="https://linkedin.com/in/prince-pal" target="_blank">
-                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="https://twitter.com/princepal9120" target="_blank">
-                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
-                  <Twitter className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="mailto:ayush.3327@knightmail.com">
-                <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
-                  <Mail className="h-5 w-5" />
-                </Button>
-              </Link>
+              {[
+                { icon: Github, href: "https://github.com/princepal9120" },
+                { icon: Linkedin, href: "https://linkedin.com/in/prince9120" },
+                { icon: Twitter, href: "https://twitter.com/prince_twets" },
+                { icon: Mail, href: "mailto:princepal9120@gmail.com" }
+              ].map((social, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link href={social.href} target="_blank">
+                    <Button variant="ghost" size="icon" className="hover:bg-cyan-400/10 hover:text-cyan-400">
+                      <social.icon className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                </motion.div>
+              ))}
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Right Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            variants={itemVariants}
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            transition={{ duration: 0.3 }}
             className="relative"
           >
             <div className="relative w-full aspect-square max-w-md mx-auto rounded-2xl overflow-hidden border-4 border-cyan-400/20 shadow-2xl shadow-cyan-400/10">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-transparent" />
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20"
+                animate={{
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
               <Image
                 src="/profile.jpg"
-                alt="Ayush Singh"
+                alt="Prince Pal"
                 fill
                 className="object-cover"
                 priority
               />
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Tools Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 1, duration: 0.8 }}
           className="mt-20"
         >
           <TechLogos />

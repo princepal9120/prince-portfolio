@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
