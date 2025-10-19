@@ -18,17 +18,17 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "3",
     title: "Backend",
-    skills: ["Node.js", "Express.js", "FastAPI", "NestJS","PostgreSQL", "Gin", "MongoDB", "Prisma", "Socket.io"]
+    skills: ["Node.js", "Express", "FastAPI", "NestJS", "Gin", "Socket","Supabase","PSQL", "Prisma","MongoDB", "GraphQL"]
   },
   {
     id: "4",
     title: "AI/ML",
-    skills: ["LangChain","Langgraph", "OpenAI", "Streamlit", "PyTorch", "HuggingFace Transformers"]
+    skills: ["LangChain", "Langgraph", "OpenAI", "Streamlit", "PyTorch", "HuggingFace Transformers"]
   },
   {
     id: "5",
     title: "DevOps & Cloud",
-    skills: ["Docker", "AWS", "Vercel", "Kubernetes", "Terraform", "CloudFlare"]
+    skills: ["Docker", "AWS", "Vercel", "Kubernetes", "Linux", "CloudFlare"]
   },
 
   {

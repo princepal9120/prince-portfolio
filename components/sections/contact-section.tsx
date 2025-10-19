@@ -64,28 +64,28 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-8">
+    <section id="contact" className="py-4">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
             <Mail className="h-5 w-5 text-cyan-400" />
             <h2 className="text-2xl md:text-3xl font-bold">Get in Touch</h2>
           </div>
-          <p className="text-muted-foreground text-sm mb-6">
+          <p className="text-muted-foreground text-sm mb-4">
             Open to opportunities and collaborations
           </p>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
           <FadeIn delay={0.1}>
             <Card className="border-cyan-400/20 hover:border-cyan-400/40 transition-colors">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
+              <CardContent className="p-4">
+                <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
 
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-5"
+                    className="space-y-3"
                   >
                     <FormField
                       control={form.control}
@@ -157,17 +157,17 @@ export default function ContactSection() {
 
           <FadeIn delay={0.2}>
             <Card className="border-cyan-400/20 hover:border-cyan-400/40 transition-colors">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6">
+              <CardContent className="p-4">
+                <h3 className="text-xl font-semibold mb-4">
                   Contact Information
                 </h3>
 
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-2">
                     <Mail className="h-5 w-5 text-cyan-400" />
                     <span className="font-medium">Email</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-muted/30 border border-muted-foreground/20 rounded-lg hover:border-cyan-400/30 transition-colors">
+                  <div className="flex items-center justify-between p-2 bg-muted/30 border border-muted-foreground/20 rounded-lg hover:border-cyan-400/30 transition-colors">
                     <span className="text-sm text-muted-foreground">
                       princepal9120@gmail.com
                     </span>
@@ -187,46 +187,46 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-2">
                     <Mail className="h-5 w-5 text-cyan-400" />
                     <span className="font-medium">Phone No</span>
                   </div>
-                  <div className="p-3 bg-muted/30 border border-muted-foreground/20 rounded-lg">
+                  <div className="p-2 bg-muted/30 border border-muted-foreground/20 rounded-lg">
                     <span className="text-sm text-muted-foreground">
                       +1 234 567 8900
                     </span>
                   </div>
                 </div>
 
-                <Separator className="my-6" />
+                <Separator className="my-4" />
 
                 <div>
-                  <h4 className="font-medium mb-4">Follow me</h4>
-                  <div className="flex gap-4">
+                  <h4 className="font-medium mb-3">Follow me</h4>
+                  <div className="flex gap-3">
                     <a
                       href="https://github.com/princepal9120"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
+                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
                     >
-                      <Github className="h-6 w-6" />
+                      <Github className="h-5 w-5" />
                     </a>
                     <a
                       href="https://linkedin.com/in/prince9120"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
+                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
                     >
-                      <Linkedin className="h-6 w-6" />
+                      <Linkedin className="h-5 w-5" />
                     </a>
                     <a
                       href="https://twitter.com/prince_twets"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
+                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
                     >
-                      <Twitter className="h-6 w-6" />
+                      <Twitter className="h-5 w-5" />
                     </a>
                   </div>
                 </div>

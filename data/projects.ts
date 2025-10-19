@@ -10,7 +10,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Microservices Ecommerce Platform",
+    title: "Microservices Ecommerce ",
     description:
       "Built a scalable ecommerce platform using microservices architecture with gRPC for inter-service communication and GraphQL as the API gateway. Includes services for account management, product catalog, and order processing. Each service has its own database with Account and Order services using PostgreSQL and Catalog service using Elasticsearch for optimal performance.",
     type: "fullstack",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     codeUrl: "#",
   },
   {
-    title: "AI Anime Recommendation System",
+    title: "Aniverse",
     description:
       "Led the development of an AI-powered Anime recommendation system, integrating machine learning algorithms and OpenAI GPT APIs for personalized suggestions, resulting in a 40% increase in user engagement and a 25% uplift in content consumption.",
     type: "fullstack",
@@ -44,12 +44,12 @@ export const projects: Project[] = [
       "JWT",
     ],
     image:
-      "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
+      "/project/aniverse.png",
+    demoUrl: "https://aniverse.princepal.dev",
+    codeUrl: "https://github.com/princepal9120/Aniverse",
   },
   {
-    title: "Perception- Multi-step Agentic Chatbot",
+    title: "Perception- Agentic Chatbot",
     description:
       "A dynamic AI chatbot that handles multi-step tasks and contextual conversations using LangGraph agents and Groq inference. It combines LangChain orchestration with Streamlit UI for a clean and powerful workflow.",
     type: "ai",
@@ -62,7 +62,7 @@ export const projects: Project[] = [
       "FastAPI",
       "React",
     ],
-    image: "./agent.png",
+    image: "./project/agent.png",
     demoUrl: "https://perplexity.princepal.dev",
     codeUrl: "https://github.com/princepal9120/perception",
   },
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       "Gemini Vision API",
       "Google Maps API",
     ],
-    image: "./ecoquest.png",
+    image: "./project/ecoquest.png",
     demoUrl: "https://ecoquest.princepal.dev/",
     codeUrl: "https://github.com/prncepal9120/ecoquest",
   },
@@ -132,8 +132,8 @@ export const projects: Project[] = [
       "Express.js",
       "Node.js",
     ],
-    image: "./learnify.png",
-    demoUrl: "https://learnifywithai.onrender.com",
+    image: "./project/learnify.png",
+    demoUrl: "https://learnify.princepal.dev",
     codeUrl: "https://github.com/princepal9120/Learnify",
   },
   {
@@ -148,7 +148,7 @@ export const projects: Project[] = [
       "Gemini API",
       "TypeScript",
     ],
-    image: "./chatbot.png",
+    image: "./project/chatbot.png",
     demoUrl: "https://chatbot.princepal.dev",
     codeUrl: "https://github.com/princepal9120/PersonalizedChatbot",
   },
@@ -165,7 +165,7 @@ export const projects: Project[] = [
       "Redux",
       "JWT Authentication",
     ],
-    image: "./jobportal.png",
+    image: "./project/jobportal.png",
     demoUrl: "https://talentbridge-1yxp.onrender.com/",
     codeUrl: "https://github.com/princepal9120/TalentBridge",
   },
@@ -193,7 +193,7 @@ export const projects: Project[] = [
       "An AI-powered email template generator that creates personalized outreach messages based on user queries using LangChain and Gmail API.",
     type: "ai",
     technologies: ["Typescript", "LangChain", "Gmail API", "NextJs"],
-    image: "./email.png",
+    image: "./project/email.png",
     demoUrl: "https://email-generator-eta.vercel.app",
     codeUrl: "https://github.com/princepal9120/email-generator",
   },
@@ -210,7 +210,7 @@ export const projects: Project[] = [
       "Socket.io",
       "WebSockets",
     ],
-    image: "./cricket_chat.png",
+    image: "./project/cricket_chat.png",
     demoUrl: "https://cricket-chat-room-client.vercel.app",
     codeUrl: "https://github.com/princepal9120/cricket_chat_room_client",
   },
@@ -243,7 +243,7 @@ export const projects: Project[] = [
       "Async Storage",
       "Expo Notifications",
     ],
-    image: "./medialarm.jpg",
+    image: "./project/medialarm.jpg",
     demoUrl: "#",
     codeUrl: "https://github.com/princepal9120/Medialarm",
   },
@@ -272,7 +272,7 @@ export const projects: Project[] = [
       "Shadcn UI",
       "Axios",
     ],
-    image: "./service.png",
+    image: "./project/service.png",
     demoUrl: "https://service-basket-express.vercel.app/",
     codeUrl: "https://github.com/prncepal9120/service-basket",
   },
@@ -327,45 +327,6 @@ export const projects: Project[] = [
     ],
     image:
       "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "Microservices Ecommerce Platform",
-    description:
-      "Built a scalable ecommerce platform using microservices architecture with gRPC for inter-service communication and GraphQL as the API gateway. Includes services for account management, product catalog, and order processing. Each service has its own database with Account and Order services using PostgreSQL and Catalog service using Elasticsearch for optimal performance.",
-    type: "fullstack",
-    technologies: [
-      "Go",
-      "Gin",
-      "gRPC",
-      "GraphQL",
-      "PostgreSQL",
-      "Elasticsearch",
-      "Docker",
-      "Microservices",
-    ],
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "AI Anime Recommendation System",
-    description:
-      "Led the development of an AI-powered Anime recommendation system, integrating machine learning algorithms and OpenAI GPT APIs for personalized suggestions, resulting in a 40% increase in user engagement and a 25% uplift in content consumption.",
-    type: "fullstack",
-    technologies: [
-      "Go",
-      "Gin",
-      "TypeScript",
-      "REST APIs",
-      "CSS",
-      "OpenAI GPT",
-      "JWT",
-    ],
-    image:
-      "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     demoUrl: "#",
     codeUrl: "#",
   },

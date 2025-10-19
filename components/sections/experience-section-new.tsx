@@ -5,18 +5,18 @@ import { experiences } from "@/data/experiences";
 
 const ExperienceSection = () => {
     return (
-        <section className="py-8">
+        <section className="py-4">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
-                    <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+                    <h2 className="text-2xl md:text-3xl font-semibold mb-4">
                         Experience
                     </h2>
                 </FadeIn>
 
-                <div className="space-y-4">
+                <div className="space-y-2">
                     {experiences.map((exp, index) => (
                         <FadeIn key={exp.id} delay={0.05 * index}>
-                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 py-4 border-b border-border/20 last:border-b-0 hover:bg-card/20 transition-colors rounded-lg px-2">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 py-2 border-b border-border/20 last:border-b-0 hover:bg-card/20 transition-colors rounded-lg px-2">
                                 {/* Left side: Company info */}
                                 <div className="flex items-center gap-2 flex-1">
                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400/20 to-purple-600/20 flex items-center justify-center flex-shrink-0 border border-cyan-400/30">

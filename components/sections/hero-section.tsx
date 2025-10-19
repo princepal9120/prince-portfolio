@@ -96,10 +96,10 @@ const techStack = [
 function TechLogos() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }} className="relative">
-      <h3 className="text-xl font-semibold text-white mb-6">Tools that I have used</h3>
+      <h3 className="text-xl font-semibold text-white mb-4">Tools that I have used</h3>
 
       {/* Row 1 */}
-      <div className="flex overflow-hidden mb-4">
+      <div className="flex overflow-hidden mb-3">
         <motion.div
           animate={{ x: [0, -2000] }}
           transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 40, ease: "linear" } }}
@@ -153,7 +153,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-10 pb-8">
+    <section className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-6 pb-4">
       {/* Animated Grid Background */}
       <motion.div
         className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"
@@ -185,11 +185,11 @@ export default function HeroSection() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-10 items-center"
+          className="grid lg:grid-cols-2 gap-6 items-center"
         >
           {/* Left Section - Concise About */}
-          <motion.div variants={itemVariants} className="space-y-5">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+          <motion.div variants={itemVariants} className="space-y-3">
+            <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white">
               Hi, I’m <span className="text-cyan-400">Prince Pal</span>
             </h1>
             <motion.h2
@@ -242,7 +242,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="mt-12"
+          className="mt-6"
         >
           <TechLogos />
         </motion.div>

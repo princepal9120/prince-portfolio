@@ -12,11 +12,11 @@ export default function BlogPage() {
     const blogPosts = getAllPosts()
 
     return (
-        <div className="min-h-screen pt-12 pb-10">
+        <div className="min-h-screen pt-4 pb-6">
             <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
-                    <div className="mb-10">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                    <div className="mb-6">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-2">
                             Prince's Blog
                         </h1>
 
@@ -25,7 +25,7 @@ export default function BlogPage() {
 
                 {/* Blog Posts List */}
                 <FadeIn delay={0.2}>
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                         {blogPosts.map((post, index) => (
                             <FadeIn key={post.slug} delay={0.1 * (index + 1)}>
                                 <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8 group">

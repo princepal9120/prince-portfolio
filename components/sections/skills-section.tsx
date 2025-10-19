@@ -8,19 +8,19 @@ import { skillCategories } from "@/data/skills";
 
 export default function SkillsSection() {
   return (
-    <section className="py-8">
+    <section className="py-4">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
             <Code className="h-5 w-5 text-cyan-400" />
             <h2 className="text-2xl md:text-3xl font-bold">Skills</h2>
           </div>
-          <p className="text-muted-foreground text-sm mb-6">
+          <p className="text-muted-foreground text-sm mb-4">
             Technical expertise across multiple domains
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {skillCategories.map((category, index) => (
             <FadeIn key={category.id} delay={0.05 * index}>
               <motion.div
@@ -29,7 +29,7 @@ export default function SkillsSection() {
                 className="bg-card/30 border border-border/50 rounded-lg p-3 hover:border-cyan-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10"
               >
                 <h3 className="text-xs font-semibold mb-2 text-cyan-400">
-                {category.title}
+                  {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-1">
                   {category.skills.map((skill, skillIndex) => (
