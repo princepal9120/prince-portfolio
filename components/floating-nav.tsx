@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail, Rss, MessageCircle } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Rss, MessageCircle, FileText, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+interface SocialLink {
+    icon: LucideIcon;
+    href: string;
+    label: string;
+};
 
 export default function FloatingNav() {
     const [isVisible, setIsVisible] = useState(false);
@@ -22,21 +27,30 @@ export default function FloatingNav() {
         return () => window.removeEventListener("scroll", toggleVisibility);
     }, []);
 
-    const socialLinks = [
+    const socialLinks: SocialLink[] = [
+        {
+            icon: FileText,
+            href: "https://drive.google.com/file/d/1tsz1a2Di42xceCP9Sno2QaHIWpa15ZSL/view",
+            label: "Resume",
+
+        },
         {
             icon: Github,
             href: "https://github.com/princepal9120",
-            label: "GitHub"
+            label: "GitHub",
+
         },
         {
             icon: Linkedin,
             href: "https://linkedin.com/in/prince9120",
-            label: "LinkedIn"
+            label: "LinkedIn",
+
         },
         {
             icon: Twitter,
             href: "https://twitter.com/prince_twets",
-            label: "Twitter"
+            label: "Twitter",
+
         },
         {
             icon: MessageCircle,
@@ -63,7 +77,7 @@ export default function FloatingNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50"
+            className="fixed bottom-18 left-1/2 transform -translate-x-1/2 z-50"
         >
             <div className="bg-background/80 backdrop-blur-lg border border-cyan-400/20 rounded-full px-6 py-3 shadow-lg shadow-cyan-400/10">
                 <div className="flex items-center gap-2">

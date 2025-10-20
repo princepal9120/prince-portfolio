@@ -102,24 +102,7 @@ export const projects: Project[] = [
     codeUrl:
       "https://github.com/princepal9120/ai-learning/tree/main/projects/livecam-ai-assitant",
   },
-  {
-    title: "Notes API Project",
-    description:
-      "Developed a RESTful Notes API with CRUD operations and JWT authentication, achieving a 99.9% uptime and supporting over 10,000 daily active users for efficient note management. Integrated a React frontend for user-friendly note creation and organization.",
-    type: "fullstack",
-    technologies: [
-      "NestJS",
-      "TypeScript",
-      "React",
-      "JWT",
-      "PostgreSQL",
-      "REST APIs",
-    ],
-    image:
-      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
+  
   {
     title: "Learnify",
     description:
@@ -168,6 +151,24 @@ export const projects: Project[] = [
     image: "./project/jobportal.png",
     demoUrl: "https://talentbridge-1yxp.onrender.com/",
     codeUrl: "https://github.com/princepal9120/TalentBridge",
+  },
+  {
+    title: "Notes API Project",
+    description:
+      "Developed a RESTful Notes API with CRUD operations and JWT authentication, achieving a 99.9% uptime and supporting over 10,000 daily active users for efficient note management. Integrated a React frontend for user-friendly note creation and organization.",
+    type: "fullstack",
+    technologies: [
+      "NestJS",
+      "TypeScript",
+      "React",
+      "JWT",
+      "PostgreSQL",
+      "REST APIs",
+    ],
+    image:
+      "./project/notes_api.png",
+    demoUrl: "https://nestjs-two-tau.vercel.app",
+    codeUrl: "https://github.com/princepal9120/nestjs/notes-api",
   },
   {
     title: "LinkedIn Post Generator",
