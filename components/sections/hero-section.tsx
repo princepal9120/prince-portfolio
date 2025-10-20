@@ -153,7 +153,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-6 pb-4">
+    <section className="min-h-[70vh] flex items-center justify-center mt-8 relative overflow-hidden pt-6 pb-4">
       {/* Animated Grid Background */}
       <motion.div
         className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"

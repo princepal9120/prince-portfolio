@@ -13,13 +13,10 @@ import { projects } from "@/data";
 
 
 export default function ProjectsSection() {
-  const [activeTab, setActiveTab] = useState("all");
+  const [activeTab, setActiveTab] = useState("fullstack");
   const router = useRouter();
 
-  const filteredProjects =
-    activeTab === "all"
-      ? projects
-      : projects.filter((project) => project.type === activeTab);
+  const filteredProjects = projects.filter((project) => project.type === activeTab);
 
   // Featured projects (first 6)
   const featuredProjects = filteredProjects.slice(0, 6);
@@ -46,24 +43,14 @@ export default function ProjectsSection() {
           className="w-full mb-8"
         >
           <TabsList className="mb-4 flex flex-wrap h-auto p-1 bg-muted/50 gap-1">
-            <TabsTrigger
-              value="all"
-              className="flex-1 text-xs data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
-            >
-              All
-            </TabsTrigger>
+            
             <TabsTrigger
               value="fullstack"
               className="flex-1 text-xs data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
             >
-              Backend
+              fullstack
             </TabsTrigger>
-            <TabsTrigger
-              value="mobile"
-              className="flex-1 text-xs data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
-            >
-              Mobile
-            </TabsTrigger>
+            
             <TabsTrigger
               value="ai"
               className="flex-1 text-xs data-[state=active]:bg-cyan-400 data-[state=active]:text-black"

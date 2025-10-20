@@ -62,7 +62,7 @@ export const projects: Project[] = [
       "FastAPI",
       "React",
     ],
-    image: "./project/agent.png",
+    image: "./project/perception.png",
     demoUrl: "https://perplexity.princepal.dev",
     codeUrl: "https://github.com/princepal9120/perception",
   },
