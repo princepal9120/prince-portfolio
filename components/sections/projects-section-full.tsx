@@ -12,12 +12,9 @@ import { projects } from "@/data";
 
 
 export default function ProjectsSectionFull() {
-    const [activeTab, setActiveTab] = useState("all");
+    const [activeTab, setActiveTab] = useState("fullstack");
 
-    const filteredProjects =
-        activeTab === "all"
-            ? projects
-            : projects.filter((project) => project.type === activeTab);
+    const filteredProjects = projects.filter((project) => project.type === activeTab);
 
     return (
         <section id="projects" className="py-16">
@@ -41,30 +38,21 @@ export default function ProjectsSectionFull() {
                     className="w-full mb-8"
                 >
                     <TabsList className="mb-8 flex flex-wrap h-auto p-1 bg-muted/50">
-                        <TabsTrigger
-                            value="all"
-                            className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
-                        >
-                            All Projects
-                        </TabsTrigger>
+                      
                         <TabsTrigger
                             value="fullstack"
                             className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
                         >
-                            Full Stack
+                           Fullstack
                         </TabsTrigger>
-                        <TabsTrigger
-                            value="mobile"
-                            className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
-                        >
-                            Mobile
-                        </TabsTrigger>
+                        
                         <TabsTrigger
                             value="ai"
                             className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
                         >
-                            Gen AI
+                            AI/ML
                         </TabsTrigger>
+                      
                     </TabsList>
 
                     <TabsContent value={activeTab} className="mt-6">

@@ -26,8 +26,8 @@ export const projects: Project[] = [
     ],
     image:
       "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
+    demoUrl: "https://github.com/princepal9120/golang/tree/main/go-grpc-graphql-microservices",
+    codeUrl: "https://github.com/princepal9120/golang/tree/main/go-grpc-graphql-microservices",
   },
   {
     title: "Aniverse",
@@ -83,6 +83,78 @@ export const projects: Project[] = [
     codeUrl: "https://github.com/prncepal9120/ecoquest",
   },
   {
+    title: "RAG-Powered News Chatbot",
+    description:
+      "Built an LLM-powered chatbot over 50+ news articles using a Retrieval-Augmented Generation (RAG) pipeline with Jina embeddings and Qdrant vector DB. Implemented session-based memory with Redis and REST/WebSocket APIs for real-time conversational flow. Designed an interactive React + SCSS UI with streaming bot replies and optimized chat performance.",
+    type: "ai",
+    technologies: [
+      "Node.js",
+      "React",
+      "Redis",
+      "Qdrant",
+      "Gemini API",
+      "Jina Embeddings",
+    ],
+    image: "./project/newschatbot.png",
+    demoUrl: "https://newsy-ai-talk.vercel.app/",
+    codeUrl: "https://github.com/princepal9120/news-chatbot-backend",
+  },
+  {
+    title: "NarutoAI – TV Series Analysis",
+    description:
+      "AI-driven NLP system to analyze a TV series using LLMs for extracting story themes, sentiment, and character insights. Scraped dialogues using Scrapy, applied Transformer models to detect emotional tone and thematic clusters, and visualized character relationships using spaCy NER, NetworkX, and PyViz. Developed a character chatbot with fine-tuned Hugging Face models for realistic dialogue simulation.",
+    type: "ai",
+    technologies: [
+      "Scrapy",
+      "Hugging Face",
+      "spaCy",
+      "NetworkX",
+      "PyViz",
+      "Transformers",
+    ],
+    image: "./project/narutoai.png",
+    demoUrl: "https://github.com/princepal9120/narutoai",
+    codeUrl: "https://github.com/princepal9120/narutoai",
+  },
+  {
+    title: "Web Data to LLM Fine-Tuning Pipeline",
+    description:
+      "Learned and implemented end-to-end workflow from web scraping to LLM fine-tuning using Python, Decodo, and Hugging Face. Built reliable web crawlers with Decodo's API supporting JavaScript rendering, proxy rotation, and anti-blocking. Cleaned and structured scraped datasets, then fine-tuned models like LLaMA for news classification tasks, covering text classification, generation, and evaluation.",
+    type: "ai",
+    technologies: [
+      "Python",
+      "Decodo API",
+      "Hugging Face",
+      "LLaMA",
+      "BeautifulSoup",
+      "Pandas",
+    ],
+    image: "./project/dummy.png",
+    demoUrl: "#",
+    codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/finetuning/project",
+  },
+  {
+    title: "SQL AI Agent",
+    description:
+      "Developed and deployed a full-stack AI agent capable of querying databases using natural language. Built using Next.js 16 with API Routes for serverless backend, React frontend, and Vercel AI SDK integrated with OpenAI GPT models for tool-calling and SQL generation. Utilized Drizzle ORM with Turso (SQLite) and implemented a real-time chat interface using SSE for streaming AI responses.",
+    type: "ai",
+    technologies: [
+      "Next.js 16",
+      "React",
+      "Tailwind CSS",
+      "Vercel AI SDK",
+      "OpenAI GPT",
+      "Drizzle ORM",
+      "SQLite",
+      "Turso",
+      "SSE",
+      "TypeScript",
+    ],
+    image: "./project/sqlaiagent.png",
+    demoUrl: "https://sql-agent-ai.vercel.app",
+    codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/agentic_frameworks/sql_agent",
+  },
+  {
     title: "Gemini Live Clone - Dora AI",
     description:
       "A real-time AI assistant that sees, hears, thinks, and responds using webcam, audio, and advanced LLM tools like LangGraph and Groq. Dora is an agentic experience built for immersive interaction.",
@@ -102,7 +174,24 @@ export const projects: Project[] = [
     codeUrl:
       "https://github.com/princepal9120/ai-learning/tree/main/projects/livecam-ai-assitant",
   },
-  
+  {
+    title: "TravelAgent AI",
+    description:
+      "Step-by-step tutorial showing how to design, build, and orchestrate multi-agent AI workflows with CrewAI. Demonstrates agent roles (researcher, writer, fact-checker, automator), message routing, tool calling, and evaluation loops to mimic real-world teams for research, writing, and automation tasks.",
+    type: "ai",
+    technologies: [
+      "CrewAI",
+      "Python",
+      "LangChain",
+      "OpenAI / Gemini",
+      "Docker",
+      "FastAPI",
+      "YAML (workflows)",
+    ],
+    image: "./project/crewai.png",
+    demoUrl: "#",
+    codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/crewai/trip_planner_agent",
+  },
   {
     title: "Learnify",
     description:
@@ -152,6 +241,23 @@ export const projects: Project[] = [
     demoUrl: "https://talentbridge-1yxp.onrender.com/",
     codeUrl: "https://github.com/princepal9120/TalentBridge",
   },
+   {
+    title: "CricketChat Live",
+    description:
+      "A real-time chat application for cricket enthusiasts, featuring topic rooms, live scoring updates, and user profiles—built with MERN and Socket.io.",
+    type: "fullstack",
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "Socket.io",
+      "WebSockets",
+    ],
+    image: "./project/cricket_chat.png",
+    demoUrl: "https://cricket-chat-room-client.vercel.app",
+    codeUrl: "https://github.com/princepal9120/cricket_chat_room_client",
+  },
   {
     title: "Notes API Project",
     description:
@@ -188,55 +294,39 @@ export const projects: Project[] = [
     codeUrl: "https://github.com/princepal9120/linkedin_post_generator",
   },
 
-  {
-    title: "EmailGenie",
-    description:
-      "An AI-powered email template generator that creates personalized outreach messages based on user queries using LangChain and Gmail API.",
-    type: "ai",
-    technologies: ["Typescript", "LangChain", "Gmail API", "NextJs"],
-    image: "./project/email.png",
-    demoUrl: "https://email-generator-eta.vercel.app",
-    codeUrl: "https://github.com/princepal9120/email-generator",
-  },
-  {
-    title: "CricketChat Live",
-    description:
-      "A real-time chat application for cricket enthusiasts, featuring topic rooms, live scoring updates, and user profiles—built with MERN and Socket.io.",
-    type: "fullstack",
-    technologies: [
-      "MongoDB",
-      "Express.js",
-      "React",
-      "Node.js",
-      "Socket.io",
-      "WebSockets",
-    ],
-    image: "./project/cricket_chat.png",
-    demoUrl: "https://cricket-chat-room-client.vercel.app",
-    codeUrl: "https://github.com/princepal9120/cricket_chat_room_client",
-  },
-  {
-    title: "Splitmate",
-    description:
-      "Mobile expense tracking application with group expense management for 300+ users.",
-    type: "mobile",
-    technologies: [
-      "React Native",
-      "Expo Router",
-      "Firebase",
-      "Zustand",
-      "AsyncStorage",
-    ],
-    image:
-      "https://images.pexels.com/photos/4386326/pexels-photo-4386326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "https://www.youtube.com/watch?v=sVtEbq94MfM",
-    codeUrl: "https://github.com/princepal9120/Splitmate",
-  },
+  // {
+  //   title: "EmailGenie",
+  //   description:
+  //     "An AI-powered email template generator that creates personalized outreach messages based on user queries using LangChain and Gmail API.",
+  //   type: "ai",
+  //   technologies: ["Typescript", "LangChain", "Gmail API", "NextJs"],
+  //   image: "./project/email.png",
+  //   demoUrl: "https://email-generator-eta.vercel.app",
+  //   codeUrl: "https://github.com/princepal9120/email-generator",
+  // },
+ 
+  // {
+  //   title: "Splitmate",
+  //   description:
+  //     "Mobile expense tracking application with group expense management for 300+ users.",
+  //   type: "fullstack",
+  //   technologies: [
+  //     "React Native",
+  //     "Expo Router",
+  //     "Firebase",
+  //     "Zustand",
+  //     "AsyncStorage",
+  //   ],
+  //   image:
+  //     "https://images.pexels.com/photos/4386326/pexels-photo-4386326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  //   demoUrl: "https://www.youtube.com/watch?v=sVtEbq94MfM",
+  //   codeUrl: "https://github.com/princepal9120/Splitmate",
+  // },
   {
     title: "Medialarm",
     description:
       "React Native medicine tracker with personalized medication reminders and biometric authentication.",
-    type: "mobile",
+    type: "fullstack",
     technologies: [
       "React Native",
       "Expo",
@@ -248,41 +338,41 @@ export const projects: Project[] = [
     demoUrl: "#",
     codeUrl: "https://github.com/princepal9120/Medialarm",
   },
-  {
-    title: "AI Agent Chatbot",
-    description:
-      "An intelligent real-time chatbot application leveraging LangGraph and LangChain agents for executing multi-step tasks autonomously. Integrates Groq for ultra-fast inference and Streamlit for an interactive UI, enabling dynamic conversations and agent-based task completion.",
-    type: "ai",
-    technologies: ["LangGraph", "Groq", "LangChain", "Streamlit", "Python"],
-    image:
-      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "https://github.com/princepal9120/agent_chatbot",
-  },
+  // {
+  //   title: "AI Agent Chatbot",
+  //   description:
+  //     "An intelligent real-time chatbot application leveraging LangGraph and LangChain agents for executing multi-step tasks autonomously. Integrates Groq for ultra-fast inference and Streamlit for an interactive UI, enabling dynamic conversations and agent-based task completion.",
+  //   type: "ai",
+  //   technologies: ["LangGraph", "Groq", "LangChain", "Streamlit", "Python"],
+  //   image:
+  //     "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  //   demoUrl: "#",
+  //   codeUrl: "https://github.com/princepal9120/agent_chatbot",
+  // },
 
-  {
-    title: "Service Checkout Platform",
-    description:
-      "A dynamic web application allowing users to browse premium services (fitness, wellness, health, etc.), add them to a cart, and proceed to real-time checkout. Built with React and Zustand for state management and seamless user experience.",
-    type: "fullstack",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Zustand",
-      "Tailwind CSS",
-      "Shadcn UI",
-      "Axios",
-    ],
-    image: "./project/service.png",
-    demoUrl: "https://service-basket-express.vercel.app/",
-    codeUrl: "https://github.com/prncepal9120/service-basket",
-  },
+  // {
+  //   title: "Service Checkout Platform",
+  //   description:
+  //     "A dynamic web application allowing users to browse premium services (fitness, wellness, health, etc.), add them to a cart, and proceed to real-time checkout. Built with React and Zustand for state management and seamless user experience.",
+  //   type: "fullstack",
+  //   technologies: [
+  //     "React",
+  //     "TypeScript",
+  //     "Zustand",
+  //     "Tailwind CSS",
+  //     "Shadcn UI",
+  //     "Axios",
+  //   ],
+  //   image: "./project/service.png",
+  //   demoUrl: "https://service-basket-express.vercel.app/",
+  //   codeUrl: "https://github.com/prncepal9120/service-basket",
+  // },
 
   {
     title: "CabRide",
     description:
       "Ride-hailing app with real-time location tracking via Google Maps API and secure authentication.",
-    type: "mobile",
+    type: "fullstack",
     technologies: [
       "React Native",
       "TypeScript",
@@ -295,40 +385,22 @@ export const projects: Project[] = [
     demoUrl: "",
     codeUrl: "https://github.com/CabRide",
   },
-  {
-    title: "PDFInfo Extractor",
-    description:
-      "A web-based utility allowing users to upload PDFs, extract key personal and contact details (name, address, phone, email, role) via pdf-lib and regex/NLP, and present them in a clean, responsive interface.",
-    type: "ai",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "pdf-lib",
-      "JavaScript RegExp",
-      "Axios",
-    ],
-    image:
-      "https://images.pexels.com/photos/30268252/pexels-photo-30268252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "https://github.com/prncepal9120/pdf-data-extractor",
-    codeUrl: "https://github.com/prncepal9120/pdf-data-extractor",
-  },
-  {
-    title: "Notes API Project",
-    description:
-      "Developed a RESTful Notes API with CRUD operations and JWT authentication, achieving a 99.9% uptime and supporting over 10,000 daily active users for efficient note management. Integrated a React frontend for user-friendly note creation and organization.",
-    type: "fullstack",
-    technologies: [
-      "NestJS",
-      "TypeScript",
-      "React",
-      "JWT",
-      "PostgreSQL",
-      "REST APIs",
-    ],
-    image:
-      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    demoUrl: "#",
-    codeUrl: "#",
-  },
+  // {
+  //   title: "PDFInfo Extractor",
+  //   description:
+  //     "A web-based utility allowing users to upload PDFs, extract key personal and contact details (name, address, phone, email, role) via pdf-lib and regex/NLP, and present them in a clean, responsive interface.",
+  //   type: "ai",
+  //   technologies: [
+  //     "React",
+  //     "Node.js",
+  //     "Express.js",
+  //     "pdf-lib",
+  //     "JavaScript RegExp",
+  //     "Axios",
+  //   ],
+  //   image:
+  //     "https://images.pexels.com/photos/30268252/pexels-photo-30268252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  //   demoUrl: "https://github.com/prncepal9120/pdf-data-extractor",
+  //   codeUrl: "https://github.com/prncepal9120/pdf-data-extractor",
+  // },
 ];
