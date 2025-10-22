@@ -30,7 +30,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           <main className="min-h-screen">{children}</main>
-          <ChatbotWidget />
+          {/* <ChatbotWidget /> */}
           <Footer />
         </ThemeProvider>
       </body>
