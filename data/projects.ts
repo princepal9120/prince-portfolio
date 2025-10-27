@@ -82,23 +82,28 @@ export const projects: Project[] = [
     demoUrl: "https://ecoquest.princepal.dev/",
     codeUrl: "https://github.com/prncepal9120/ecoquest",
   },
-  {
-    title: "RAG-Powered News Chatbot",
+    {
+    title: "DataInsight-SQL AI Agent",
     description:
-      "Built an LLM-powered chatbot over 50+ news articles using a Retrieval-Augmented Generation (RAG) pipeline with Jina embeddings and Qdrant vector DB. Implemented session-based memory with Redis and REST/WebSocket APIs for real-time conversational flow. Designed an interactive React + SCSS UI with streaming bot replies and optimized chat performance.",
+      "Developed and deployed a full-stack AI agent capable of querying databases using natural language. Built using Next.js 16 with API Routes for serverless backend, React frontend, and Vercel AI SDK integrated with OpenAI GPT models for tool-calling and SQL generation. Utilized Drizzle ORM with Turso (SQLite) and implemented a real-time chat interface using SSE for streaming AI responses.",
     type: "ai",
     technologies: [
-      "Node.js",
+      "Next.js 16",
       "React",
-      "Redis",
-      "Qdrant",
-      "Gemini API",
-      "Jina Embeddings",
+      "Tailwind CSS",
+      "Vercel AI SDK",
+      "OpenAI GPT",
+      "Drizzle ORM",
+      "SQLite",
+      "Turso",
+      "SSE",
+      "TypeScript",
     ],
-    image: "./project/newschatbot.png",
-    demoUrl: "https://newsy-ai-talk.vercel.app/",
-    codeUrl: "https://github.com/princepal9120/news-chatbot-backend",
+    image: "./project/sqlagentai.png",
+    demoUrl: "https://sql-aiagent.vercel.app",
+    codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/agentic_frameworks/sql_agent",
   },
+ 
   {
     title: "NarutoAI – TV Series Analysis",
     description:
@@ -115,6 +120,23 @@ export const projects: Project[] = [
     image: "./project/narutoai.png",
     demoUrl: "https://github.com/princepal9120/narutoai",
     codeUrl: "https://github.com/princepal9120/narutoai",
+  },
+   {
+    title: "RAG-Powered News Chatbot",
+    description:
+      "Built an LLM-powered chatbot over 50+ news articles using a Retrieval-Augmented Generation (RAG) pipeline with Jina embeddings and Qdrant vector DB. Implemented session-based memory with Redis and REST/WebSocket APIs for real-time conversational flow. Designed an interactive React + SCSS UI with streaming bot replies and optimized chat performance.",
+    type: "ai",
+    technologies: [
+      "Node.js",
+      "React",
+      "Redis",
+      "Qdrant",
+      "Gemini API",
+      "Jina Embeddings",
+    ],
+    image: "./project/newschatbot.png",
+    demoUrl: "https://newsy-ai-talk.vercel.app/",
+    codeUrl: "https://github.com/princepal9120/news-chatbot-backend",
   },
   {
     title: "Web Data to LLM Fine-Tuning Pipeline",
@@ -133,27 +155,7 @@ export const projects: Project[] = [
     demoUrl: "#",
     codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/finetuning/project",
   },
-  {
-    title: "SQL AI Agent",
-    description:
-      "Developed and deployed a full-stack AI agent capable of querying databases using natural language. Built using Next.js 16 with API Routes for serverless backend, React frontend, and Vercel AI SDK integrated with OpenAI GPT models for tool-calling and SQL generation. Utilized Drizzle ORM with Turso (SQLite) and implemented a real-time chat interface using SSE for streaming AI responses.",
-    type: "ai",
-    technologies: [
-      "Next.js 16",
-      "React",
-      "Tailwind CSS",
-      "Vercel AI SDK",
-      "OpenAI GPT",
-      "Drizzle ORM",
-      "SQLite",
-      "Turso",
-      "SSE",
-      "TypeScript",
-    ],
-    image: "./project/sqlaiagent.png",
-    demoUrl: "https://sql-agent-ai.vercel.app",
-    codeUrl: "https://github.com/princepal9120/ai-learning/tree/main/agentic_frameworks/sql_agent",
-  },
+
   {
     title: "Gemini Live Clone - Dora AI",
     description:
