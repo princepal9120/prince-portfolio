@@ -19,7 +19,7 @@ export default function Home() {
     <HeroSection />
     <ExperienceSection />
     {/* <ContributionGraph /> */}
-    <SkillsSection />
+    {/* <SkillsSection /> */}
     <ProjectsSection />
     <BlogPage />
   </div>

@@ -1,6 +1,7 @@
 export interface Experience {
   id: string;
   company: string;
+  link?: string;
   role: string;
   type: "fulltime" | "intern" | "contract";
   duration: string;
@@ -16,8 +17,9 @@ export const experiences: Experience[] = [
   {
     id: "1",
     company: "BIK.ai",
-    role: "Software Engineer Intern",
-    type: "intern",
+    link: "https://bik.ai",
+    role: "Software Engineer",
+    type: "fulltime",
     duration: "july 2024 - present",
     startDate: "2024-07",
     endDate: "present",
@@ -33,6 +35,7 @@ export const experiences: Experience[] = [
   {
     id: "2",
     company: "Dodoozy",
+    link: "https://dodoozy.com",
     role: "Mobile Developer Intern",
     type: "intern",
     duration: "april 2024 - june 2024",
@@ -50,6 +53,7 @@ export const experiences: Experience[] = [
   {
     id: "3",
     company: "Stealth Startup",
+    link: "",
     role: "Software Development Intern",
     type: "intern",
     duration: "october 2024 - december 2024",

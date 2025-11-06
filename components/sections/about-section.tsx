@@ -81,7 +81,7 @@ function ExperienceSkills() {
               <div className="p-3 bg-muted/50 rounded-lg">
                 <div className="flex items-center justify-between mb-1">
                   <span className="font-medium text-sm">
-                    BIK.ai - Software Engineer Intern
+                    BIK.ai() - Software Engineer 
                   </span>
                   <Badge variant="outline" className="text-xs">
                     Gen AI

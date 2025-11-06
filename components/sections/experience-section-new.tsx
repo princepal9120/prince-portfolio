@@ -20,7 +20,7 @@ const ExperienceSection = () => {
                                 {/* Left side: Company info */}
                                 <div className="flex items-center gap-2 flex-1">
                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400/20 to-purple-600/20 flex items-center justify-center flex-shrink-0 border border-cyan-400/30">
-                                        <img src={exp.logo} alt={exp.company} className="w-8 h-8 rounded-full" />
+                                        <img src={exp.logo} alt={exp.company} className="w-8 h-8 rounded-full" onClick={() => window.open(exp.link, "_blank")} />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-lg font-semibold text-white">
