@@ -116,6 +116,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+  
   body {
     @apply bg-background text-foreground;
   }
@@ -232,6 +238,30 @@
 
   .prose-lg :where(p):not(:where([class~="not-prose"] *)) {
     @apply text-lg leading-8;
+  }
+
+  /* Custom scrollbar for TOC */
+  .toc-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .toc-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .toc-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .toc-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Firefox scrollbar */
+  .toc-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
   }
 
   .prose-lg :where(li):not(:where([class~="not-prose"] *)) {

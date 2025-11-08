@@ -1,7 +1,7 @@
 // components/mdx-content.tsx
 'use client'
 
-import * as React from 'react'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import MDXComponents from './mdx-components'
 
 interface MDXContentProps {
@@ -9,16 +9,6 @@ interface MDXContentProps {
 }
 
 export function MDXContent({ code }: MDXContentProps) {
-    const Component = React.useMemo(() => {
-        try {
-            // Make React available in the scope
-            const fn = new Function('React', code)
-            return fn(React).default
-        } catch (error) {
-            console.error('Error rendering MDX:', error)
-            return () => <div>Error loading content</div>
-        }
-    }, [code])
-
+    const Component = useMDXComponent(code)
     return <Component components={MDXComponents} />
 }

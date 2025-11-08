@@ -1,22 +1,36 @@
 // app/blog/[slug]/page.tsx
+
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
-import { MDXContent } from '@/components/mdx-content'
-import { Calendar, Clock, User } from 'lucide-react'
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-    const post = allPosts.find((p) => p.slug === params?.slug)
+import { Calendar, Clock, User } from 'lucide-react'
+import { MDXContent } from '@/components/mdx-content';
+import { TableOfContents } from '@/components/TableOfContents';
+import { extractHeadings } from '@/lib/extractHeadings';
+
+
+interface PageProps {
+    params: Promise<{ slug: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+
+export default async function BlogPost({ params }: PageProps) {
+    const { slug } = await params;
+    const post = allPosts.find((p) => p.slug === slug)
 
     if (!post) notFound()
 
+    const headings = extractHeadings(post.body.raw)
+
     return (
-        <article className="max-w-4xl mx-auto px-6 py-12 mt-10">
-            {/* Header */}
-            <header className="mb-12">
-                {/* Title */}
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    {post.title}
-                </h1>
+        <div className="max-w-7xl mx-auto pl-6 pr-0 py-12 mt-10">
+            <div className="flex gap-18">
+                {/* Main content */}
+                <article className="flex-1 max-w-5xl">
+                    {/* Header */}
+                    <header className="mb-12">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
 
                 {/* Metadata */}
                 <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
@@ -27,7 +41,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                                 {new Date(post.date).toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: 'long',
-                                    day: 'numeric'
+                                    day: 'numeric',
                                 })}
                             </time>
                         </div>
@@ -49,7 +63,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                 </div>
 
                 {/* Tags */}
-                {post.tags && post.tags.length > 0 && (
+                {post?.tags && post?.tags?.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-4">
                         {post.tags.map((tag) => (
                             <span
@@ -69,15 +83,25 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                     </p>
                 )}
 
-                {/* Simple divider */}
                 <hr className="mt-8 border-border" />
             </header>
 
-            {/* MDX content */}
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-                <MDXContent code={post.body.code} />
+                    {/* MDX content */}
+                    <div className="prose prose-lg dark:prose-invert max-w-none">
+                        <MDXContent code={post.body.code} />
+                    </div>
+                </article>
+
+                {/* Table of contents - sidebar */}
+                {headings.length > 0 && (
+                    <aside className="hidden xl:block w-74 flex-shrink-0">
+                        <div className="sticky top-24">
+                            <TableOfContents headings={headings} />
+                        </div>
+                    </aside>
+                )}
             </div>
-        </article>
+        </div>
     )
 }
 

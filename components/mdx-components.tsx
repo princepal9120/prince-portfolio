@@ -1,58 +1,9 @@
-"use client"
-
-import React, { useState } from "react"
-import { Check, Copy } from "lucide-react"
+import React from "react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import CodeBlock from "./code-block"
 
-// Copy button component for code blocks
-function CopyButton({ text }: { text: string }) {
-    const [copied, setCopied] = useState(false)
 
-    const handleCopy = async () => {
-        await navigator.clipboard.writeText(text)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
-    }
-
-    return (
-        <button
-            onClick={handleCopy}
-            className="absolute top-3 right-3 p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors opacity-0 group-hover:opacity-100"
-            aria-label="Copy code"
-        >
-            {copied ? (
-                <Check className="w-4 h-4 text-green-400" />
-            ) : (
-                <Copy className="w-4 h-4 text-gray-300" />
-            )}
-        </button>
-    )
-}
-
-// Pre component with copy functionality
-function Pre({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) {
-    const textContent = React.Children.toArray(children)
-        .map((child) => {
-            if (React.isValidElement(child)) {
-                return child.props.children
-            }
-            return child
-        })
-        .join("")
-
-    return (
-        <div className="relative group my-6">
-            <pre
-                className="bg-[#0d1117] text-gray-100 p-4 rounded-lg overflow-x-auto border border-gray-800"
-                {...props}
-            >
-                {children}
-            </pre>
-            <CopyButton text={textContent} />
-        </div>
-    )
-}
 
 const MDXComponents = {
     // Headings
@@ -129,7 +80,7 @@ const MDXComponents = {
     },
 
     // Pre with copy button
-    pre: Pre,
+    pre: CodeBlock,
 
     // Images
     img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
@@ -171,7 +122,7 @@ const MDXComponents = {
         return (
             <a
                 href={href}
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline underline-offset-2 font-medium transition-colors"
+                className="text-blue-600 dark:text-white-100 hover:text-gray-600 dark:hover:text-white-300 underline underline-offset-2 font-medium transition-colors"
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
                 {...props}
