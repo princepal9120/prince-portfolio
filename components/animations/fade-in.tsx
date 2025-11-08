@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 
 type FadeInProps = {
   children: React.ReactNode;
@@ -20,8 +20,9 @@ export default function FadeIn({
   delay = 0,
   once = true,
 }: FadeInProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once, amount: 0.3 });
+
 
   const directionMap = {
     up: { y: 40, x: 0 },
@@ -31,19 +32,20 @@ export default function FadeIn({
     none: { x: 0, y: 0 },
   };
 
-  const animations = {
-    initial: {
+
+  const variants: Variants = {
+    hidden: {
       opacity: 0,
       ...directionMap[direction],
     },
-    animate: {
-      opacity: isInView ? 1 : 0,
-      x: isInView ? 0 : directionMap[direction].x,
-      y: isInView ? 0 : directionMap[direction].y,
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
       transition: {
         duration,
         delay,
-        ease: [0.21, 0.45, 0.46, 0.99],
+        ease: [0.21, 0.45, 0.46, 0.99] as const,
       },
     },
   };
@@ -51,10 +53,10 @@ export default function FadeIn({
   return (
     <motion.div
       ref={ref}
-      initial="initial"
-      animate="animate"
-      variants={animations}
       className={className}
+      variants={variants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
     >
       {children}
     </motion.div>

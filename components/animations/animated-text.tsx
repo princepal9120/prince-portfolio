@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView, useAnimation, type Variants } from "framer-motion";
 
 type AnimatedTextProps = {
   text: string;
@@ -10,14 +10,14 @@ type AnimatedTextProps = {
   delay?: number;
 };
 
-export default function AnimatedText({ 
-  text, 
-  className = "", 
+export default function AnimatedText({
+  text,
+  className = "",
   once = true,
-  delay = 0 
+  delay = 0,
 }: AnimatedTextProps) {
   const controls = useAnimation();
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once });
 
   useEffect(() => {
@@ -30,21 +30,26 @@ export default function AnimatedText({
 
   const words = text.split(" ");
 
-  const container = {
+
+  const container: Variants = {
     hidden: { opacity: 0 },
-    visible: (i = 1) => ({
+    visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: delay * i },
-    }),
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: delay,
+      },
+    },
   };
 
-  const child = {
+
+  const child: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
@@ -60,7 +65,11 @@ export default function AnimatedText({
       animate={controls}
     >
       {words.map((word, index) => (
-        <motion.span key={index} className="inline-block mr-1" variants={child}>
+        <motion.span
+          key={index}
+          className="inline-block mr-1 whitespace-nowrap"
+          variants={child}
+        >
           {word}
         </motion.span>
       ))}

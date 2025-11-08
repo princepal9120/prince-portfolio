@@ -43,6 +43,7 @@ go worker("image1.png")
 ### The "Launch and Wait" Principle
 
 The Go concurrency model can be summarized as **Launch and Wait**.
+![Launch and Wait Principle](/blog/launchandwait.png)
 
 - **Launch:** The main function runs on the _Main Go Routine_. When it sees the `go` keyword, it launches that function onto a new, lightweight thread (a separate Go Routine).
 - **Asynchronous Execution:** The key insight is that the Main Go Routine **will not stop and wait** for the worker to finish. It schedules the worker asynchronously and continues executing the rest of its code.
@@ -207,6 +208,7 @@ For example, if you have 20 jobs, you might define only **five total workers**.
 ### How the Worker Pool Works
 
 A Worker Pool relies on two channels:
+![Worker Pool Channels](/blog/workerpool.png)
 
 | Channel Type       | Direction              | Purpose                                                          |
 | ------------------ | ---------------------- | ---------------------------------------------------------------- |
@@ -355,4 +357,4 @@ Go's concurrency model is powerful but requires practice. Start small, test thor
 
 - [Go Concurrency Patterns (Official Blog)](https://go.dev/blog/pipelines)
 - [Effective Go - Concurrency](https://go.dev/doc/effective_go#concurrency)
-- [Go by Example - Goroutines](https://gobyexample.com/goroutines)
+- [Video](https://www.youtube.com/watch?v=tNPY7tki1HQ)

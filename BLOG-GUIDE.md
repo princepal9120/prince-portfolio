@@ -15,7 +15,10 @@
 title: "Your Blog Title" # Main title shown on the page
 date: "2024-11-08" # Publication date (YYYY-MM-DD format)
 author: "Prince Pal" # Your name
-tags: ["tag1", "tag2", "tag3"] # Array of relevant tags
+tags:
+ -tag 1
+ -tag 2
+ -tag 2
 description: "Brief description" # SEO and preview description
 featured: false # Set to true for featured posts
 readTime: "10 min read" # Estimated reading time

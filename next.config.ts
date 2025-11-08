@@ -1,4 +1,4 @@
-import { withContentlayer } from "next-contentlayer";
+import { withContentlayer } from 'next-contentlayer'
 import type { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   reactStrictMode: true,
-  swcMinify: true,
 };
 
 export default withContentlayer(nextConfig);

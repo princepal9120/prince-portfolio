@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import Link from "next/link";
@@ -147,9 +147,17 @@ export default function HeroSection() {
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
   };
 
+  // ✅ Fixed transition easing for Framer Motion v11+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: easeOut, // ✅ replaced string with imported easing function
+      },
+    },
   };
 
   return (
@@ -187,7 +195,7 @@ export default function HeroSection() {
           animate="visible"
           className="grid lg:grid-cols-2 gap-6 items-center"
         >
-          {/* Left Section - Concise About */}
+          {/* Left Section */}
           <motion.div variants={itemVariants} className="space-y-3">
             <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white">
               Hi, I’m <span className="text-cyan-400">Prince Pal</span>
@@ -223,7 +231,7 @@ export default function HeroSection() {
             </p>
           </motion.div>
 
-          {/* Right Section - Profile Image */}
+          {/* Right Section */}
           <motion.div className="relative flex justify-center lg:justify-end">
             <motion.div
               onClick={() => setAnimateImage(!animateImage)}
@@ -237,7 +245,7 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Skill / Tools Section */}
+        {/* Skill Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

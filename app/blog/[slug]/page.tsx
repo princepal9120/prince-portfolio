@@ -1,113 +1,88 @@
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { ArrowLeft, Calendar, Clock, User } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import FadeIn from '@/components/animations/fade-in'
+// app/blog/[slug]/page.tsx
 import { allPosts } from 'contentlayer/generated'
+import { notFound } from 'next/navigation'
 import { MDXContent } from '@/components/mdx-content'
+import { Calendar, Clock, User } from 'lucide-react'
 
-interface BlogPostPageProps {
-    params: Promise<{ slug: string }> // 👈 note: now Promise
-}
-
-export async function generateStaticParams() {
-    return allPosts.map((post) => ({ slug: post.slug }))
-}
-
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-    const { slug } = await params // ✅ await here
-    const post = allPosts.find((post) => post.slug === slug)
-
-    if (!post) return { title: 'Blog Post Not Found' }
-
-    return {
-        title: `${post.title} | Prince Pal`,
-        description: post.description,
-        openGraph: {
-            title: post.title,
-            description: post.description,
-            type: 'article',
-            publishedTime: post.date,
-            authors: [post.author],
-            tags: post.tags,
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: post.title,
-            description: post.description,
-        },
-    }
-}
-
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    const { slug } = await params // ✅ await here too
-    const post = allPosts.find((post) => post.slug === slug)
+export default function BlogPost({ params }: { params: { slug: string } }) {
+    const post = allPosts.find((p) => p.slug === params?.slug)
 
     if (!post) notFound()
 
     return (
-        <div className="min-h-screen pt-24 pb-16">
-            <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <FadeIn>
-                    <div className="mb-8">
-                        <Link href="/blog">
-                            <Button variant="ghost" className="gap-2">
-                                <ArrowLeft className="h-4 w-4" />
-                                Back to Blog
-                            </Button>
-                        </Link>
-                    </div>
+        <article className="max-w-4xl mx-auto px-6 py-12 mt-10">
+            {/* Header */}
+            <header className="mb-12">
+                {/* Title */}
+                <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                    {post.title}
+                </h1>
 
-                    <header className="mb-12">
-                        {post.tags?.length ? (
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {post.tags.map((tag) => (
-                                    <Badge key={tag} variant="secondary">
-                                        {tag}
-                                    </Badge>
-                                ))}
-                            </div>
-                        ) : null}
-
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                            {post.title}
-                        </h1>
-
-                        <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                            {post.description}
-                        </p>
-
-                        <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-                            <div className="flex items-center gap-2">
-                                <User className="h-4 w-4" />
-                                {post.author}
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4" />
+                {/* Metadata */}
+                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
+                    {post.date && (
+                        <div className="flex items-center gap-1.5">
+                            <Calendar className="w-4 h-4" />
+                            <time dateTime={post.date}>
                                 {new Date(post.date).toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: 'long',
-                                    day: 'numeric',
+                                    day: 'numeric'
                                 })}
-                            </div>
-                            {post.readTime && (
-                                <div className="flex items-center gap-2">
-                                    <Clock className="h-4 w-4" />
-                                    {post.readTime}
-                                </div>
-                            )}
+                            </time>
                         </div>
-                    </header>
-                </FadeIn>
+                    )}
 
-                <FadeIn delay={0.2}>
-                    <article className="prose prose-lg dark:prose-invert max-w-none">
-                        <MDXContent code={post.body.code} />
-                    </article>
-                </FadeIn>
+                    {post.author && (
+                        <div className="flex items-center gap-1.5">
+                            <User className="w-4 h-4" />
+                            <span>{post.author}</span>
+                        </div>
+                    )}
+
+                    {post.readTime && (
+                        <div className="flex items-center gap-1.5">
+                            <Clock className="w-4 h-4" />
+                            <span>{post.readTime}</span>
+                        </div>
+                    )}
+                </div>
+
+                {/* Tags */}
+                {post.tags && post.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="text-xs font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )}
+
+                {/* Description */}
+                {post.description && (
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                        {post.description}
+                    </p>
+                )}
+
+                {/* Simple divider */}
+                <hr className="mt-8 border-border" />
+            </header>
+
+            {/* MDX content */}
+            <div className="prose prose-lg dark:prose-invert max-w-none">
+                <MDXContent code={post.body.code} />
             </div>
-        </div>
+        </article>
     )
+}
+
+export async function generateStaticParams() {
+    return allPosts.map((post) => ({
+        slug: post.slug,
+    }))
 }
