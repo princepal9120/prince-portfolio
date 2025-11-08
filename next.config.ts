@@ -1,8 +1,5 @@
-import createMDX from '@next/mdx'
-import type { NextConfig } from 'next'
-import remarkGfm from 'remark-gfm'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { withContentlayer } from "next-contentlayer";
+import type { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
@@ -11,14 +8,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-  },
-})
-
-export default withMDX(nextConfig);
+export default withContentlayer(nextConfig);

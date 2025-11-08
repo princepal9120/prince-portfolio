@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import ChatbotWidget from "@/components/chatbot-widget";
+import { ThemeProvider } from "@/components/theme-provider";
+
+// Dynamically import ThemeProvider (client only)
+// const ThemeProvider = dynamic(() => import("@/components/theme-provider"), { ssr: false });
+// Optional: Chatbot client-only
+// const ChatbotWidget = dynamic(() => import("@/components/chatbot-widget"), { ssr: false });
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +26,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={inter.className}>
