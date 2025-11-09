@@ -1,5 +1,6 @@
-import AboutSection from '@/components/sections/about-section';
-import FadeIn from '@/components/animations/fade-in';
+import AboutSection from "@/components/sections/about-section";
+
+
 
 export default function About() {
   return (

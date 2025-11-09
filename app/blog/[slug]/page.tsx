@@ -1,11 +1,11 @@
 // app/blog/[slug]/page.tsx
 
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from '.contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { Calendar, Clock, User } from 'lucide-react'
 import Link from 'next/link'
-import { TableOfContents } from '@/components/TableOfContents'
-import { extractHeadings } from '@/lib/extractHeadings'
+import { TableOfContents } from '@/components/tableofcontent'
+import { extractHeadings } from '@/lib/extractheadings'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 interface BlogPageProps {

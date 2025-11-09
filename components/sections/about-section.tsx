@@ -13,7 +13,7 @@ import {
   BrainCircuit,
   Smartphone,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 
 // Component 1: Personal Info & Background
 function PersonalBackground() {
