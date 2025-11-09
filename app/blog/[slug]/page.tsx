@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import { Calendar, Clock, User } from 'lucide-react'
 import Link from 'next/link'
 import { TableOfContents } from '@/components/tableofcontent'
-import { extractHeadings } from '@/lib/extractheadings'
+import { extractHeadings } from '@/lib/extract-headings'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 interface BlogPageProps {
