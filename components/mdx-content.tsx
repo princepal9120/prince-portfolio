@@ -1,14 +1,17 @@
-// components/mdx-content.tsx
 'use client'
 
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import MDXComponents from './mdx-components'
 
-interface MDXContentProps {
+interface MDXClientWrapperProps {
     code: string
 }
 
-export function MDXContent({ code }: MDXContentProps) {
+export function MDXClientWrapper({ code }: MDXClientWrapperProps) {
     const Component = useMDXComponent(code)
-    return <Component components={MDXComponents} />
+    
+    return (
+        <div className="prose dark:prose-invert max-w-none">
+            <Component />
+        </div>
+    )
 }

@@ -16,13 +16,13 @@ function CopyButton({ text }: { text: string }) {
     return (
         <button
             onClick={handleCopy}
-            className="absolute top-3 right-3 p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors opacity-0 group-hover:opacity-100"
+            className="absolute top-2 sm:top-3 right-2 sm:right-3 p-1.5 sm:p-2 rounded-md sm:rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors opacity-0 sm:group-hover:opacity-100 touch:opacity-100"
             aria-label="Copy code"
         >
             {copied ? (
-                <Check className="w-4 h-4 text-green-400" />
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-400" />
             ) : (
-                <Copy className="w-4 h-4 text-gray-300" />
+                <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-300" />
             )}
         </button>
     )
@@ -42,9 +42,9 @@ export default function CodeBlock({ children, ...props }: React.HTMLAttributes<H
         .join("")
 
     return (
-        <div className="relative group my-6">
+        <div className="relative group my-4 sm:my-6 -mx-4 sm:mx-0">
             <pre
-                className="bg-[#0d1117] text-gray-100 p-4 rounded-lg overflow-x-auto border border-gray-800"
+                className="bg-[#0d1117] text-gray-100 p-3 sm:p-4 rounded-none sm:rounded-lg overflow-x-auto border-y sm:border border-gray-800 text-xs sm:text-sm"
                 {...props}
             >
                 {children}
