@@ -6,10 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
-// Dynamically import ThemeProvider (client only)
-// const ThemeProvider = dynamic(() => import("@/components/theme-provider"), { ssr: false });
-// Optional: Chatbot client-only
-// const ChatbotWidget = dynamic(() => import("@/components/chatbot-widget"), { ssr: false });
+import ChatInterface from "@/components/chat-interface";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +30,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           <main className="min-h-screen">{children}</main>
-          {/* <ChatbotWidget /> */}
+          <ChatInterface />
           <Footer />
         </ThemeProvider>
       </body>
