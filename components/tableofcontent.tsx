@@ -1,7 +1,7 @@
 // components/TableOfContents.tsx
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 
 interface Heading {
@@ -52,6 +52,16 @@ export function TableOfContents({ headings }: TOCProps) {
     // Build hierarchical structure
     const headingTree = buildHeadingTree(headings)
 
+    // Debug: Log headings on mount
+    React.useEffect(() => {
+        console.log('TOC: Headings received:', headings)
+        console.log('TOC: Checking DOM for heading elements...')
+        headings.forEach(({ id }) => {
+            const element = document.getElementById(id)
+            console.log(`TOC: Element #${id}`, element ? 'FOUND' : 'NOT FOUND')
+        })
+    }, [])
+
     // Initialize all sections as expanded
     useEffect(() => {
         const allH2Ids = new Set(headings.filter(h => h.level === 2).map(h => h.id))
@@ -62,29 +72,35 @@ export function TableOfContents({ headings }: TOCProps) {
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.id
-                        setActiveId(id)
+                // Sort entries by their position on the page
+                const visibleEntries = entries.filter(entry => entry.isIntersecting)
 
-                        // Auto-expand parent section when child becomes active
-                        const activeHeading = headings.find(h => h.id === id)
-                        if (activeHeading && activeHeading.level === 3) {
-                            // Find parent H2
-                            const currentIndex = headings.findIndex(h => h.id === id)
-                            for (let i = currentIndex - 1; i >= 0; i--) {
-                                if (headings[i].level === 2) {
-                                    setExpandedSections(prev => new Set(prev).add(headings[i].id))
-                                    break
-                                }
+                if (visibleEntries.length > 0) {
+                    // Get the topmost visible entry
+                    const topEntry = visibleEntries.reduce((top, entry) => {
+                        return entry.boundingClientRect.top < top.boundingClientRect.top ? entry : top
+                    })
+
+                    const id = topEntry.target.id
+                    setActiveId(id)
+
+                    // Auto-expand parent section when child becomes active
+                    const activeHeading = headings.find(h => h.id === id)
+                    if (activeHeading && activeHeading.level === 3) {
+                        // Find parent H2
+                        const currentIndex = headings.findIndex(h => h.id === id)
+                        for (let i = currentIndex - 1; i >= 0; i--) {
+                            if (headings[i].level === 2) {
+                                setExpandedSections(prev => new Set(prev).add(headings[i].id))
+                                break
                             }
                         }
                     }
-                })
+                }
             },
             {
-                rootMargin: '-100px 0px -80% 0px',
-                threshold: [0, 1]
+                rootMargin: '-80px 0px -80% 0px',
+                threshold: 0.1
             }
         )
 
@@ -95,6 +111,8 @@ export function TableOfContents({ headings }: TOCProps) {
             if (element) {
                 observer.observe(element)
                 headingElements.push(element)
+            } else {
+                console.warn(`TOC: Element with id "${id}" not found in DOM`)
             }
         })
 
@@ -122,19 +140,14 @@ export function TableOfContents({ headings }: TOCProps) {
             // Update active state immediately for better UX
             setActiveId(id)
 
-            // Calculate proper scroll position
-            const top = element.getBoundingClientRect().top + window.scrollY - 100
-
-            // Smooth scroll to element
-            window.scrollTo({
-                top,
-                behavior: 'smooth'
+            // Use scrollIntoView for proper scroll behavior
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             })
 
             // Update URL hash without jumping
-            if (window.history.pushState) {
-                window.history.pushState(null, '', `#${id}`)
-            }
+            window.history.replaceState(null, '', `#${id}`)
         }
     }
 

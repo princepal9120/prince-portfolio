@@ -23,14 +23,16 @@ export const experiences: Experience[] = [
     duration: "july 2024 - present",
     startDate: "2024-07",
     endDate: "present",
-    description: "Building AI shopping assistant with fullstack with GenAI Experience",
+    description:
+      "Building AI shopping assistant with fullstack with GenAI Experience",
     achievements: [
-      "Developed AI-powered shopping recommendation system",
-      "Integrated LangChain for natural language processing",
-      "Optimized cloud infrastructure on GCP"
+      "Built an AI shopping assistant using LangChain for contextual product discovery and conversation memory",
+      "Developed scalable APIs using FastAPI, deployed with Docker Kubernetes on GCP",
+      "Automated GenAI workflows using prompt-based generation and Poetry for module control",
+      "Integrated advanced AI capabilities for enhanced user shopping experience",
     ],
     technologies: ["LangChain", "GCP", "Python", "AI/ML"],
-    logo:  "/company/bik.png"
+    logo: "/company/bik.png",
   },
   {
     id: "2",
@@ -43,12 +45,13 @@ export const experiences: Experience[] = [
     endDate: "2024-06",
     description: "15+ React Native components, 40% faster renders",
     achievements: [
-      "Built 15+ reusable React Native components",
-      "Improved app rendering performance by 40%",
-      "Implemented responsive mobile UI/UX"
+      "Developed 15+ reusable components in React Native (Expo) improving codebase modularity",
+      "Used Context API for state handling, reducing prop drilling across 8 screens",
+      "Enhanced UX with 40% faster renders through optimized animations and image loading",
+      "Built scalable mobile architecture with focus on performance and user experience",
     ],
     technologies: ["React Native", "Expo", "TypeScript", "Mobile"],
-    logo:  "/company/dodoozy.png"
+    logo: "/company/dodoozy.png",
   },
   {
     id: "3",
@@ -56,16 +59,17 @@ export const experiences: Experience[] = [
     link: "",
     role: "Software Development Intern",
     type: "intern",
-    duration: "october 2024 - december 2024",
+    duration: "october 2024 - april 2025",
     startDate: "2024-10",
     endDate: "2024-12",
     description: "UI/UX revamp, 25% faster database reads",
     achievements: [
-      "Redesigned UI/UX for better user experience",
-      "Optimized database queries for 25% performance improvement",
-      "Implemented modern frontend architecture"
+      "Revamped web UI/UX and improved form validation logic to reduce backend errors",
+      "Designed MongoDB schemas with indexed caching, speeding up reads by 25%",
+      "Built frontend features using React.js, aligning with business and accessibility goals",
+      "Collaborated with cross-functional teams to deliver production-ready solutions",
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "Full Stack"],
-    logo: "/company/stealth.png"
-  }
+    logo: "/company/stealth.png",
+  },
 ];

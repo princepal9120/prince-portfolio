@@ -39,7 +39,7 @@ Imagine the main thread is a single-lane road. When we ask it to process images 
 
 Since image processing requires a lot of CPU power, executing these tasks sequentially creates a **bottleneck**, causing the main thread to become blocked.
 
-![Sequential Processing Bottleneck](/blog/thread.png)
+![Sequential Processing Bottleneck](/blog/sequential.png)
 _Figure 1: Sequential processing creates a bottleneck on the main thread_
 
 ### Why Async/Await Isn't Enough
@@ -62,7 +62,7 @@ Multi-threading allows you to execute multiple tasks simultaneously or **in para
 
 Because modern computers often have **multi-core systems**, we can utilize these multiple threads to work in parallel. If processing three tasks sequentially took 3 seconds, executing them in parallel across three threads could allow them all to finish in just 1 second. This simultaneous execution is the fundamental benefit of multi-threading.
 
-![Parallel Processing with Worker Threads](/blog/nodejs-worker-threads/parallel-processing.png)
+![Parallel Processing with Worker Threads](/blog/thread.png)
 _Figure 2: Parallel processing distributes tasks across multiple worker threads_
 
 ### Introducing Node.js Worker Threads

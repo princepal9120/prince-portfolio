@@ -6,26 +6,26 @@ import CodeBlock from "./code-block"
 
 
 const MDXComponents = {
-    // Headings
-    h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    // Headings - Preserve id from rehype-slug while applying custom styles
+    h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
         <h1
             className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 mt-6 sm:mt-8 scroll-mt-24 text-gray-900 dark:text-gray-100"
             {...props}
         />
     ),
-    h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
         <h2
             className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 mt-8 sm:mt-10 pb-2 border-b border-gray-200 dark:border-gray-700 scroll-mt-24 text-gray-900 dark:text-gray-100"
             {...props}
         />
     ),
-    h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
         <h3
             className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 mt-6 sm:mt-8 scroll-mt-24 text-gray-900 dark:text-gray-100"
             {...props}
         />
     ),
-    h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
         <h4
             className="text-base sm:text-lg md:text-xl font-semibold mb-2 mt-4 sm:mt-6 scroll-mt-24 text-gray-900 dark:text-gray-100"
             {...props}
@@ -122,7 +122,7 @@ const MDXComponents = {
         return (
             <a
                 href={href}
-                className="text-blue-600 dark:text-white-100 hover:text-gray-600 dark:hover:text-white-300 underline underline-offset-2 font-medium transition-colors"
+                className="text-black-600 dark:text-white-100 hover:text-white-600 dark:hover:text-white-300 underline underline-offset-2 font-medium transition-colors"
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
                 {...props}

@@ -170,22 +170,22 @@ export default function HeroSection() {
       />
 
       {/* Floating Gradient Orbs */}
-      <motion.div
+      {/* <motion.div
         className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
+      /> */}
+      {/* <motion.div
         className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"
         animate={{
           scale: [1.2, 1, 1.2],
           opacity: [0.5, 0.3, 0.5],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
+      /> */}
 
       {/* Main Content */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -214,16 +214,16 @@ export default function HeroSection() {
               Backend Engineer & Problem Solver
             </motion.h2>
 
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-sm dark:text-gray-300 text-gray-900 leading-relaxed">
               Passionate about <span className="text-cyan-400 font-medium">scalable backend systems</span> and <span className="text-cyan-400 font-medium">AI-driven technologies</span>.
               I enjoy turning complex ideas into elegant solutions using Go, Node.js, and modern tools.
             </p>
 
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-sm dark:text-gray-300 text-gray-900 leading-relaxed">
               I’m a <span className="text-cyan-400 font-medium">self-taught engineer</span> from a small village — building projects that combine <span className="text-cyan-400 font-medium">creativity</span>, <span className="text-cyan-400 font-medium">logic</span>, and <span className="text-cyan-400 font-medium">impact</span>.
             </p>
 
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-sm dark:text-gray-300 text-gray-900 leading-relaxed">
               Currently open to <span className="text-cyan-400 font-medium">freelance, collaborations,</span> and <span className="text-cyan-400 font-medium">full-time opportunities</span>.{" "}
               <Link href="/contact" className="text-cyan-400 hover:underline font-medium">
                 Let’s connect →

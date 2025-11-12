@@ -27,7 +27,7 @@ export default function ProjectsSection() {
         {/* Projects Header */}
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
-            <Layers className="h-5 w-5 text-cyan-400" />
+            <Layers className="h-5 w-5 text-slate-600" />
             <h2 className="text-2xl md:text-3xl font-bold">Projects</h2>
           </div>
           <p className="text-muted-foreground text-sm mb-6">
@@ -43,17 +43,17 @@ export default function ProjectsSection() {
           className="w-full mb-8"
         >
           <TabsList className="mb-4 flex flex-wrap h-auto p-1 bg-muted/50 gap-1">
-            
+
             <TabsTrigger
               value="fullstack"
-              className="flex-1 text-xs data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+              className="flex-1 text-xs data-[state=active]:bg-slate-600 data-[state=active]:text-white"
             >
               fullstack
             </TabsTrigger>
-            
+
             <TabsTrigger
               value="ai"
-              className="flex-1 text-xs data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+              className="flex-1 text-xs data-[state=active]:bg-slate-600 data-[state=active]:text-white"
             >
               AI/ML
             </TabsTrigger>
@@ -64,7 +64,7 @@ export default function ProjectsSection() {
               {featuredProjects.map(
                 (project, index) => (
                   <FadeIn key={index} delay={0.03 * index} direction="up">
-                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-cyan-400/30 group">
+                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-slate-200/30 group">
                       <div className="h-40 overflow-hidden relative">
                         <img
                           src={project.image}
@@ -75,12 +75,12 @@ export default function ProjectsSection() {
                       </div>
                       <CardContent className="p-4 flex-1">
                         <div className="flex justify-between items-start mb-2">
-                          <h3 className="text-base font-semibold group-hover:text-cyan-400 transition-colors line-clamp-1">
+                          <h3 className="text-base font-semibold group-hover:text-slate-600 transition-colors line-clamp-1">
                             {project.title}
                           </h3>
                           <Badge
                             variant="outline"
-                            className="text-[10px] whitespace-nowrap ml-2 bg-cyan-400/10 text-cyan-400 border-cyan-400/30 px-1.5 py-0.5"
+                            className="text-[10px] whitespace-nowrap ml-2 bg-slate-600/10 text-slate-600 border-slate-600/30 px-1.5 py-0.5"
                           >
                             {project.type === "fullstack"
                               ? "Backend"
@@ -127,7 +127,7 @@ export default function ProjectsSection() {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="w-full gap-1 text-[10px] h-7 border-cyan-400/30 hover:bg-cyan-400/10"
+                              className="w-full gap-1 text-[10px] h-7 border-slate-600/30 hover:bg-slate-600/10"
                             >
                               <Github className="h-2.5 w-2.5" />
                               Code
@@ -147,7 +147,7 @@ export default function ProjectsSection() {
                 <div className="flex justify-center mt-12">
                   <Link href="/projects">
                     <Button
-                      className="gap-2 bg-cyan-400 hover:bg-cyan-500 text-black font-semibold px-8"
+                      className="gap-2 bg-slate-600 hover:bg-slate-700 text-white font-semibold px-8"
                     >
                       View More Projects
                       <Layers className="h-4 w-4" />

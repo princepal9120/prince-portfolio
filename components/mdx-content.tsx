@@ -1,6 +1,7 @@
 'use client'
 
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import MDXComponents from './mdx-components'
 
 interface MDXClientWrapperProps {
     code: string
@@ -8,10 +9,14 @@ interface MDXClientWrapperProps {
 
 export function MDXClientWrapper({ code }: MDXClientWrapperProps) {
     const Component = useMDXComponent(code)
-    
+
+    if (!Component) {
+        return <div>Loading content...</div>
+    }
+
     return (
-        <div className="prose dark:prose-invert max-w-none">
-            <Component />
+        <div className="mdx-content">
+            <Component components={MDXComponents} />
         </div>
     )
 }

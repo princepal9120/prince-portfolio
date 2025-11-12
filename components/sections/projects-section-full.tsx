@@ -22,7 +22,7 @@ export default function ProjectsSectionFull() {
                 {/* Projects Header */}
                 <FadeIn>
                     <div className="flex items-center gap-2 mb-2">
-                        <Layers className="h-6 w-6 text-cyan-400" />
+                        <Layers className="h-6 w-6 text-slate-600" />
                         <h2 className="text-3xl font-bold">All Projects</h2>
                     </div>
                     <p className="text-muted-foreground mb-12">
@@ -38,21 +38,21 @@ export default function ProjectsSectionFull() {
                     className="w-full mb-8"
                 >
                     <TabsList className="mb-8 flex flex-wrap h-auto p-1 bg-muted/50">
-                      
+
                         <TabsTrigger
                             value="fullstack"
-                            className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+                            className="flex-1 data-[state=active]:bg-slate-600 data-[state=active]:text-white"
                         >
-                           Fullstack
+                            Fullstack
                         </TabsTrigger>
-                        
+
                         <TabsTrigger
                             value="ai"
-                            className="flex-1 data-[state=active]:bg-cyan-400 data-[state=active]:text-black"
+                            className="flex-1 data-[state=active]:bg-slate-600 data-[state=active]:text-white"
                         >
                             AI/ML
                         </TabsTrigger>
-                      
+
                     </TabsList>
 
                     <TabsContent value={activeTab} className="mt-6">
@@ -60,7 +60,7 @@ export default function ProjectsSectionFull() {
                             {filteredProjects.map(
                                 (project, index) => (
                                     <FadeIn key={index} delay={0.05 * index} direction="up">
-                                        <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-cyan-400/30 group">
+                                        <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-slate-200/30 group">
                                             <div className="h-48 overflow-hidden relative">
                                                 <img
                                                     src={project.image}
@@ -71,12 +71,12 @@ export default function ProjectsSectionFull() {
                                             </div>
                                             <CardContent className="p-6 flex-1">
                                                 <div className="flex justify-between items-start mb-2">
-                                                    <h3 className="text-lg font-semibold group-hover:text-cyan-400 transition-colors line-clamp-1">
+                                                    <h3 className="text-lg font-semibold group-hover:text-slate-600 transition-colors line-clamp-1">
                                                         {project.title}
                                                     </h3>
                                                     <Badge
                                                         variant="outline"
-                                                        className="text-xs whitespace-nowrap ml-2 bg-cyan-400/10 text-cyan-400 border-cyan-400/30"
+                                                        className="text-xs whitespace-nowrap ml-2 bg-slate-600/10 text-slate-600 border-slate-600/30"
                                                     >
                                                         {project.type === "fullstack"
                                                             ? "Full Stack"
@@ -94,36 +94,23 @@ export default function ProjectsSectionFull() {
                                                             {tech}
                                                         </Badge>
                                                     ))}
-
                                                 </div>
                                             </CardContent>
                                             <CardFooter className="p-6 pt-0 flex gap-2">
                                                 {project.demoUrl && (
-                                                    <Link
-                                                        href={project.demoUrl}
-                                                        className="flex-1"
-                                                        target="_blank"
-                                                    >
-                                                        <Button
-                                                            variant="default"
-                                                            size="sm"
-                                                            className="w-full gap-2 text-xs"
-                                                        >
+                                                    <Link href={project.demoUrl} className="flex-1" target="_blank">
+                                                        <Button variant="default" size="sm" className="w-full gap-2 text-xs">
                                                             <ExternalLink className="h-3 w-3" />
                                                             View Details
                                                         </Button>
                                                     </Link>
                                                 )}
                                                 {project.codeUrl && (
-                                                    <Link
-                                                        href={project.codeUrl}
-                                                        className="flex-1"
-                                                        target="_blank"
-                                                    >
+                                                    <Link href={project.codeUrl} className="flex-1" target="_blank">
                                                         <Button
                                                             variant="outline"
                                                             size="sm"
-                                                            className="w-full gap-2 text-xs border-cyan-400/30 hover:bg-cyan-400/10"
+                                                            className="w-full gap-2 text-xs border-slate-600/30 hover:bg-slate-600/10"
                                                         >
                                                             <Github className="h-3 w-3" />
                                                             Code

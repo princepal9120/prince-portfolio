@@ -68,7 +68,7 @@ export default function ContactSection() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
-            <Mail className="h-5 w-5 text-cyan-400" />
+            <Mail className="h-5 w-5 text-slate-600" />
             <h2 className="text-2xl md:text-3xl font-bold">Get in Touch</h2>
           </div>
           <p className="text-muted-foreground text-sm mb-4">
@@ -78,7 +78,7 @@ export default function ContactSection() {
 
         <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
           <FadeIn delay={0.1}>
-            <Card className="border-cyan-400/20 hover:border-cyan-400/40 transition-colors">
+            <Card className="border-slate-200/20 hover:border-slate-200/40 transition-colors">
               <CardContent className="p-4">
                 <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
 
@@ -96,7 +96,7 @@ export default function ContactSection() {
                           <FormControl>
                             <Input
                               placeholder="Enter your full name"
-                              className="bg-background/50 border-muted-foreground/20 focus:border-cyan-400"
+                              className="bg-background/50 border-muted-foreground/20 focus:border-slate-600"
                               {...field}
                             />
                           </FormControl>
@@ -114,7 +114,7 @@ export default function ContactSection() {
                           <FormControl>
                             <Input
                               placeholder="Enter your email"
-                              className="bg-background/50 border-muted-foreground/20 focus:border-cyan-400"
+                              className="bg-background/50 border-muted-foreground/20 focus:border-slate-600"
                               {...field}
                             />
                           </FormControl>
@@ -133,7 +133,7 @@ export default function ContactSection() {
                             <Textarea
                               placeholder="Write your message here..."
                               rows={5}
-                              className="resize-none bg-background/50 border-muted-foreground/20 focus:border-cyan-400"
+                              className="resize-none bg-background/50 border-muted-foreground/20 focus:border-slate-600"
                               {...field}
                             />
                           </FormControl>
@@ -144,7 +144,7 @@ export default function ContactSection() {
 
                     <Button
                       type="submit"
-                      className="w-full gap-2 bg-cyan-400 hover:bg-cyan-500 text-black font-semibold"
+                      className="w-full gap-2 bg-slate-600 hover:bg-slate-700 text-white font-semibold"
                     >
                       Submit
                       <SendHorizontal className="h-4 w-4" />
@@ -156,7 +156,7 @@ export default function ContactSection() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <Card className="border-cyan-400/20 hover:border-cyan-400/40 transition-colors">
+            <Card className="border-slate-200/20 hover:border-slate-200/40 transition-colors">
               <CardContent className="p-4">
                 <h3 className="text-xl font-semibold mb-4">
                   Contact Information
@@ -164,10 +164,10 @@ export default function ContactSection() {
 
                 <div className="mb-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <Mail className="h-5 w-5 text-cyan-400" />
+                    <Mail className="h-5 w-5 text-slate-600" />
                     <span className="font-medium">Email</span>
                   </div>
-                  <div className="flex items-center justify-between p-2 bg-muted/30 border border-muted-foreground/20 rounded-lg hover:border-cyan-400/30 transition-colors">
+                  <div className="flex items-center justify-between p-2 bg-muted/30 border border-muted-foreground/20 rounded-lg hover:border-slate-200/30 transition-colors">
                     <span className="text-sm text-muted-foreground">
                       princepal9120@gmail.com
                     </span>
@@ -176,10 +176,10 @@ export default function ContactSection() {
                       size="icon"
                       onClick={copyEmail}
                       aria-label="Copy email"
-                      className="hover:bg-cyan-400/10 hover:text-cyan-400"
+                      className="hover:bg-slate-200/10 hover:text-slate-600"
                     >
                       {copied ? (
-                        <Check className="h-4 w-4 text-cyan-400" />
+                        <Check className="h-4 w-4 text-slate-600" />
                       ) : (
                         <Copy className="h-4 w-4" />
                       )}
@@ -189,7 +189,7 @@ export default function ContactSection() {
 
                 <div className="mb-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <Mail className="h-5 w-5 text-cyan-400" />
+                    <Mail className="h-5 w-5 text-slate-600" />
                     <span className="font-medium">Phone No</span>
                   </div>
                   <div className="p-2 bg-muted/30 border border-muted-foreground/20 rounded-lg">
@@ -208,7 +208,7 @@ export default function ContactSection() {
                       href="https://github.com/princepal9120"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
+                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-slate-200 hover:bg-slate-200/10 transition-all"
                     >
                       <Github className="h-5 w-5" />
                     </a>
@@ -216,7 +216,7 @@ export default function ContactSection() {
                       href="https://linkedin.com/in/prince9120"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
+                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-slate-200 hover:bg-slate-200/10 transition-all"
                     >
                       <Linkedin className="h-5 w-5" />
                     </a>
@@ -224,7 +224,7 @@ export default function ContactSection() {
                       href="https://twitter.com/prince_twets"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all"
+                      className="p-2 border border-muted-foreground/20 rounded-lg hover:border-slate-200 hover:bg-slate-200/10 transition-all"
                     >
                       <Twitter className="h-5 w-5" />
                     </a>

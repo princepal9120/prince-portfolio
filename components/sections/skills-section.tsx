@@ -12,7 +12,7 @@ export default function SkillsSection() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="flex items-center gap-2 mb-2">
-            <Code className="h-5 w-5 text-cyan-400" />
+            <Code className="h-5 w-5 text-slate-600" />
             <h2 className="text-2xl md:text-3xl font-bold">Skills</h2>
           </div>
           {/* <p className="text-muted-foreground text-sm mb-4">
@@ -26,9 +26,9 @@ export default function SkillsSection() {
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="bg-card/30 border border-border/50 rounded-lg p-3 hover:border-cyan-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10"
+                className="bg-card/30 border border-border/50 rounded-lg p-3 hover:border-slate-200/30 transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/10"
               >
-                <h3 className="text-xs font-semibold mb-2 text-cyan-400">
+                <h3 className="text-xs font-semibold mb-2 text-slate-600">
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-1">
@@ -36,7 +36,7 @@ export default function SkillsSection() {
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="text-[10px] px-1.5 py-0.5 bg-muted/50 hover:bg-cyan-400/10 hover:text-cyan-400 transition-colors cursor-pointer"
+                      className="text-[10px] px-1.5 py-0.5 bg-muted/50 hover:bg-slate-200/10 hover:text-slate-600 transition-colors cursor-pointer"
                     >
                       {skill}
                     </Badge>

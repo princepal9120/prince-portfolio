@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { TableOfContents } from '@/components/tableofcontent'
 import { extractHeadings } from '@/lib/extract-headings'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import MDXComponents from '@/components/mdx-components'
 
 interface BlogPageProps {
     params: Promise<{ slug: string }>
@@ -35,8 +36,8 @@ export default async function BlogPostPage(props: BlogPageProps) {
                                     <Link
                                         href={`/blog/${p.slug}`}
                                         className={`block transition-colors hover:text-primary line-clamp-2 ${p.slug === slug
-                                                ? 'text-primary font-semibold'
-                                                : 'text-muted-foreground'
+                                            ? 'text-primary font-semibold'
+                                            : 'text-muted-foreground'
                                             }`}
                                     >
                                         {p.title}
@@ -135,7 +136,7 @@ export default async function BlogPostPage(props: BlogPageProps) {
 
                     {/* MDX CONTENT */}
                     <div className="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none">
-                        <MDXRemote source={post.body.raw} />
+                        <MDXRemote source={post.body.raw} components={MDXComponents} />
                     </div>
                 </article>
 
