@@ -22,21 +22,34 @@ interface ApiResponse {
   role: "assistant";
 }
 
-// Initialize clients
-let openai: OpenAI;
+// Initialize clients safely
+let openai: OpenAI ;
 let qdrantClient: QdrantClient;
 
-try {
-  if (!OPENAI_API_KEY) {
-    throw new Error("OPENAI_API_KEY is required");
+// Safe initialization function
+function initializeClients() {
+  try {
+    if (!OPENAI_API_KEY) {
+      console.warn("OPENAI_API_KEY not configured");
+      return;
+    }
+    openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+    
+    if (QDRANT_URL) {
+      qdrantClient = new QdrantClient({
+        url: QDRANT_URL,
+        apiKey: QDRANT_API_KEY || undefined,
+      });
+    }
+    console.log("AI clients initialized successfully");
+  } catch (error) {
+    console.error("Failed to initialize clients:", error);
   }
-  openai = new OpenAI({ apiKey: OPENAI_API_KEY });
-  qdrantClient = new QdrantClient({
-    url: QDRANT_URL,
-    apiKey: QDRANT_API_KEY || undefined,
-  });
-} catch (error) {
-  console.error("Failed to initialize clients:", error);
+}
+
+// Initialize on module load
+if (typeof window === "undefined") {
+  initializeClients();
 }
 
 // Prepare local data as context
@@ -141,6 +154,11 @@ async function initializeQdrantCollection(): Promise<void> {
     const localContext = prepareLocalData();
     const chunks = splitIntoChunks(localContext, 500);
 
+    if (!openai) {
+      console.error("OpenAI client not available for embedding");
+      return;
+    }
+
     for (let i = 0; i < chunks.length; i++) {
       try {
         const embeddingResponse = await openai.embeddings.create({
@@ -148,6 +166,11 @@ async function initializeQdrantCollection(): Promise<void> {
           input: chunks[i],
         });
         const vector = embeddingResponse.data[0].embedding;
+
+        if (!qdrantClient) {
+          console.error("Qdrant client not available for upsert");
+          return;
+        }
 
         await qdrantClient.upsert(collectionName, {
           wait: true,
@@ -319,6 +342,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     // Get context from Qdrant or local data
     try {
+      if (!openai) {
+        throw new Error("OpenAI client not initialized");
+      }
+
       await waitForRateLimit();
 
       const embeddingResponse = await openai.embeddings.create({
@@ -326,6 +353,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         input: latestMessage,
       });
       const queryVector = embeddingResponse.data[0].embedding;
+
+      if (!qdrantClient) {
+        throw new Error("Qdrant client not initialized");
+      }
 
       const searchResult = await qdrantClient.search("prince_portfolio", {
         vector: queryVector,

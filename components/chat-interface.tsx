@@ -343,24 +343,13 @@ export default function ChatInterface() {
   );
 }
 
-// Add custom styles for animations and formatting
-const style = document.createElement('style');
-style.textContent = `
+// Use CSS-in-JS approach for animations
+const customStyles = `
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  
-  .animate-fadeIn {
-    animation: fadeIn 0.3s ease-out forwards;
-  }
-  
+  .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
   .inline-code {
     background-color: rgba(59, 130, 246, 0.1);
     color: #1e40af;
@@ -369,10 +358,15 @@ style.textContent = `
     font-family: 'Courier New', monospace;
     font-size: 0.875em;
   }
-  
   .dark .inline-code {
     background-color: rgba(147, 51, 234, 0.2);
     color: #a78bfa;
   }
 `;
-document.head.appendChild(style);
+
+// Apply styles only on client side
+if (typeof window !== 'undefined') {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = customStyles;
+  document.head.appendChild(styleElement);
+}
