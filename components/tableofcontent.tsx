@@ -52,72 +52,95 @@ export function TableOfContents({ headings }: TOCProps) {
     // Build hierarchical structure
     const headingTree = buildHeadingTree(headings)
 
-    // Debug: Log headings on mount
-    React.useEffect(() => {
-        console.log('TOC: Headings received:', headings)
-        console.log('TOC: Checking DOM for heading elements...')
-        headings.forEach(({ id }) => {
-            const element = document.getElementById(id)
-            console.log(`TOC: Element #${id}`, element ? 'FOUND' : 'NOT FOUND')
-        })
-    }, [])
-
     // Initialize all sections as expanded
     useEffect(() => {
         const allH2Ids = new Set(headings.filter(h => h.level === 2).map(h => h.id))
         setExpandedSections(allH2Ids)
     }, [headings])
 
+    // Debug: Log headings on mount after a delay to ensure DOM is ready
+    useEffect(() => {
+        const checkDOMElements = () => {
+            console.log('TOC: Headings received:', headings)
+            console.log('TOC: Checking DOM for heading elements...')
+            headings.forEach(({ id }) => {
+                const element = document.getElementById(id)
+                console.log(`TOC: Element #${id}`, element ? 'FOUND ✓' : 'NOT FOUND ✗')
+                if (element) {
+                    console.log(`  - Tag: ${element.tagName}, Text: ${element.textContent?.substring(0, 30)}`)
+                }
+            })
+        }
+
+        // Check immediately and after a delay
+        setTimeout(checkDOMElements, 100)
+    }, [headings])
+
     // Track active section on scroll with Intersection Observer
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                // Sort entries by their position on the page
-                const visibleEntries = entries.filter(entry => entry.isIntersecting)
+        // Only run on client side
+        if (typeof window === 'undefined') return
 
-                if (visibleEntries.length > 0) {
-                    // Get the topmost visible entry
-                    const topEntry = visibleEntries.reduce((top, entry) => {
-                        return entry.boundingClientRect.top < top.boundingClientRect.top ? entry : top
-                    })
+        // Wait for DOM to be fully ready
+        const setupObserver = () => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    // Filter visible entries
+                    const visibleEntries = entries.filter(entry => entry.isIntersecting)
 
-                    const id = topEntry.target.id
-                    setActiveId(id)
+                    if (visibleEntries.length > 0) {
+                        // Get the topmost visible entry
+                        const topEntry = visibleEntries.reduce((top, entry) => {
+                            return entry.boundingClientRect.top < top.boundingClientRect.top ? entry : top
+                        })
 
-                    // Auto-expand parent section when child becomes active
-                    const activeHeading = headings.find(h => h.id === id)
-                    if (activeHeading && activeHeading.level === 3) {
-                        // Find parent H2
-                        const currentIndex = headings.findIndex(h => h.id === id)
-                        for (let i = currentIndex - 1; i >= 0; i--) {
-                            if (headings[i].level === 2) {
-                                setExpandedSections(prev => new Set(prev).add(headings[i].id))
-                                break
+                        const id = topEntry.target.id
+                        console.log('TOC: Active section changed to:', id)
+                        setActiveId(id)
+
+                        // Auto-expand parent section when child becomes active
+                        const activeHeading = headings.find(h => h.id === id)
+                        if (activeHeading && activeHeading.level === 3) {
+                            // Find parent H2
+                            const currentIndex = headings.findIndex(h => h.id === id)
+                            for (let i = currentIndex - 1; i >= 0; i--) {
+                                if (headings[i].level === 2) {
+                                    setExpandedSections(prev => new Set(prev).add(headings[i].id))
+                                    break
+                                }
                             }
                         }
                     }
+                },
+                {
+                    // Adjust rootMargin to trigger when heading is near top of viewport
+                    rootMargin: '-100px 0px -66% 0px',
+                    threshold: [0, 0.25, 0.5, 0.75, 1]
                 }
-            },
-            {
-                rootMargin: '-80px 0px -80% 0px',
-                threshold: 0.1
-            }
-        )
+            )
 
-        // Observe all heading elements
-        const headingElements: Element[] = []
-        headings.forEach(({ id }) => {
-            const element = document.getElementById(id)
-            if (element) {
-                observer.observe(element)
-                headingElements.push(element)
-            } else {
-                console.warn(`TOC: Element with id "${id}" not found in DOM`)
+            // Collect and observe all heading elements
+            const headingElements: Element[] = []
+            headings.forEach(({ id }) => {
+                const element = document.getElementById(id)
+                if (element) {
+                    observer.observe(element)
+                    headingElements.push(element)
+                } else {
+                    console.warn(`TOC: Element with id "${id}" not found in DOM`)
+                }
+            })
+
+            return () => {
+                headingElements.forEach((element) => observer.unobserve(element))
             }
-        })
+        }
+
+        // Setup observer with a small delay to ensure DOM is ready
+        const timeoutId = setTimeout(setupObserver, 100)
 
         return () => {
-            headingElements.forEach((element) => observer.unobserve(element))
+            clearTimeout(timeoutId)
         }
     }, [headings])
 
@@ -135,8 +158,13 @@ export function TableOfContents({ headings }: TOCProps) {
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault()
+
+        // Only run on client side
+        if (typeof window === 'undefined') return
+
         const element = document.getElementById(id)
         if (element) {
+            console.log('TOC: Clicked on heading:', id)
             // Update active state immediately for better UX
             setActiveId(id)
 
@@ -148,8 +176,69 @@ export function TableOfContents({ headings }: TOCProps) {
 
             // Update URL hash without jumping
             window.history.replaceState(null, '', `#${id}`)
+        } else {
+            console.error('TOC: Could not find element with id:', id)
         }
     }
+
+    // Fallback: Also track scroll position manually
+    useEffect(() => {
+        if (typeof window === 'undefined') return
+
+        let ticking = false
+
+        const updateActiveHeading = () => {
+            const scrollY = window.scrollY
+            const headingPositions = headings.map(({ id }) => {
+                const element = document.getElementById(id)
+                if (element) {
+                    const rect = element.getBoundingClientRect()
+                    return {
+                        id,
+                        top: rect.top + scrollY,
+                        bottom: rect.bottom + scrollY
+                    }
+                }
+                return null
+            }).filter((pos): pos is { id: string; top: number; bottom: number } => pos !== null)
+
+            // Find the heading closest to the top of the viewport (accounting for offset)
+            const offset = 120 // Adjust based on your fixed header height
+            const currentPosition = scrollY + offset
+
+            let activeHeading = headingPositions[0]?.id || ''
+
+            for (const pos of headingPositions) {
+                if (currentPosition >= pos.top) {
+                    activeHeading = pos.id
+                } else {
+                    break
+                }
+            }
+
+            if (activeHeading && activeHeading !== activeId) {
+                setActiveId(activeHeading)
+            }
+
+            ticking = false
+        }
+
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateActiveHeading)
+                ticking = true
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true })
+
+        // Initial update
+        updateActiveHeading()
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [headings, activeId])
 
     if (headings.length === 0) return null
 

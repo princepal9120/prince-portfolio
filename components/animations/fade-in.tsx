@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, type Variants } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, type Variants } from "framer-motion";
 
 type FadeInProps = {
   children: React.ReactNode;
@@ -21,7 +21,32 @@ export default function FadeIn({
   once = true,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { once, amount: 0.3 });
+  const [isClient, setIsClient] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (once) {
+            observer.disconnect();
+          }
+        } else if (!once) {
+          setIsVisible(false);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [once]);
 
 
   const directionMap = {
@@ -56,7 +81,7 @@ export default function FadeIn({
       className={className}
       variants={variants}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate={isVisible ? "visible" : "hidden"}
     >
       {children}
     </motion.div>
